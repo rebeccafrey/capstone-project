@@ -10,7 +10,7 @@ export default function Header() {
 }
 
 const HeaderStyled = styled.header`
-  background-color: #e6ddd3;
+  background-color: var(--primary-light);
   height: 48px;
   font-family: 'Amatic SC', cursive;
   font-weight: bold;
