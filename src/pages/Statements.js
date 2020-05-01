@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import statements from '../statements.json'
+import Checkbox from '../components/Checkbox'
 
 export default function Statements() {
   const [list, setList] = useState(statements)
-  const Checkbox = ({ className, checked, ...props }) => (
-    <label className={className}>
-      <CheckboxHidden checked={checked} {...props} />
-      <CheckboxStyled checked={checked} />
-    </label>
-  )
 
   return (
     <>
@@ -74,27 +69,6 @@ const ListStyled = styled.label`
   display: grid;
   grid-template-columns: 30px auto;
   align-items: center;
-`
-const CheckboxHidden = styled.input.attrs({ type: 'checkbox' })`
-  border: 0;
-  clip: rect(0 0 0 0);
-  clippath: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-`
-const CheckboxStyled = styled.div`
-  width: 24px;
-  height: 24px;
-  border: solid 4px var(--secondary);
-  background: ${(props) =>
-    props.checked ? 'var(--secondary)' : 'var(--primary-light-8)'};
-
-  }
 `
 const StatementStyled = styled.span`
   margin-left: 8px;

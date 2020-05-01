@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@storybook/addon-knobs": "^5.3.18",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "storybook-addon-jsx": "^7.2.3",
     "styled-components": "^5.1.0"
   },
   "scripts": {
@@ -36,7 +38,9 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-info": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
+    "@storybook/addon-viewport": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/preset-create-react-app": "^2.1.1",
     "@storybook/react": "^5.3.18"
