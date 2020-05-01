@@ -30,13 +30,11 @@ export default function Statements() {
         {list.map((item) => (
           <section key={item.id}>
             <ListStyled>
-              <label>
-                <Checkbox
-                  type="checkbox"
-                  checked={item.select}
-                  onChange={() => handleChangeCheckbox(item.id)}
-                />
-              </label>
+              <Checkbox
+                type="checkbox"
+                checked={item.select}
+                onChange={() => handleChangeCheckbox(item.id)}
+              />
               <StatementStyled>{item.text}</StatementStyled>
             </ListStyled>
           </section>
@@ -71,7 +69,7 @@ const RectangleStyled = styled.div`
   margin-right: auto;
   margin-bottom: 24px;
 `
-const ListStyled = styled.div`
+const ListStyled = styled.label`
   margin-bottom: 16px;
   display: grid;
   grid-template-columns: 30px auto;
@@ -95,6 +93,8 @@ const CheckboxStyled = styled.div`
   border: solid 4px var(--secondary);
   background: ${(props) =>
     props.checked ? 'var(--secondary)' : 'var(--primary-light-8)'};
+
+  }
 `
 const StatementStyled = styled.span`
   margin-left: 8px;
