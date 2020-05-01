@@ -27,8 +27,9 @@ body {
 main {
     overflow: scroll;
     line-height: 1.5;
-    margin-top: 40px;
+    padding-top: 28px;
     margin-left: 24px;
     margin-right: 24px;
+    height: 100vh;
 }
 `

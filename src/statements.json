@@ -1,82 +1,102 @@
 [
   {
     "text": "Ich ziehe Einzelgespräche Gruppenaktivitäten vor.",
+    "select": false,
     "id": 1
   },
   {
     "text": "Ich drücke mich meistens lieber schriftlich aus.",
+    "select": false,
     "id": 2
   },
   {
     "text": "Ich bin gern allein.",
+    "select": false,
     "id": 3
   },
   {
     "text": "Ich interessiere mich allem Anschein nach weniger für Reichtum, Ruhm und Status als meine Altersgenossen.",
+    "select": false,
     "id": 4
   },
   {
     "text": "Ich mag Small Talk nicht, unterhalte mich aber gerne eingehend über Themen, die mir wichtig sind.",
+    "select": false,
     "id": 5
   },
   {
     "text": "Die Leute sagen, ich könne gut zuhören.",
+    "select": false,
     "id": 6
   },
   {
     "text": "Ich bin nicht risikofreudig.",
+    "select": false,
     "id": 7
   },
   {
     "text": "Ich mag eine Arbeit, in die ich mich mit wenigen Unterbrechungen richtig vertiefen kann.",
+    "select": false,
     "id": 8
   },
   {
     "text": "Ich feiere Geburtstage gerne im kleinen Rahmen mit nur einem oder zwei guten Freunden oder Angehörigen.",
+    "select": false,
     "id": 9
   },
   {
     "text": "Man beschreibt mich als „leise“ oder „sanft“.",
+    "select": false,
     "id": 10
   },
   {
     "text": "IIch zeige oder diskutiere meine Arbeit am liebsten erst, wenn sie fertig ist.",
+    "select": false,
     "id": 11
   },
   {
     "text": "Ich mag keine Konflikte.",
+    "select": false,
     "id": 12
   },
   {
     "text": "Ich arbeite am besten allein.",
+    "select": false,
     "id": 13
   },
   {
     "text": "Ich denke erst nach, bevor ich rede.",
+    "select": false,
     "id": 14
   },
   {
     "text": "Ich bin erschöpft, wenn ich unter Leuten war, selbst wenn ich es genossen habe.",
+    "select": false,
     "id": 15
   },
   {
     "text": "Ich lasse Anrufer häufig auf den Anrufbeantworter sprechen.",
+    "select": false,
     "id": 16
   },
   {
     "text": "Wenn ich wählen müsste, würde ich ein Wochenende, an dem ich überhaupt nichts vorhabe, einem Wochenende mit einem zu vollen Programm vorziehen.",
+    "select": false,
     "id": 17
   },
   {
     "text": "Ich arbeite nicht gern an verschiedenen Dingen gleichzeitig.",
+    "select": false,
     "id": 18
   },
   {
     "text": "Ich kann mich gut konzentrieren.",
+    "select": false,
     "id": 19
   },
   {
     "text": "In Unterrichtssituationen sind mir Vorlesungen lieber als Seminare.",
+    "select": false,
     "id": 20
   }
 ]
