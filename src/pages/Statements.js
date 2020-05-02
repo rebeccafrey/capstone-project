@@ -1,11 +1,11 @@
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import statements from '../statements.json'
 import Checkbox from '../components/Checkbox'
+import statements from '../statements.json'
 
 export default function Statements() {
   const [list, setList] = useState(statements)
-
   return (
     <>
       <main>
@@ -21,7 +21,6 @@ export default function Statements() {
           auswählst, desto introvertierter bist du wahrscheinlich.
         </TextStyled>
         <RectangleStyled />
-
         {list.map((item) => (
           <section key={item.id}>
             <ListStyled>
@@ -50,6 +49,12 @@ export default function Statements() {
   }
 }
 
+Statements.propTypes = {
+  text: PropTypes.string,
+  id: PropTypes.number,
+  select: PropTypes.bool,
+}
+
 const TextStyled = styled.p`
   margin-bottom: 24px;
 `
@@ -57,7 +62,7 @@ const BoldText = styled.span`
   font-weight: 700;
 `
 const RectangleStyled = styled.div`
-  width: 280px;
+  width: 75%;
   height: 1px;
   background-color: var(--primary-light);
   margin-left: auto;

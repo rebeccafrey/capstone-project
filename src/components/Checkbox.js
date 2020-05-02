@@ -1,13 +1,18 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function Checkbox({ className, checked, ...props }) {
+export default function Checkbox({ checked, ...props }) {
   return (
-    <label className={className}>
+    <label>
       <CheckboxHidden checked={checked} {...props} />
       <CheckboxStyled checked={checked} />
     </label>
   )
+}
+
+Checkbox.propTypes = {
+  checked: PropTypes.bool,
 }
 
 const CheckboxHidden = styled.input.attrs({ type: 'checkbox' })`
