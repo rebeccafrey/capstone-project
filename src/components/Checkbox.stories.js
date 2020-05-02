@@ -9,6 +9,6 @@ export default {
 
 export const UncheckedCheckbox = () => <Checkbox />
 
-export const CheckedCheckbox = (props) => {
+export const CheckedCheckbox = () => {
   return <Checkbox onClick={action('onChange')} checked />
 }
