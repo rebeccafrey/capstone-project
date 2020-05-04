@@ -1,7 +1,8 @@
 import React from 'react'
 import GlobalStyles from './GlobalStyles'
 import HeaderStyled from './components/Header'
-import Statements from './pages/Statements'
+import Statements from './pages/statements'
+import Result from './pages/result'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <GlobalStyles />
       <HeaderStyled />
       <Statements />
+      <Result />
     </>
   )
 }

@@ -31,5 +31,6 @@ main {
     margin-left: 24px;
     margin-right: 24px;
     height: 100vh;
+    display:grid;
 }
 `

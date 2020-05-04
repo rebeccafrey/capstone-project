@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import Checkbox from '../components/Checkbox'
 import statements from '../statements.json'
+import Button from '../components/Button'
 
 export default function Statements() {
- const [list, setList] = useState(statements)
+  const [list, setList] = useState(statements)
   return (
     <>
       <main>
@@ -23,18 +24,19 @@ export default function Statements() {
         <RectangleStyled />
         <ul>
           {list.map((item) => (
-              <label>
-                <ListItemStyled key={item.id}>
-                  <Checkbox
-                    type="checkbox"
-                    checked={item.select}
-                    onChange={() => handleChangeCheckbox(item.id)}
-                  />
-                  <StatementStyled>{item.text}</StatementStyled>
-                </ListItemStyled>
-              </label>
+            <label>
+              <ListItemStyled key={item.id}>
+                <Checkbox
+                  type="checkbox"
+                  checked={item.select}
+                  onChange={() => handleChangeCheckbox(item.id)}
+                />
+                <StatementStyled>{item.text}</StatementStyled>
+              </ListItemStyled>
+            </label>
           ))}
         </ul>
+        <Button>zur Auswertung!</Button>
       </main>
     </>
   )
