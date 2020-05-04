@@ -5,7 +5,7 @@ import Checkbox from '../components/Checkbox'
 import statements from '../statements.json'
 
 export default function Statements() {
-  const [list, setList] = useState(statements)
+ const [list, setList] = useState(statements)
   return (
     <>
       <main>
