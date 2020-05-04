@@ -21,18 +21,20 @@ export default function Statements() {
           auswählst, desto introvertierter bist du wahrscheinlich.
         </TextStyled>
         <RectangleStyled />
-        {list.map((item) => (
-          <section key={item.id}>
-            <ListStyled>
-              <Checkbox
-                type="checkbox"
-                checked={item.select}
-                onChange={() => handleChangeCheckbox(item.id)}
-              />
-              <StatementStyled>{item.text}</StatementStyled>
-            </ListStyled>
-          </section>
-        ))}
+        <ul>
+          {list.map((item) => (
+              <label>
+                <ListItemStyled key={item.id}>
+                  <Checkbox
+                    type="checkbox"
+                    checked={item.select}
+                    onChange={() => handleChangeCheckbox(item.id)}
+                  />
+                  <StatementStyled>{item.text}</StatementStyled>
+                </ListItemStyled>
+              </label>
+          ))}
+        </ul>
       </main>
     </>
   )
@@ -69,7 +71,7 @@ const RectangleStyled = styled.div`
   margin-right: auto;
   margin-bottom: 24px;
 `
-const ListStyled = styled.label`
+const ListItemStyled = styled.li`
   margin-bottom: 16px;
   display: grid;
   grid-template-columns: 30px auto;
