@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 //import React, { useState } from 'react'
 import React from 'react'
 import styled from 'styled-components/macro'
+import { countTotalCheckedBoxes } from '../components/Button'
 
 export default function Result() {
   return (
@@ -16,7 +17,7 @@ export default function Result() {
         <RectangleStyled />
         <ScaleStyled />
         <TopScalePoint>20 - eher introvertiert</TopScalePoint>
-        <ResultBubble>18</ResultBubble>
+        <ResultBubble>{countTotalCheckedBoxes()}</ResultBubble>
         <BottomScalePoint>0 - eher extravertiert</BottomScalePoint>
       </main>
     </>

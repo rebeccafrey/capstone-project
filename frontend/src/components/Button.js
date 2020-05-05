@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
 
-export default function Button({ children }) {
+export function Button({ children }) {
   //const [list, setList] = useState(statements)
 
   return (
@@ -14,10 +14,10 @@ export default function Button({ children }) {
       {children}
     </LinkStyled>
   )
+}
 
-  function countTotalCheckedBoxes() {
-    return document.querySelectorAll('input:checked').length
-  }
+export function countTotalCheckedBoxes() {
+  return document.querySelectorAll('input:checked').length
 }
 
 const LinkStyled = styled(NavLink)`

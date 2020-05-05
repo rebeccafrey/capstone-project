@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import Checkbox from '../components/Checkbox'
 import statements from '../statements.json'
-import Button from '../components/Button'
+import { Button } from '../components/Button'
 
 export default function Statements() {
   const [list, setList] = useState(statements)
