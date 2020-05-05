@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
+import { loadFromLocal } from '../services'
 
 export function Button({ children }) {
   return (
@@ -11,10 +13,15 @@ export function Button({ children }) {
 }
 
 export function countTotalCheckedBoxes() {
-  return document.querySelectorAll('input:checked').length
+  const list = loadFromLocal('list')
+  return list.filter((props) => props.checked).length
 }
 
-// is it possible to see color change on-click (activeClassName didn't work), like you see when hovering in deskopt display?
+Button.propTypes = {
+  onClick: PropTypes.func,
+  children: PropTypes.string,
+}
+
 const LinkStyled = styled(NavLink)`
   width: 300px;
   height: 48px;

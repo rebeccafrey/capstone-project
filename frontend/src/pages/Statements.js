@@ -62,6 +62,7 @@ Statements.propTypes = {
   text: PropTypes.string,
   id: PropTypes.number,
   checked: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
 }
 
 const TextStyled = styled.p`

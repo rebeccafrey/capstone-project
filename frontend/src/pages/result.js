@@ -6,7 +6,7 @@ import { countTotalCheckedBoxes } from '../components/Button'
 export default function Result() {
   return (
     <>
-      <main>
+      <MainStyled>
         <TextStyled>
           Hier findest du dein Ergebnis. Je mehr Aussagen du zugestimmt hast,
           desto höher ist die Wahrscheinlichkeit, dass du introvertiert bist.
@@ -18,16 +18,18 @@ export default function Result() {
         <TopScalePoint>20 - eher introvertiert</TopScalePoint>
         <ResultBubble>{countTotalCheckedBoxes()}</ResultBubble>
         <BottomScalePoint>0 - eher extravertiert</BottomScalePoint>
-      </main>
+      </MainStyled>
     </>
   )
 }
 
-//how do I specify {countTotalCheckedBoxes} - and do I need to?
 Result.propTypes = {
   result: PropTypes.func,
 }
 
+const MainStyled = styled.main`
+  height: 100vh;
+`
 const TextStyled = styled.p`
   margin-bottom: 24px;
 `
@@ -53,6 +55,7 @@ const TopScalePoint = styled.span`
   position: relative;
   left: 60px;
   bottom: 340px;
+  width: 220px;
 `
 const BottomScalePoint = styled.span`
   font-size: 20px;
@@ -62,6 +65,7 @@ const BottomScalePoint = styled.span`
   left: 60px;
   bottom: 220px;
   padding-bottom: 24px;
+  width: 220px;
 `
 const ResultBubble = styled.div`
   width: 156px;
