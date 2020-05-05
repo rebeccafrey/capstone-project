@@ -22,6 +22,7 @@ body {
     background: var(--primary-light-8);
     font-size: 18px;
     font-weight: 300;
+
 }
 
 main {
@@ -30,6 +31,6 @@ main {
     padding-top: 76px;
     margin-left: 24px;
     margin-right: 24px;
-    height: 100vh;
+    display:grid;
 }
 `
