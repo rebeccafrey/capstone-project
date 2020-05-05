@@ -3,8 +3,6 @@ import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
 
 export function Button({ children }) {
-  //const [list, setList] = useState(statements)
-
   return (
     <LinkStyled to="result" onClick={countTotalCheckedBoxes}>
       {children}

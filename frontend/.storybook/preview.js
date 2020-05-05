@@ -13,12 +13,14 @@ import { MemoryRouter as Router } from 'react-router-dom'
 
 addDecorator(withInfo)
 
-addDecorator((storyFn) => (
-  <Router>
-    <GlobalStyle />
-    {storyFn()}
-  </Router>
-))
+export function addDecorator(storyFn) {
+  return (
+    <Router>
+      <GlobalStyle />
+      {storyFn()}
+    </Router>
+  )
+}
 
 setAddon(JSXAddon)
 
