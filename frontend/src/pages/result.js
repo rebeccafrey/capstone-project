@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-//import React, { useState } from 'react'
 import React from 'react'
 import styled from 'styled-components/macro'
 import { countTotalCheckedBoxes } from '../components/Button'
@@ -12,7 +11,7 @@ export default function Result() {
           Hier findest du dein Ergebnis. Je mehr Aussagen du zugestimmt hast,
           desto höher ist die Wahrscheinlichkeit, dass du introvertiert bist.
           Wenn du dich eher nicht dort wiedergefunden hast, bist du
-          wahrscheinlich eher extrovertiert.
+          wahrscheinlich eher extravertiert.
         </TextStyled>
         <RectangleStyled />
         <ScaleStyled />
@@ -24,8 +23,9 @@ export default function Result() {
   )
 }
 
+//how do I specify {countTotalCheckedBoxes} - and do I need to?
 Result.propTypes = {
-  result: PropTypes.number,
+  result: PropTypes.func,
 }
 
 const TextStyled = styled.p`
@@ -61,6 +61,7 @@ const BottomScalePoint = styled.span`
   position: relative;
   left: 60px;
   bottom: 220px;
+  padding-bottom: 24px;
 `
 const ResultBubble = styled.div`
   width: 156px;

@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import Checkbox from '../components/Checkbox'
 import statements from '../statements.json'
 import { Button } from '../components/Button'
+import { saveToLocal, loadFromLocal } from '../services'
 
 export default function Statements() {
-  const [list, setList] = useState(statements)
+  const [list, setList] = useState(loadFromLocal('list') || statements)
+  useEffect(() => {
+    saveToLocal('list', list)
+  }, [list])
+
   return (
     <>
       <main>
@@ -28,7 +33,7 @@ export default function Statements() {
               <ListItemStyled key={item.id}>
                 <Checkbox
                   type="checkbox"
-                  checked={item.select}
+                  checked={item.checked}
                   onChange={() => handleChangeCheckbox(item.id)}
                 />
                 <StatementStyled>{item.text}</StatementStyled>
@@ -44,7 +49,7 @@ export default function Statements() {
     setList(
       list.map((item) => {
         if (item.id === id) {
-          return { ...item, select: !item.select }
+          return { ...item, checked: !item.checked }
         } else {
           return item
         }
@@ -56,7 +61,7 @@ export default function Statements() {
 Statements.propTypes = {
   text: PropTypes.string,
   id: PropTypes.number,
-  select: PropTypes.bool,
+  checked: PropTypes.bool,
 }
 
 const TextStyled = styled.p`

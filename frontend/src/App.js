@@ -1,11 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import GlobalStyles from './GlobalStyles'
 import HeaderStyled from './components/Header'
 import Statements from './pages/statements'
 import Result from './pages/result'
 
-function App() {
+export default function App() {
   return (
     <>
       <GlobalStyles />
@@ -14,8 +14,6 @@ function App() {
         <Route path="/statements">
           <Statements />
         </Route>
-      </Switch>
-      <Switch>
         <Route path="/result">
           <Result />
         </Route>
@@ -23,5 +21,3 @@ function App() {
     </>
   )
 }
-
-export default App

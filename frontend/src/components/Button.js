@@ -6,11 +6,7 @@ export function Button({ children }) {
   //const [list, setList] = useState(statements)
 
   return (
-    <LinkStyled
-      to="result"
-      activeClassName="on-click"
-      onClick={countTotalCheckedBoxes}
-    >
+    <LinkStyled to="result" onClick={countTotalCheckedBoxes}>
       {children}
     </LinkStyled>
   )
@@ -20,6 +16,7 @@ export function countTotalCheckedBoxes() {
   return document.querySelectorAll('input:checked').length
 }
 
+// is it possible to see color change on-click (activeClassName didn't work), like you see when hovering in deskopt display?
 const LinkStyled = styled(NavLink)`
   width: 300px;
   height: 48px;
@@ -35,7 +32,7 @@ const LinkStyled = styled(NavLink)`
   line-height: 48px;
   text-decoration: none;
 
-  &.on-click {
+  &:hover {
     background: var(--primary-light);
     color: var(--secondary);
   }

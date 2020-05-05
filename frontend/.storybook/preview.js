@@ -9,14 +9,15 @@ import {
 import React from 'react'
 import JSXAddon from 'storybook-addon-jsx'
 import GlobalStyle from '../src/GlobalStyles'
+import { MemoryRouter as Router } from 'react-router-dom'
 
 addDecorator(withInfo)
 
 addDecorator((storyFn) => (
-  <>
+  <Router>
     <GlobalStyle />
     {storyFn()}
-  </>
+  </Router>
 ))
 
 setAddon(JSXAddon)
