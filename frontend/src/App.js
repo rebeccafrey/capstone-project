@@ -1,15 +1,16 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import GlobalStyles from './GlobalStyles'
-import HeaderStyled from './components/Header'
+import Header from './components/Header'
 import Statements from './pages/statements'
 import Result from './pages/result'
+import Navbar from './components/Navbar'
 
 export default function App() {
   return (
     <>
       <GlobalStyles />
-      <HeaderStyled />
+      <Header />
       <Switch>
         <Route path="/statements">
           <Statements />
@@ -18,6 +19,7 @@ export default function App() {
           <Result />
         </Route>
       </Switch>
+      <Navbar />
     </>
   )
 }

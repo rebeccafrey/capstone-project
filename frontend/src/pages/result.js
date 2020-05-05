@@ -43,7 +43,7 @@ const RectangleStyled = styled.div`
 `
 const ScaleStyled = styled.div`
   width: 24px;
-  height: 340px;
+  height: 300px;
   border-radius: 8px;
   background: var(--secondary-40);
   margin-left: 32px;
@@ -54,7 +54,7 @@ const TopScalePoint = styled.span`
   color: var(--secondary-40);
   position: relative;
   left: 60px;
-  bottom: 340px;
+  bottom: 300px;
   width: 220px;
 `
 const BottomScalePoint = styled.span`
@@ -64,7 +64,7 @@ const BottomScalePoint = styled.span`
   position: relative;
   left: 60px;
   bottom: 220px;
-  padding-bottom: 24px;
+  padding-bottom: 72px;
   width: 220px;
 `
 const ResultBubble = styled.div`
@@ -79,5 +79,5 @@ const ResultBubble = styled.div`
   text-align: center;
   position: relative;
   left: 100px;
-  bottom: 280px;
+  bottom: 260px;
 `
