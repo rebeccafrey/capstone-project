@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
-import Checkbox from '../components/Checkbox'
-import statements from '../statements.json'
 import { Button } from '../components/Button'
-import { saveToLocal, loadFromLocal } from '../services'
+import Checkbox from '../components/Checkbox'
+import { Divider } from '../components/Divider'
+import { loadFromLocal, saveToLocal } from '../services'
+import statements from '../statements.json'
 
 export default function Statements() {
   const [list, setList] = useState(loadFromLocal('list') || statements)
@@ -23,14 +24,13 @@ export default function Statements() {
         <TextStyled>
           Klicke einfach auf die untenstehenden Statements, bei denen du denkst,
           dass sie auf dich zutreffen. Du bist dir unsicher? Wähle es aus, wenn
-          es <BoldText>eher</BoldText> auf dich zutrifft. Je mehr Aussagen du
-          auswählst, desto introvertierter bist du wahrscheinlich.
+          es <BoldText>eher</BoldText> auf dich zutrifft.
         </TextStyled>
-        <RectangleStyled />
+        <Divider />
         <ul>
           {list.map((item) => (
-            <label>
-              <ListItemStyled key={item.id}>
+            <label key={item.id}>
+              <ListItemStyled>
                 <Checkbox
                   type="checkbox"
                   checked={item.checked}
@@ -62,7 +62,7 @@ Statements.propTypes = {
   text: PropTypes.string,
   id: PropTypes.number,
   checked: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 }
 
 const TextStyled = styled.p`
@@ -70,14 +70,6 @@ const TextStyled = styled.p`
 `
 const BoldText = styled.span`
   font-weight: 700;
-`
-const RectangleStyled = styled.div`
-  width: 75%;
-  height: 1px;
-  background-color: var(--primary-light);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 24px;
 `
 const ListItemStyled = styled.li`
   margin-bottom: 16px;

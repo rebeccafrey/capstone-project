@@ -1,20 +1,18 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { ReactComponent as ResultIcon } from '../icons/result.svg'
-import { ReactComponent as StatementIcon } from '../icons/statements.svg'
+import { ReactComponent as ResultIcon } from '../icons/ResultIcon.svg'
+import { ReactComponent as StatementIcon } from '../icons/StatementsIcon.svg'
 
 export default function Navbar() {
   return (
     <>
       <NavbarStyled>
         <LinkStyled className="nav" activeClassName="selected" to="/statements">
-          <IconStyled>
-            <StatementIcon />
-          </IconStyled>
+          <StatementIconStyled />
         </LinkStyled>
         <LinkStyled className="nav" activeClassName="selected" to="/result">
-          <ResultIcon />
+          <ResultIconStyled />
         </LinkStyled>
       </NavbarStyled>
     </>
@@ -37,16 +35,16 @@ const LinkStyled = styled(NavLink)`
   height: 48px;
   text-align: center;
 
-
-
   &.selected {
     background: var(--secondary);
-    justify-content: flex-end;
-
- 
+    svg {
+      fill: var(--primary-light-40);
+    }
+  }
 `
-
-const IconStyled = styled.div`
-  color: var(--secondary);
-  height: 32px;
+const StatementIconStyled = styled(StatementIcon)`
+  fill: var(--secondary);
+`
+const ResultIconStyled = styled(ResultIcon)`
+  fill: var(--secondary);
 `
