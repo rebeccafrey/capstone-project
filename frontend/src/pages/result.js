@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 import { countTotalCheckedBoxes } from '../components/Button'
+import { Divider } from '../components/Divider'
 
 export default function Result() {
   return (
@@ -13,7 +14,7 @@ export default function Result() {
           Wenn du dich eher nicht dort wiedergefunden hast, bist du
           wahrscheinlich eher extravertiert.
         </TextStyled>
-        <RectangleStyled />
+        <Divider />
         <ScaleStyled />
         <TopScalePoint>20 - eher introvertiert</TopScalePoint>
         <ResultBubble>{countTotalCheckedBoxes()}</ResultBubble>
@@ -33,17 +34,9 @@ const MainStyled = styled.main`
 const TextStyled = styled.p`
   margin-bottom: 24px;
 `
-const RectangleStyled = styled.div`
-  width: 75%;
-  height: 1px;
-  background-color: var(--primary-light);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 24px;
-`
 const ScaleStyled = styled.div`
   width: 24px;
-  height: 340px;
+  height: 300px;
   border-radius: 8px;
   background: var(--secondary-40);
   margin-left: 32px;
@@ -54,7 +47,7 @@ const TopScalePoint = styled.span`
   color: var(--secondary-40);
   position: relative;
   left: 60px;
-  bottom: 340px;
+  bottom: 300px;
   width: 220px;
 `
 const BottomScalePoint = styled.span`
@@ -64,7 +57,7 @@ const BottomScalePoint = styled.span`
   position: relative;
   left: 60px;
   bottom: 220px;
-  padding-bottom: 24px;
+  padding-bottom: 72px;
   width: 220px;
 `
 const ResultBubble = styled.div`
@@ -79,5 +72,5 @@ const ResultBubble = styled.div`
   text-align: center;
   position: relative;
   left: 100px;
-  bottom: 280px;
+  bottom: 260px;
 `

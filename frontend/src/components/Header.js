@@ -18,5 +18,5 @@ const HeaderStyled = styled.header`
   font-weight: bold;
   font-size: 36px;
   text-align: center;
-  background-color: var(--primary-light);
+  background-color: var(--primary-light-40);
 `
