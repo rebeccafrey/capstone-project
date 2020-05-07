@@ -8,10 +8,10 @@ export default function Navbar() {
   return (
     <>
       <NavbarStyled>
-        <LinkStyled className="nav" activeClassName="selected" to="/statements">
+        <LinkStyled activeClassName="selected" to="/statements">
           <StatementIconStyled />
         </LinkStyled>
-        <LinkStyled className="nav" activeClassName="selected" to="/result">
+        <LinkStyled activeClassName="selected" to="/result">
           <ResultIconStyled />
         </LinkStyled>
       </NavbarStyled>
