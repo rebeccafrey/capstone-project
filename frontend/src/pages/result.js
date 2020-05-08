@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import { countTotalCheckedBoxes } from '../components/Button'
+import { countTotalCheckedBoxes } from '../pages/statements'
 import { Divider } from '../components/Divider'
 
 export default function Result() {

@@ -4,8 +4,8 @@ import styled from 'styled-components/macro'
 export default function Checkbox({ ...props }) {
   return (
     <label>
-      <CheckboxHidden {...props} />
-      <CheckboxStyled {...props} />
+      <CheckboxHidden role="checkbox" {...props} />
+      <CheckboxStyled role="checkbox" {...props} />
     </label>
   )
 }

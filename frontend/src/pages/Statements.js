@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
-import { Button } from '../components/Button'
-import Checkbox from '../components/Checkbox'
+import Checkbox from '../components/Checkbox/Checkbox'
 import { Divider } from '../components/Divider'
+import NavButton from '../components/NavButton/NavButton'
 import { loadFromLocal, saveToLocal } from '../services'
 import statements from '../statements.json'
 
@@ -41,7 +41,9 @@ export default function Statements() {
             </label>
           ))}
         </ul>
-        <Button>zur Auswertung!</Button>
+        <NavButton to="result" onClick={countTotalCheckedBoxes}>
+          zur Auswertung!
+        </NavButton>
       </main>
     </>
   )
@@ -56,6 +58,11 @@ export default function Statements() {
       })
     )
   }
+}
+
+export function countTotalCheckedBoxes() {
+  const list = loadFromLocal('list')
+  return list.filter((props) => props.checked).length
 }
 
 Statements.propTypes = {
