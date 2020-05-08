@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 export default function Header() {
   return (
     <>
-      <HeaderStyled>Seelenleben</HeaderStyled>
+      <HeaderStyled role="header">Seelenleben</HeaderStyled>
     </>
   )
 }

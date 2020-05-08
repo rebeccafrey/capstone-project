@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { Button } from '../components/Button'
-import Checkbox from '../components/Checkbox'
-import { Divider } from '../components/Divider'
 import { loadFromLocal, saveToLocal } from '../services'
 import statements from '../statements.json'
+import Button from '../ui/Button/Button'
+import Checkbox from '../ui/Checkbox/Checkbox'
+import Divider from '../ui/Divider'
 
 export default function Statements() {
   const [list, setList] = useState(loadFromLocal('list') || statements)
@@ -16,16 +17,16 @@ export default function Statements() {
   return (
     <>
       <main>
-        <TextStyled>
+        <p>
           Mir hat es geholfen, mich selbst besser einschätzen zu können, also
           fangen wir dabei an - Mithilfe von Aussagen, die du in Susan Cains
           Buch „Still - Die Kraft der Introvertierten“ findest.
-        </TextStyled>
-        <TextStyled>
+        </p>
+        <p>
           Klicke einfach auf die untenstehenden Statements, bei denen du denkst,
           dass sie auf dich zutreffen. Du bist dir unsicher? Wähle es aus, wenn
           es <BoldText>eher</BoldText> auf dich zutrifft.
-        </TextStyled>
+        </p>
         <Divider />
         <ul>
           {list.map((item) => (
@@ -41,7 +42,9 @@ export default function Statements() {
             </label>
           ))}
         </ul>
-        <Button>zur Auswertung!</Button>
+        <Button as={NavLink} to="result" onClick={countTotalCheckedBoxes}>
+          zur Auswertung!
+        </Button>
       </main>
     </>
   )
@@ -58,6 +61,11 @@ export default function Statements() {
   }
 }
 
+export function countTotalCheckedBoxes() {
+  const list = loadFromLocal('list')
+  return list.filter((props) => props.checked).length
+}
+
 Statements.propTypes = {
   text: PropTypes.string,
   id: PropTypes.number,
@@ -65,9 +73,6 @@ Statements.propTypes = {
   onChange: PropTypes.func,
 }
 
-const TextStyled = styled.p`
-  margin-bottom: 24px;
-`
 const BoldText = styled.span`
   font-weight: 700;
 `
