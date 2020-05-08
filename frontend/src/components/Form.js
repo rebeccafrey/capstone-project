@@ -16,7 +16,7 @@ export default function AddTopic({ addEntry }) {
 
   return (
     <>
-      <FormStyled onSubmit={handleSubmit}>
+      <FormStyled onSubmit={addNewEntry}>
         <label htmlFor="topic">
           Vergib eine Überschrift:<RequiredStyled>*</RequiredStyled>
         </label>
@@ -54,7 +54,7 @@ export default function AddTopic({ addEntry }) {
     setEntry({ ...entry, [e.target.name]: e.target.value })
   }
 
-  function handleSubmit(e) {
+  function addNewEntry(e) {
     addEntry(entry)
     setEntry({
       id: uniqueTopicId,
