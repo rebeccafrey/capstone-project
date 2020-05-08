@@ -17,16 +17,16 @@ export default function Statements() {
   return (
     <>
       <main>
-        <TextStyled>
+        <p>
           Mir hat es geholfen, mich selbst besser einschätzen zu können, also
           fangen wir dabei an - Mithilfe von Aussagen, die du in Susan Cains
           Buch „Still - Die Kraft der Introvertierten“ findest.
-        </TextStyled>
-        <TextStyled>
+        </p>
+        <p>
           Klicke einfach auf die untenstehenden Statements, bei denen du denkst,
           dass sie auf dich zutreffen. Du bist dir unsicher? Wähle es aus, wenn
           es <BoldText>eher</BoldText> auf dich zutrifft.
-        </TextStyled>
+        </p>
         <Divider />
         <ul>
           {list.map((item) => (
@@ -73,9 +73,6 @@ Statements.propTypes = {
   onChange: PropTypes.func,
 }
 
-const TextStyled = styled.p`
-  margin-bottom: 24px;
-`
 const BoldText = styled.span`
   font-weight: 700;
 `

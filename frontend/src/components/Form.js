@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
 import Button from '../ui/Button/Button'
@@ -11,7 +11,6 @@ export default function AddTopic({ addEntry }) {
     topic: '',
     description: '',
   })
-  const inputRef = useRef()
   const { topic, description } = entry
   const disabled = topic.length === 0 || description.length === 0
 
@@ -29,7 +28,6 @@ export default function AddTopic({ addEntry }) {
           required
           onChange={updateTopicEntry}
           value={entry.topic}
-          ref={inputRef}
         />
         <label htmlFor="description">
           Beschreibe kurz das Thema:<RequiredStyled>*</RequiredStyled>
@@ -63,7 +61,6 @@ export default function AddTopic({ addEntry }) {
       topic: '',
       description: '',
     })
-    inputRef.current.focus()
   }
 }
 

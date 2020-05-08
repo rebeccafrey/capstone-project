@@ -8,12 +8,12 @@ export default function Result() {
   return (
     <>
       <MainStyled>
-        <TextStyled>
+        <p>
           Hier findest du dein Ergebnis. Je mehr Aussagen du zugestimmt hast,
           desto höher ist die Wahrscheinlichkeit, dass du introvertiert bist.
           Wenn du dich eher nicht dort wiedergefunden hast, bist du
           wahrscheinlich eher extravertiert.
-        </TextStyled>
+        </p>
         <Divider />
         <ScaleStyled />
         <TopScalePoint>20 - eher introvertiert</TopScalePoint>
@@ -30,9 +30,6 @@ Result.propTypes = {
 
 const MainStyled = styled.main`
   height: 100vh;
-`
-const TextStyled = styled.p`
-  margin-bottom: 24px;
 `
 const ScaleStyled = styled.div`
   width: 24px;

@@ -31,4 +31,8 @@ main {
     display:grid;
     padding: 72px 24px;
 }
+
+p{
+    margin-bottom: 24px
+}
 `

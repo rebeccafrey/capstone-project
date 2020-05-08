@@ -14,21 +14,21 @@ export default function Topics() {
   return (
     <>
       <main>
-        <TextStyled>
+        <p>
           Du warst bestimmt auch schon der Situation, dass dich das Verhalten
           anderer irritiert hat - oder du dich gefragt hast, ob du selbst etwas
           eigenartig bist?
-        </TextStyled>
-        <TextStyled>
+        </p>
+        <p>
           Ich habe das erklärte Ziel, den Austausch zu fördern - und DU bist ein
           essentieller Teil davon!
-        </TextStyled>
-        <TextStyled>
+        </p>
+        <p>
           Beschreibe unten kurz die Situationen, in denen du dich fremd gefühlt
           hast, die du mitbekommen hast, bei denen du nie verstanden hast, warum
           jemand eigentlich auf eine bestimmte Art und Weise reagiert!
-        </TextStyled>
-        <TextStyled>Und dann lasst uns reden!</TextStyled>
+        </p>
+        <p>Und dann lasst uns reden!</p>
         <Divider />
         <Form addEntry={addEntry} />
         <Entries entry={entry} />
@@ -39,7 +39,3 @@ export default function Topics() {
     setEntry([{ ...newEntry }, ...entry])
   }
 }
-
-const TextStyled = styled.p`
-  margin-bottom: 24px;
-`
