@@ -1,6 +1,6 @@
 import React from 'react'
-import { render, getByLabelText } from '@testing-library/react'
-import { NavButton } from './NavButton'
+import { render } from '@testing-library/react'
+import Button from './Button'
 import { MemoryRouter } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 
@@ -8,9 +8,9 @@ test('renders NavButton with text in it', () => {
   const history = createMemoryHistory({ initialEntries: ['statements'] })
   const { getByRole } = render(
     <MemoryRouter>
-      <NavButton to={history}>Button</NavButton>
+      <Button to={history}>Button</Button>
     </MemoryRouter>
   )
-  const navbutton = getByRole(/navigation-button/i)
-  expect(navbutton.textContent).toBe('Button')
+  const button = getByRole(/navigation-button/i)
+  expect(button.textContent).toBe('Button')
 })

@@ -28,9 +28,7 @@ body {
 main {
     overflow: scroll;
     line-height: 1.5;
-    padding-top: 76px;
-    margin-left: 24px;
-    margin-right: 24px;
     display:grid;
+    padding: 72px 24px;
 }
 `

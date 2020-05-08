@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 import { countTotalCheckedBoxes } from '../pages/statements'
-import { Divider } from '../components/Divider'
+import Divider from '../ui/Divider'
 
 export default function Result() {
   return (
@@ -57,7 +57,6 @@ const BottomScalePoint = styled.span`
   position: relative;
   left: 60px;
   bottom: 220px;
-  padding-bottom: 72px;
   width: 220px;
 `
 const ResultBubble = styled.div`

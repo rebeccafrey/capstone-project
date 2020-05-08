@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
-import { Divider } from '../components/Divider'
 import Entries from '../components/Entries'
 import Form from '../components/Form'
 import { loadFromLocal, saveToLocal } from '../services'
+import Divider from '../ui/Divider'
 
 export default function Topics() {
-  const [entry, setEntry] = useState(
-    loadFromLocal('entry') || [{ id: '', topic: '', description: '' }]
-  )
+  const [entry, setEntry] = useState(loadFromLocal('entry') || [])
   useEffect(() => {
     saveToLocal('entry', entry)
   }, [entry])

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import { Divider } from '../components/Divider'
+import Divider from '../ui/Divider'
 
 export default function Entries({ entry }) {
   return (
@@ -11,7 +11,7 @@ export default function Entries({ entry }) {
         {entry.map((entry) => (
           <label key={entry.id}>
             <li>
-              <h2>{entry.topic}</h2>
+              <TopicStyled>{entry.topic}</TopicStyled>
               <p>{entry.description}</p>
             </li>
           </label>
@@ -28,6 +28,8 @@ Entries.propTypes = {
 }
 
 const ListStyled = styled.ul`
-  margin-bottom: 100px;
-  height: 100%;
+  list-style: none;
+`
+const TopicStyled = styled.h2`
+  font-size: 18px;
 `

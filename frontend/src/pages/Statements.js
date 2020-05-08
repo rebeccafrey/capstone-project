@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import Checkbox from '../components/Checkbox/Checkbox'
-import { Divider } from '../components/Divider'
-import NavButton from '../components/NavButton/NavButton'
 import { loadFromLocal, saveToLocal } from '../services'
 import statements from '../statements.json'
+import Button from '../ui/Button/Button'
+import Checkbox from '../ui/Checkbox/Checkbox'
+import Divider from '../ui/Divider'
 
 export default function Statements() {
   const [list, setList] = useState(loadFromLocal('list') || statements)
@@ -41,9 +42,9 @@ export default function Statements() {
             </label>
           ))}
         </ul>
-        <NavButton to="result" onClick={countTotalCheckedBoxes}>
+        <Button as={NavLink} to="result" onClick={countTotalCheckedBoxes}>
           zur Auswertung!
-        </NavButton>
+        </Button>
       </main>
     </>
   )
