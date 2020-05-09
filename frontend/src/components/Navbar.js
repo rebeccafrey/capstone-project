@@ -1,10 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import { ReactComponent as EditIcon } from '../icons/EditIcon.svg'
 import { ReactComponent as HomeIcon } from '../icons/HomeIcon.svg'
 import { ReactComponent as ResultIcon } from '../icons/ResultIcon.svg'
 import { ReactComponent as StatementIcon } from '../icons/StatementsIcon.svg'
-import { ReactComponent as EditIcon } from '../icons/EditIcon.svg'
 
 export default function Navbar() {
   return (
