@@ -8,7 +8,6 @@ export default function Header() {
     </>
   )
 }
-
 const HeaderStyled = styled.header`
   position: fixed;
   z-index: 1;
@@ -18,5 +17,5 @@ const HeaderStyled = styled.header`
   font-weight: bold;
   font-size: 36px;
   text-align: center;
-  background-color: var(--primary-light-40);
+  background: var(--primary-light-40);
 `

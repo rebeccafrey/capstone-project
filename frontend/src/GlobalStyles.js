@@ -22,7 +22,6 @@ body {
     background: var(--primary-light-8);
     font-size: 18px;
     font-weight: 300;
-
 }
 
 main {

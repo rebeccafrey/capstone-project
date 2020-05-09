@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components/macro'
 import Entries from '../components/Entries'
 import Form from '../components/Form'
 import { loadFromLocal, saveToLocal } from '../services'

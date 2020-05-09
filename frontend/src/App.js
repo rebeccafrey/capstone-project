@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import GlobalStyles from './GlobalStyles'
 import Header from './components/Header/Header'
+import Homepage from './pages/homepage'
 import Statements from './pages/statements'
 import Result from './pages/result'
 import Topics from './pages/topics'
@@ -13,6 +14,9 @@ export default function App() {
       <GlobalStyles />
       <Header />
       <Switch>
+        <Route exact path="/">
+          <Homepage />
+        </Route>
         <Route path="/statements">
           <Statements />
         </Route>
