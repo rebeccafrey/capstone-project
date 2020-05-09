@@ -63,7 +63,11 @@ export default function Statements() {
 
 export function countTotalCheckedBoxes() {
   const list = loadFromLocal('list')
-  return list.filter((props) => props.checked).length
+  if (list === null) {
+    return '?'
+  } else {
+    return list.filter((props) => props.checked).length
+  }
 }
 
 Statements.propTypes = {
