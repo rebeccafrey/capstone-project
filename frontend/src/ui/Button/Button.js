@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 
 export default styled.button`
-  width: 300px;
+  min-width:300px;
   height: 48px;
   border-radius: 8px;
   box-shadow: -4px 5px 8px 0 rgba(67, 86, 100, 0.12),
@@ -15,6 +15,9 @@ export default styled.button`
   line-height: 48px;
   text-decoration: none;
   background: var(--secondary);
+  display: inline-block;
+  padding: 0 16px;
+
 
   &:active {
     background: var(--primary-light);

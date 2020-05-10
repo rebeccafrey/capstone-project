@@ -65,8 +65,9 @@ export default function AddTopic({ addEntry }) {
 }
 
 AddTopic.propTypes = {
-  input: PropTypes.string,
-  textarea: PropTypes.string,
+  topic: PropTypes.string,
+  description: PropTypes.string,
+  updateTopicEntry: PropTypes.func,
 }
 
 const TitleInputStyled = styled.input`
