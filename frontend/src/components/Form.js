@@ -11,11 +11,11 @@ export default function AddTopic() {
     description: '',
   })
   const { topic, description } = entry
-  const [aggreement, setAggreement] = useState({ checked: false })
+  const [agreement, setAgreement] = useState({ checked: false })
   const disabled =
     topic.length === 0 ||
     description.length === 0 ||
-    aggreement.checked === false
+    agreement.checked === false
 
   return (
     <>
@@ -47,14 +47,14 @@ export default function AddTopic() {
         <SmallTextStyled>
           <RequiredStyled>*</RequiredStyled>Pflichtfeld
         </SmallTextStyled>
-        <AggreementStyled>
+        <AgreementStyled>
           <Checkbox
             type="checkbox"
-            checked={aggreement.checked}
-            onChange={() => handleAggreement(aggreement.id)}
+            checked={agreement.checked}
+            onChange={() => handleAgreement(agreement.id)}
           />
           Ich stimme zu, dass meine Einträge auch bei anderen Usern auftauchen!
-        </AggreementStyled>
+        </AgreementStyled>
         <Button type="submit" disabled={disabled}>
           Hinzufügen!
         </Button>
@@ -74,12 +74,12 @@ export default function AddTopic() {
     })
   }
 
-  function handleAggreement(id) {
-    setAggreement((aggreement) => {
-      if (aggreement.id === id) {
-        return { checked: !aggreement.checked }
+  function handleAgreement(id) {
+    setAgreement((agreement) => {
+      if (agreement.id === id) {
+        return { checked: !agreement.checked }
       } else {
-        return aggreement
+        return agreement
       }
     })
   }
@@ -133,7 +133,7 @@ const SmallTextStyled = styled.p`
 const RequiredStyled = styled.span`
   color: red;
 `
-const AggreementStyled = styled.label`
+const AgreementStyled = styled.label`
   display: grid;
   grid-template-columns: 30px auto;
   align-items: center;
