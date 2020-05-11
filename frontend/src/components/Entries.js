@@ -6,10 +6,10 @@ import Divider from '../ui/Divider'
 export default function Entries({ entry }) {
   return (
     <>
-      <Divider />
       <ListStyled>
         {entry.map((entry) => (
           <label key={entry.id}>
+            <Divider />
             <li>
               <TopicStyled>{entry.topic}</TopicStyled>
               <p>{entry.description}</p>
@@ -24,7 +24,7 @@ export default function Entries({ entry }) {
 Entries.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  id: PropTypes.number,
+  id: PropTypes.string,
 }
 
 const ListStyled = styled.ul`

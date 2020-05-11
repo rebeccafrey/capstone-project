@@ -6,7 +6,7 @@ import Homepage from './pages/homepage'
 import Statements from './pages/statements'
 import Result from './pages/result'
 import Topics from './pages/topics'
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar/Navbar'
 
 export default function App() {
   return (

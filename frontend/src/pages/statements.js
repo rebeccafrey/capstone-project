@@ -19,7 +19,7 @@ export default function Statements() {
       <main>
         <p>
           Mir hat es geholfen, mich selbst besser einschätzen zu können, also
-          fangen wir dabei an - Mithilfe von Aussagen, die du in Susan Cains
+          fangen wir dabei an - Mithilfe von 20 Aussagen, die du in Susan Cains
           Buch „Still - Die Kraft der Introvertierten“ findest.
         </p>
         <p>
@@ -74,7 +74,6 @@ Statements.propTypes = {
   text: PropTypes.string,
   id: PropTypes.number,
   checked: PropTypes.bool,
-  onChange: PropTypes.func,
 }
 
 const BoldText = styled.span`

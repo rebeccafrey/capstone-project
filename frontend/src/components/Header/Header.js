@@ -2,11 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 export default function Header() {
-  return (
-    <>
-      <HeaderStyled role="header">Seelenleben</HeaderStyled>
-    </>
-  )
+  return <HeaderStyled role="header">Seelenleben</HeaderStyled>
 }
 const HeaderStyled = styled.header`
   position: fixed;

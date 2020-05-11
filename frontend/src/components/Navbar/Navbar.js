@@ -1,26 +1,43 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { ReactComponent as EditIcon } from '../icons/EditIcon.svg'
-import { ReactComponent as HomeIcon } from '../icons/HomeIcon.svg'
-import { ReactComponent as ResultIcon } from '../icons/ResultIcon.svg'
-import { ReactComponent as StatementIcon } from '../icons/StatementsIcon.svg'
+import { ReactComponent as EditIcon } from '../../icons/EditIcon.svg'
+import { ReactComponent as HomeIcon } from '../../icons/HomeIcon.svg'
+import { ReactComponent as ResultIcon } from '../../icons/ResultIcon.svg'
+import { ReactComponent as StatementIcon } from '../../icons/StatementsIcon.svg'
 
 export default function Navbar() {
   return (
     <>
-      <NavbarStyled>
-        <LinkStyled activeClassName="selected" exact to="/">
+      <NavbarStyled role="navigation">
+        <LinkStyled
+          activeClassName="selected"
+          exact
+          to="/"
+          data-testid="home-link"
+        >
           <HomeIconStyled />
         </LinkStyled>
-        <LinkStyled activeClassName="selected" to="/statements">
-          <StatementIconStyled />
+        <LinkStyled
+          activeClassName="selected"
+          to="/statements"
+          data-testid="statements-link"
+        >
+          <StatementIconStyled alt="Statements" />
         </LinkStyled>
-        <LinkStyled activeClassName="selected" to="/result">
-          <ResultIconStyled />
+        <LinkStyled
+          activeClassName="selected"
+          to="/result"
+          data-testid="result-link"
+        >
+          <ResultIconStyled alt="Result" />
         </LinkStyled>
-        <LinkStyled activeClassName="selected" to="/topics">
-          <EditIconStyled />
+        <LinkStyled
+          activeClassName="selected"
+          to="/topics"
+          data-testid="topics-link"
+        >
+          <EditIconStyled alt="Topics" />
         </LinkStyled>
       </NavbarStyled>
     </>

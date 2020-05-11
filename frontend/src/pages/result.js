@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 import { countTotalCheckedBoxes } from '../pages/statements'
@@ -12,7 +11,7 @@ export default function Result() {
           Hier findest du dein Ergebnis. Je mehr Aussagen du zugestimmt hast,
           desto höher ist die Wahrscheinlichkeit, dass du introvertiert bist.
           Wenn du dich eher nicht dort wiedergefunden hast, bist du
-          wahrscheinlich eher extravertiert.
+          wahrscheinlich extravertierter.
         </p>
         <Divider />
         <ScaleStyled />
@@ -22,10 +21,6 @@ export default function Result() {
       </MainStyled>
     </>
   )
-}
-
-Result.propTypes = {
-  result: PropTypes.func,
 }
 
 const MainStyled = styled.main`

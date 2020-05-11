@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../ui/Button/Button'
 import Divider from '../ui/Divider'
 
 export default function Homepage() {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  })
-
   return (
     <>
       <main>
@@ -31,7 +27,11 @@ export default function Homepage() {
           Hier hast du die Möglichkeit, einen kleinen Test zu machen, um dies
           auch für dich besser bestimmen zu können.
         </p>
-        <Button as={NavLink} to="statements">
+        <Button
+          as={NavLink}
+          to="statements"
+          data-testid="button-statements-link"
+        >
           Hier geht's zum Test
         </Button>
         <Divider />
@@ -47,7 +47,7 @@ export default function Homepage() {
           besseren Ort für alle zu machen.{' '}
         </p>
         <p>Hilfst du mit, die Welt menschlicher zu machen?</p>
-        <Button as={NavLink} to="topics">
+        <Button as={NavLink} to="topics" data-testid="button-form-link">
           Hier geht's zum Formular
         </Button>
       </main>

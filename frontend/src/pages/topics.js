@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import Entries from '../components/Entries'
 import Form from '../components/Form'
@@ -37,4 +38,8 @@ export default function Topics() {
   function addEntry(newEntry) {
     setEntry([{ ...newEntry }, ...entry])
   }
+}
+
+Topics.propTypes = {
+  setEntry: PropTypes.func,
 }
