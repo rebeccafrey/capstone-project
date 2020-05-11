@@ -89,6 +89,7 @@ AddTopic.propTypes = {
   topic: PropTypes.string,
   description: PropTypes.string,
   updateTopicEntry: PropTypes.func,
+  checked: PropTypes.bool,
 }
 
 const TitleInputStyled = styled.input`
