@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import Button from '../ui/Button/Button'
+import Checkbox from '../ui/Checkbox/Checkbox'
 import { db } from '../Firebase'
 
 export default function AddTopic() {
@@ -10,7 +11,11 @@ export default function AddTopic() {
     description: '',
   })
   const { topic, description } = entry
-  const disabled = topic.length === 0 || description.length === 0
+  const [aggreement, setAggreement] = useState({ checked: false })
+  const disabled =
+    topic.length === 0 ||
+    description.length === 0 ||
+    aggreement.checked === false
 
   return (
     <>
@@ -42,6 +47,14 @@ export default function AddTopic() {
         <SmallTextStyled>
           <RequiredStyled>*</RequiredStyled>Pflichtfeld
         </SmallTextStyled>
+        <AggreementStyled>
+          <Checkbox
+            type="checkbox"
+            checked={aggreement.checked}
+            onChange={() => handleAggreement(aggreement.id)}
+          />
+          Ich stimme zu, dass meine Einträge auch bei anderen Usern auftauchen!
+        </AggreementStyled>
         <Button type="submit" disabled={disabled}>
           Hinzufügen!
         </Button>
@@ -58,6 +71,16 @@ export default function AddTopic() {
     setEntry({
       topic: '',
       description: '',
+    })
+  }
+
+  function handleAggreement(id) {
+    setAggreement((aggreement) => {
+      if (aggreement.id === id) {
+        return { checked: !aggreement.checked }
+      } else {
+        return aggreement
+      }
     })
   }
 }
@@ -109,4 +132,10 @@ const SmallTextStyled = styled.p`
 `
 const RequiredStyled = styled.span`
   color: red;
+`
+const AggreementStyled = styled.label`
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+  font-size: 16px;
 `
