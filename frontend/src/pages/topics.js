@@ -2,14 +2,24 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import Entries from '../components/Entries'
 import Form from '../components/Form'
-import { loadFromLocal, saveToLocal } from '../services'
-import Divider from '../ui/Divider'
+import { db } from '../Firebase'
 
 export default function Topics() {
-  const [entry, setEntry] = useState(loadFromLocal('entry') || [])
+  const [entry, setEntry] = useState([])
   useEffect(() => {
-    saveToLocal('entry', entry)
-  }, [entry])
+    const discussionTopics = db
+      .collection('discussion-topics')
+      .onSnapshot((snapshot) => {
+        const allTopics = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        setEntry(allTopics)
+      })
+    return () => {
+      discussionTopics()
+    }
+  }, [])
 
   return (
     <>
@@ -29,7 +39,6 @@ export default function Topics() {
           jemand eigentlich auf eine bestimmte Art und Weise reagiert!
         </p>
         <p>Und dann lasst uns reden!</p>
-        <Divider />
         <Form addEntry={addEntry} />
         <Entries entry={entry} />
       </main>

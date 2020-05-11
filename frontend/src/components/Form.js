@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import { v4 as uuidv4 } from 'uuid'
 import Button from '../ui/Button/Button'
+import { db } from '../Firebase'
 
-export default function AddTopic({ addEntry }) {
-  const uniqueTopicId = uuidv4()
+export default function AddTopic() {
   const [entry, setEntry] = useState({
-    id: uniqueTopicId,
     topic: '',
     description: '',
   })
@@ -55,9 +53,9 @@ export default function AddTopic({ addEntry }) {
   }
 
   function addNewEntry(e) {
-    addEntry(entry)
+    e.preventDefault()
+    db.collection('discussion-topics').add(entry)
     setEntry({
-      id: uniqueTopicId,
       topic: '',
       description: '',
     })
