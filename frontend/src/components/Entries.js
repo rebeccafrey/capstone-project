@@ -9,11 +9,11 @@ export default function Entries({ entry }) {
       <ListStyled>
         {entry.map((entry) => (
           <label key={entry.id}>
+            <Divider />
             <li>
               <TopicStyled>{entry.topic}</TopicStyled>
               <p>{entry.description}</p>
             </li>
-            <Divider />
           </label>
         ))}
       </ListStyled>
