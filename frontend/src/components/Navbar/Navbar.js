@@ -59,6 +59,7 @@ const LinkStyled = styled(NavLink)`
   background: var(--primary-light-40);
   height: 48px;
   text-align: center;
+  cursor: default;
 
   &.selected {
     background: var(--secondary);
