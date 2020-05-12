@@ -15,16 +15,19 @@ export default function Entries({ entry }) {
           <Divider />
           <li>
             {on || (
-              <CollapsedStyled>
-                <TopicStyled>{entry.topic}</TopicStyled>
+              <TopicStyled>
+                {entry.topic}
                 <ArrowDownStyled />
-              </CollapsedStyled>
+              </TopicStyled>
             )}
             {on && (
-              <CollapsedStyled>
-                <TopicStyled>{entry.topic}</TopicStyled> <BsArrowBarUp />
+              <>
+                <TopicStyled>
+                  {entry.topic}
+                  <ArrowUpStyled />
+                </TopicStyled>
                 <p>{entry.description}</p>
-              </CollapsedStyled>
+              </>
             )}
           </li>
         </label>
@@ -46,11 +49,12 @@ const ListStyled = styled.ul`
 const TopicStyled = styled.h2`
   font-size: 18px;
   margin-bottom: 20px;
-`
-const CollapsedStyled = styled.div`
   display: grid;
   grid-template-columns: 90% 10%;
 `
 const ArrowDownStyled = styled(BsArrowBarDown)`
+  text-align: right;
+`
+const ArrowUpStyled = styled(BsArrowBarUp)`
   text-align: right;
 `
