@@ -17,6 +17,7 @@ export default styled.button`
   background: var(--secondary);
   display: inline-block;
   padding: 0 16px;
+  cursor: default;
 
 
   &:active {
@@ -26,5 +27,5 @@ export default styled.button`
 
   &:disabled {
     opacity: 0.6;
-    cursor: default;  
+    cursor: not-allowed;  
 `

@@ -19,7 +19,7 @@ export default function AddTopic() {
 
   return (
     <>
-      <FormStyled onSubmit={addNewEntry}>
+      <FormStyled onSubmit={addNewEntry} data-cy="submit-entry">
         <label htmlFor="topic">
           Vergib eine Überschrift:<RequiredStyled>*</RequiredStyled>
         </label>
@@ -50,12 +50,13 @@ export default function AddTopic() {
         <AgreementStyled>
           <Checkbox
             type="checkbox"
+            cy-data="agreement-checkbox"
             checked={agreement.checked}
             onChange={() => handleAgreement(agreement.id)}
           />
           Ich stimme zu, dass meine Einträge auch bei anderen Usern auftauchen!
         </AgreementStyled>
-        <Button type="submit" disabled={disabled}>
+        <Button type="submit" disabled={disabled} data-cy="submit-button">
           Hinzufügen!
         </Button>
       </FormStyled>

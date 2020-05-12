@@ -42,7 +42,12 @@ export default function Statements() {
             </label>
           ))}
         </ul>
-        <Button as={NavLink} to="result" onClick={countTotalCheckedBoxes}>
+        <Button
+          as={NavLink}
+          to="result"
+          data-cy="button-result-link"
+          onClick={countTotalCheckedBoxes}
+        >
           zur Auswertung!
         </Button>
       </main>

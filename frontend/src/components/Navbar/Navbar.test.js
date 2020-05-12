@@ -29,7 +29,7 @@ test('that I can navigate to homepage using navbar', () => {
   userEvent.click(resultbutton)
   expect(getByText(/dein Ergebnis/i)).toBeInTheDocument()
   userEvent.click(topicsbutton)
-  expect(getByText(/anderer irritiert/i)).toBeInTheDocument()
+  expect(getByText(/anderer verwundert/i)).toBeInTheDocument()
   userEvent.click(homebutton)
   expect(getByText(/willkommen/i)).toBeInTheDocument()
 })
