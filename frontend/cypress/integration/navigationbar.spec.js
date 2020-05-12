@@ -8,4 +8,9 @@ describe('navigating through the app by clicking the navbar icons', () => {
     cy.get('[data-testid=topics-link]').click()
     cy.url().should('include', '/topics')
   })
+
+  it('cy.reload() - reload the page', () => {
+    cy.reload()
+    cy.reload(true)
+  })
 })
