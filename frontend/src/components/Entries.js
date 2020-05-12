@@ -40,7 +40,7 @@ Entries.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   id: PropTypes.string,
-  on: PropTypes.bool.isRequired,
+  on: PropTypes.bool,
 }
 
 const ListStyled = styled.ul`

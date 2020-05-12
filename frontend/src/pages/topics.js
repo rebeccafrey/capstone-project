@@ -55,7 +55,7 @@ export default function Topics() {
           Beschreibungen zu lesen.
         </IntroTopicsStyled>
         {entry.map((entry) => (
-          <Entries entry={entry} />
+          <Entries entry={entry} key={entry.id} />
         ))}
       </main>
     </>
