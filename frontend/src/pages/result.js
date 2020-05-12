@@ -39,7 +39,7 @@ export default function Result() {
     ) {
       return 'Viele der Statements treffen auf dich zu. Du bist also eher introvertiert, aber was bedeutet das? Der Hauptunterschied zur Extravertiertheit besteht darin, dass du deine Batterien vor allem in der Zeit, die du ohne viel soziale Interaktion verbringst, wieder aufladen kannst. Treffen mit Freunden sind zwar auch wichtig für dich, können aber regelrechte Krafträuber darstellen. Extravertierte dagegen sind weniger gern allein - es verhält sich bei ihnen genau andersherum.'
     } else {
-      return ''
+      return 'Mach den Test und erfahre mehr!'
     }
   }
 }
