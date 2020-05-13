@@ -15,18 +15,18 @@ export default function Entries({ entry }) {
           <Divider />
           <li>
             {on || (
-              <TopicStyled>
+              <TopicStyled data-cy="topic">
                 {entry.topic}
                 <ArrowDownStyled />
               </TopicStyled>
             )}
             {on && (
               <>
-                <TopicStyled>
+                <TopicStyled data-cy="topic">
                   {entry.topic}
                   <ArrowUpStyled />
                 </TopicStyled>
-                <p>{entry.description}</p>
+                <p data-cy="description">{entry.description}</p>
               </>
             )}
           </li>

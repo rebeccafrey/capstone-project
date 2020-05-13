@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import Entries from '../components/Entries'
 import { db } from '../Firebase'
-import FilterTopics from '../ui/FilterTopics'
+import FilterTopics from '../ui/Filter/FilterTopics'
 
 export default function Topics() {
   const [searchResult, setSearchResult] = useState('')

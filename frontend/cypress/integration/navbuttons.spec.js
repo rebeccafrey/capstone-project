@@ -8,6 +8,6 @@ describe('navigating through the app by clicking buttons', () => {
     cy.get('[data-testid=home-link]').click()
     cy.contains('Willkommen')
     cy.get('[data-testid=button-form-link]').click()
-    cy.url().should('include', '/topics')
+    cy.url().should('include', '/entries')
   })
 })
