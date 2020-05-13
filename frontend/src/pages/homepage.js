@@ -47,7 +47,7 @@ export default function Homepage() {
           besseren Ort für alle zu machen.{' '}
         </p>
         <p>Hilfst du mit, die Welt menschlicher zu machen?</p>
-        <Button as={NavLink} to="topics" data-testid="button-form-link">
+        <Button as={NavLink} to="entries" data-testid="button-form-link">
           Hier geht's zum Formular
         </Button>
       </main>

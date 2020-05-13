@@ -7,8 +7,14 @@ export default {
   component: Checkbox,
 }
 
-export const UncheckedCheckbox = () => <Checkbox />
+export const UncheckedCheckbox = () => (
+  <div style={{ padding: 20 }}>
+    <Checkbox />
+  </div>
+)
 
-export const CheckedCheckbox = () => {
-  return <Checkbox onClick={action('onChange')} checked />
-}
+export const CheckedCheckbox = () => (
+  <div style={{ padding: 20 }}>
+    <Checkbox onClick={action('onChange')} checked />
+  </div>
+)

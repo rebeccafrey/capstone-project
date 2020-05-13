@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 import { countTotalCheckedBoxes } from '../pages/statements'
@@ -42,6 +43,10 @@ export default function Result() {
       return 'Mach den Test und erfahre mehr!'
     }
   }
+}
+
+Result.propTypes = {
+  showTextDependingOnResult: PropTypes.func,
 }
 
 const ResultStyled = styled.div`

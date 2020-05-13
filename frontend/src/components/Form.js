@@ -6,6 +6,7 @@ import Checkbox from '../ui/Checkbox/Checkbox'
 import { db } from '../Firebase'
 
 export default function AddTopic() {
+  const [addedTopic, setAddedTopic] = useState('')
   const [entry, setEntry] = useState({
     topic: '',
     description: '',
@@ -59,6 +60,7 @@ export default function AddTopic() {
         <Button type="submit" disabled={disabled} data-cy="submit-button">
           Hinzufügen!
         </Button>
+        {addedTopic}
       </FormStyled>
     </>
   )
@@ -73,6 +75,9 @@ export default function AddTopic() {
       topic: '',
       description: '',
     })
+    setAddedTopic(
+      <SubmitTextStyled>Dein Thema wurde hinzugefügt!</SubmitTextStyled>
+    )
   }
 
   function handleAgreement(id) {
@@ -87,12 +92,19 @@ export default function AddTopic() {
 }
 
 AddTopic.propTypes = {
+  entry: PropTypes.object,
   topic: PropTypes.string,
   description: PropTypes.string,
   updateTopicEntry: PropTypes.func,
+  addNewEntry: PropTypes.func,
+  handleAgreement: PropTypes.func,
   checked: PropTypes.bool,
 }
 
+const SubmitTextStyled = styled.p`
+  margin-bottom: 24px;
+  font-weight: 500;
+`
 const TitleInputStyled = styled.input`
   font-size: 16px;
   font-weight: 300;
@@ -109,7 +121,6 @@ const TitleInputStyled = styled.input`
     color: var(--primary-light);
   }
 `
-
 const ContentInputStyled = styled.textarea`
   font-size: 16px;
   font-weight: 300;

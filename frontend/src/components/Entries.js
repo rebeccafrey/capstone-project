@@ -15,18 +15,18 @@ export default function Entries({ entry }) {
           <Divider />
           <li>
             {on || (
-              <TopicStyled>
+              <TopicStyled data-cy="topic">
                 {entry.topic}
                 <ArrowDownStyled />
               </TopicStyled>
             )}
             {on && (
               <>
-                <TopicStyled>
+                <TopicStyled data-cy="topic">
                   {entry.topic}
                   <ArrowUpStyled />
                 </TopicStyled>
-                <p>{entry.description}</p>
+                <p data-cy="description">{entry.description}</p>
               </>
             )}
           </li>
@@ -37,7 +37,7 @@ export default function Entries({ entry }) {
 }
 
 Entries.propTypes = {
-  title: PropTypes.string,
+  topic: PropTypes.string,
   description: PropTypes.string,
   id: PropTypes.string,
   on: PropTypes.bool,

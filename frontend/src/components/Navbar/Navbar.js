@@ -5,6 +5,7 @@ import { ReactComponent as EditIcon } from '../../icons/EditIcon.svg'
 import { ReactComponent as HomeIcon } from '../../icons/HomeIcon.svg'
 import { ReactComponent as ResultIcon } from '../../icons/ResultIcon.svg'
 import { ReactComponent as StatementIcon } from '../../icons/StatementsIcon.svg'
+import { AiOutlineUnorderedList } from 'react-icons/ai'
 
 export default function Navbar() {
   return (
@@ -34,10 +35,17 @@ export default function Navbar() {
         </LinkStyled>
         <LinkStyled
           activeClassName="selected"
+          to="/entries"
+          data-testid="entries-link"
+        >
+          <EditIconStyled alt="Entries" />
+        </LinkStyled>
+        <LinkStyled
+          activeClassName="selected"
           to="/topics"
           data-testid="topics-link"
         >
-          <EditIconStyled alt="Topics" />
+          <TopicsIconStyled alt="Topics" size="32px" />
         </LinkStyled>
       </NavbarStyled>
     </>
@@ -52,12 +60,11 @@ const NavbarStyled = styled.footer`
   height: 48px;
   background-color: var(--primary-light-40);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 `
 const LinkStyled = styled(NavLink)`
   padding: 10px;
   background: var(--primary-light-40);
-  height: 48px;
   text-align: center;
   cursor: default;
 
@@ -78,5 +85,8 @@ const ResultIconStyled = styled(ResultIcon)`
   fill: var(--secondary);
 `
 const EditIconStyled = styled(EditIcon)`
+  fill: var(--secondary);
+`
+const TopicsIconStyled = styled(AiOutlineUnorderedList)`
   fill: var(--secondary);
 `

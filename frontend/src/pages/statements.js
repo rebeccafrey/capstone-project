@@ -76,9 +76,11 @@ export function countTotalCheckedBoxes() {
 }
 
 Statements.propTypes = {
+  item: PropTypes.object,
   text: PropTypes.string,
   id: PropTypes.number,
   checked: PropTypes.bool,
+  countTotalCheckedBoxes: PropTypes.func,
 }
 
 const BoldText = styled.span`
