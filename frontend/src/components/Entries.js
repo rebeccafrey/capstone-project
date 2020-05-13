@@ -37,7 +37,7 @@ export default function Entries({ entry }) {
 }
 
 Entries.propTypes = {
-  title: PropTypes.string,
+  topic: PropTypes.string,
   description: PropTypes.string,
   id: PropTypes.string,
   on: PropTypes.bool,

@@ -5,6 +5,7 @@ import Header from './components/Header/Header'
 import Homepage from './pages/homepage'
 import Statements from './pages/statements'
 import Result from './pages/result'
+import EntriesList from './pages/entries'
 import Topics from './pages/topics'
 import Navbar from './components/Navbar/Navbar'
 
@@ -22,6 +23,9 @@ export default function App() {
         </Route>
         <Route path="/result">
           <Result />
+        </Route>
+        <Route path="/entries">
+          <EntriesList />
         </Route>
         <Route path="/topics">
           <Topics />
