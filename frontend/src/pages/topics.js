@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components/macro'
 import Entries from '../components/Entries'
 import { db } from '../Firebase'
 import FilterTopics from '../ui/Filter/FilterTopics'
@@ -32,6 +33,9 @@ export default function Topics() {
           eingetragen wurden, sehen. Klicke auf die Pfeile, um die
           Beschreibungen zu lesen oder starte eine Volltextsuche.
         </p>
+        <SmallPrint>
+          Du willst mehr Informationen? Schau <a href="/about">hier!</a>
+        </SmallPrint>
         <FilterTopics setSearchResult={setSearchResult} />
         {entry
           .filter(
@@ -52,3 +56,7 @@ export default function Topics() {
 Topics.propTypes = {
   entry: PropTypes.array,
 }
+const SmallPrint = styled.p`
+  font-size: 14px;
+  font-style: italic;
+`

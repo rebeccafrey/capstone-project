@@ -152,6 +152,7 @@ const ListItemStyled = styled.li`
   margin-top: 0;
   margin-left: 12px;
   list-style: none;
+  font-size: 16px;
 `
 const OverviewStyled = styled.h2`
   margin-top: 12px;
