@@ -122,6 +122,3 @@ const SmallPrint = styled.p`
   font-size: 14px;
   font-style: italic;
 `
-const Quote = styled.q`
-[ <string> <string> ]+
-`
