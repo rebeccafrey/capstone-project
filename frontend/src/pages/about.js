@@ -10,7 +10,6 @@ export default function About() {
           Hier findest du alle Informationen, die du brauchst, um zu starten -
           oder tiefer einzusteigen...
         </IntroStyled>
-        <OverviewStyled>Themenüberblick</OverviewStyled>
         <ListStyled>
           <ListItemStyled>
             Direkt zu: <a href="#why">Warum eigentlich?</a>
@@ -149,8 +148,7 @@ const ListStyled = styled.ul`
   margin-bottom: 12px;
 `
 const ListItemStyled = styled.li`
-  margin-top: 0;
-  margin-left: 12px;
+  margin: 0 24px 12px 12px;
   list-style: none;
   font-size: 16px;
 `

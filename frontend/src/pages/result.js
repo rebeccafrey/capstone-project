@@ -49,7 +49,7 @@ export default function Result() {
             andersherum.
           </p>
           <QuoteStyled>
-            "Ich bin nicht schüchtern, eher dezent."
+            <q>Ich bin nicht schüchtern, eher dezent.</q>
             <br />- Anne with an E
           </QuoteStyled>
         </>
@@ -116,8 +116,12 @@ const QuoteStyled = styled.p`
   text-align: right;
   font-style: italic;
   font-size: 16px;
+  margin-bottom: 0;
 `
 const SmallPrint = styled.p`
   font-size: 14px;
   font-style: italic;
+`
+const Quote = styled.q`
+[ <string> <string> ]+
 `

@@ -31,7 +31,7 @@ export default function App() {
         <Route path="/topics">
           <Topics />
         </Route>
-        <Route exact path="/about">
+        <Route path="/about">
           <About />
         </Route>
       </Switch>

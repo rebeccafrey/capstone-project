@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { AiOutlineUnorderedList } from 'react-icons/ai'
 import styled from 'styled-components/macro'
 import { ReactComponent as EditIcon } from '../icons/EditIcon.svg'
+import { ReactComponent as TopicsIcon } from '../icons/TopicsIcon.svg'
 import { ReactComponent as ResultIcon } from '../icons/ResultIcon.svg'
 import { ReactComponent as StatementIcon } from '../icons/StatementsIcon.svg'
 
@@ -47,7 +47,7 @@ export default function Homepage() {
             to="/topics"
             data-testid="topics-link"
           >
-            <TopicsIconStyled alt="Topics" size="48px" />
+            <TopicsIconStyled alt="Topics" />
             Werde inspiriert
           </LinkStyled>
         </IconOverviewStyled>
@@ -102,16 +102,19 @@ const EditIconStyled = styled(EditIcon)`
   box-sizing: content-box;
   width: 48px;
 `
-const TopicsIconStyled = styled(AiOutlineUnorderedList)`
+const TopicsIconStyled = styled(TopicsIcon)`
   fill: var(--secondary);
   padding: 32px;
   margin-top: 12px;
   background: var(--primary-light-40);
   box-sizing: content-box;
+  width: 48px;
+  height: 48px;
 `
 const IconOverviewStyled = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   font-size: 14px;
+  margin-bottom: 24px;
 `
