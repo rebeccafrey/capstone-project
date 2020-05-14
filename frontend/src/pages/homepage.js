@@ -73,7 +73,7 @@ const LinkStyled = styled(NavLink)`
   text-align: center;
   cursor: default;
   text-decoration: none;
-  color: var(--primary-dark);
+  color: var(--primary-dark) !important;
   display: grid;
   justify-items: center;
   margin-bottom: 24px;
