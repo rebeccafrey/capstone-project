@@ -37,7 +37,7 @@ const FilterInputStyled = styled.input`
   color: var(--primary-dark);
   width: 95%;
   height: 48px;
-  border-radius: 4px;
+  border-radius: 8px;
   border: solid 1px var(--secondary-40);
   line-hight: 1.5em;
   padding: 12px;

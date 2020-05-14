@@ -17,16 +17,16 @@ export default function Statements() {
   return (
     <>
       <main>
+        <h2> Selbsteinschätzung</h2>
         <p>
-          Mir hat es geholfen, mich selbst besser einschätzen zu können, also
-          fangen wir dabei an - Mithilfe von 20 Aussagen, die du in Susan Cains
-          Buch „Still - Die Kraft der Introvertierten“ findest.
+          Klicke einfach auf die Statements, bei denen du denkst, dass sie auf
+          dich zutreffen. Du bist dir unsicher? Wähle es aus, wenn es{' '}
+          <BoldText>eher</BoldText> auf dich zutrifft.
         </p>
-        <p>
-          Klicke einfach auf die untenstehenden Statements, bei denen du denkst,
-          dass sie auf dich zutreffen. Du bist dir unsicher? Wähle es aus, wenn
-          es <BoldText>eher</BoldText> auf dich zutrifft.
-        </p>
+        <SmallPrint>
+          Aussagen ausgeliehen aus: Susan Cain :: Still.
+          <br /> Du willst mehr Informationen? Schau <a href="/about">hier!</a>
+        </SmallPrint>
         <Divider />
         <ul>
           {list.map((item) => (
@@ -84,14 +84,18 @@ Statements.propTypes = {
 }
 
 const BoldText = styled.span`
-  font-weight: 700;
+  font-weight: 500;
 `
 const ListItemStyled = styled.li`
-  margin-bottom: 16px;
+  margin: 0 0 16px 0;
   display: grid;
   grid-template-columns: 30px auto;
   align-items: center;
 `
 const StatementStyled = styled.span`
   margin-left: 8px;
+`
+const SmallPrint = styled.p`
+  font-size: 14px;
+  font-style: italic;
 `

@@ -28,11 +28,7 @@ export default function EntriesList() {
   return (
     <>
       <main>
-        <p>
-          Du warst bestimmt auch schon in Situationen, in denen dich das
-          Verhalten anderer verwundert hat - oder du dich gefragt hast, ob du
-          selbst etwas eigenartig bist?
-        </p>
+        <h2>Dein Beitrag</h2>
         <p>
           Ich habe das erklärte Ziel, den Austausch zu fördern - und{' '}
           <HighlightedText>
@@ -40,11 +36,9 @@ export default function EntriesList() {
           </HighlightedText>
         </p>
         <p>
-          Beschreibe unten kurz die Situationen, in denen du dich vielleicht
-          etwas fremd gefühlt hast oder bei denen du nicht ganz verstanden hast,
-          warum jemand eigentlich auf eine bestimmte Art und Weise reagiert.
-          Gern kannst du auch weiter unten durch die schon vorhandenen Einträge
-          gehen, um zu sehen, welche Themen andere beschäftigen.
+          Beschreibe unten kurz eine Situation, in der du dich vielleicht etwas
+          fremd gefühlt hast oder in der du nicht ganz verstanden hast, warum
+          jemand eigentlich auf eine bestimmte Art und Weise reagiert.
         </p>
         <p>
           <HighlightedText>Und dann lasst uns reden!</HighlightedText>
@@ -58,6 +52,9 @@ export default function EntriesList() {
           </NavLink>
           um alle Themen, die von dir und anderen eingetragen wurden, zu sehen.
         </IntroTopicsStyled>
+        <SmallPrint>
+          Du willst mehr Informationen? Schau <a href="/about">hier!</a>
+        </SmallPrint>
       </main>
     </>
   )
@@ -80,4 +77,8 @@ const HighlightedText = styled.span`
 const TopicsIconStyled = styled(AiOutlineUnorderedList)`
   fill: var(--secondary);
   margin: 0 8px -4px 8px;
+`
+const SmallPrint = styled.p`
+  font-size: 14px;
+  font-style: italic;
 `

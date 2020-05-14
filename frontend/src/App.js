@@ -8,6 +8,7 @@ import Result from './pages/result'
 import EntriesList from './pages/entries'
 import Topics from './pages/topics'
 import Navbar from './components/Navbar/Navbar'
+import About from './pages/about'
 
 export default function App() {
   return (
@@ -29,6 +30,9 @@ export default function App() {
         </Route>
         <Route path="/topics">
           <Topics />
+        </Route>
+        <Route path="/about">
+          <About />
         </Route>
       </Switch>
       <Navbar />

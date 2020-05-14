@@ -22,6 +22,8 @@ body {
     background: var(--primary-light-8);
     font-size: 18px;
     font-weight: 300;
+    display: grid;
+    grid-template-rows: 48px auto 48px;
 }
 
 main {
@@ -32,6 +34,26 @@ main {
 }
 
 p{
-    margin-bottom: 24px
+    margin-bottom: 24px;
+    
+}
+
+a:link, a:visited {
+    color: var(--primary-light);    
+}
+
+li {
+    margin: 12px 24px;
+}
+  
+h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 500;
 }
 `

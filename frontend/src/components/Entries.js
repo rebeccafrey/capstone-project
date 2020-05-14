@@ -13,7 +13,7 @@ export default function Entries({ entry }) {
       <ListStyled onClick={toggle}>
         <label key={entry.id}>
           <Divider />
-          <li>
+          <ListItemStyled>
             {on || (
               <TopicStyled data-cy="topic">
                 {entry.topic}
@@ -29,7 +29,7 @@ export default function Entries({ entry }) {
                 <p data-cy="description">{entry.description}</p>
               </>
             )}
-          </li>
+          </ListItemStyled>
         </label>
       </ListStyled>
     </>
@@ -57,4 +57,7 @@ const ArrowDownStyled = styled(BsArrowBarDown)`
 `
 const ArrowUpStyled = styled(BsArrowBarUp)`
   text-align: right;
+`
+const ListItemStyled = styled.li`
+  margin: 0;
 `

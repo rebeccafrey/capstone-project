@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ReactComponent as EditIcon } from '../../icons/EditIcon.svg'
 import { ReactComponent as HomeIcon } from '../../icons/HomeIcon.svg'
+import { ReactComponent as TopicsIcon } from '../../icons/TopicsIcon.svg'
 import { ReactComponent as ResultIcon } from '../../icons/ResultIcon.svg'
 import { ReactComponent as StatementIcon } from '../../icons/StatementsIcon.svg'
-import { AiOutlineUnorderedList } from 'react-icons/ai'
 
 export default function Navbar() {
   return (
@@ -45,7 +45,7 @@ export default function Navbar() {
           to="/topics"
           data-testid="topics-link"
         >
-          <TopicsIconStyled alt="Topics" size="32px" />
+          <TopicsIconStyled alt="Topics" />
         </LinkStyled>
       </NavbarStyled>
     </>
@@ -77,16 +77,22 @@ const LinkStyled = styled(NavLink)`
 `
 const HomeIconStyled = styled(HomeIcon)`
   fill: var(--secondary);
+  width: 32px;
 `
 const StatementIconStyled = styled(StatementIcon)`
   fill: var(--secondary);
+  width: 32px;
 `
 const ResultIconStyled = styled(ResultIcon)`
   fill: var(--secondary);
+  width: 32px;
 `
 const EditIconStyled = styled(EditIcon)`
   fill: var(--secondary);
+  width: 32px;
 `
-const TopicsIconStyled = styled(AiOutlineUnorderedList)`
+const TopicsIconStyled = styled(TopicsIcon)`
   fill: var(--secondary);
+  width: 32px;
+  height: 32px;
 `

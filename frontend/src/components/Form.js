@@ -45,9 +45,9 @@ export default function AddTopic() {
           onChange={updateTopicEntry}
           value={entry.description}
         />
-        <SmallTextStyled>
+        <SmallPrint>
           <RequiredStyled>*</RequiredStyled>Pflichtfeld
-        </SmallTextStyled>
+        </SmallPrint>
         <AgreementStyled>
           <Checkbox
             type="checkbox"
@@ -140,7 +140,7 @@ const ContentInputStyled = styled.textarea`
 const FormStyled = styled.form`
   height: 100%;
 `
-const SmallTextStyled = styled.p`
+const SmallPrint = styled.p`
   font-size: 14px;
 `
 const RequiredStyled = styled.span`

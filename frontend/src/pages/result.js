@@ -8,12 +8,8 @@ export default function Result() {
   return (
     <>
       <main>
-        <p>
-          Hier findest du dein Ergebnis. Je mehr Aussagen du zugestimmt hast,
-          desto höher ist die Wahrscheinlichkeit, dass du introvertiert bist.
-          Wenn du dich eher nicht dort wiedergefunden hast, bist du
-          wahrscheinlich extravertierter.
-        </p>
+        <h2>Dein Ergebnis</h2>
+        <p>{showTextDependingOnResult()}</p>
         <Divider />
         <ResultStyled>
           <ScaleStyled />
@@ -22,7 +18,9 @@ export default function Result() {
           <BottomScalePoint>0 - eher extravertiert</BottomScalePoint>
         </ResultStyled>
         <Divider />
-        <p>{showTextDependingOnResult()}</p>
+        <SmallPrint>
+          Du willst mehr Informationen? Schau <a href="/about">hier!</a>
+        </SmallPrint>
       </main>
     </>
   )
@@ -33,12 +31,29 @@ export default function Result() {
       countTotalCheckedBoxes() >= 7 &&
       countTotalCheckedBoxes() <= 13
     ) {
-      return 'Du pendelst dich in der Mitte ein. Die Tendenz zur Mitte ist bei vielen gegeben und zeigt, dass du Charakterzüge von beiden Ausprägungen in dir trägst - und du sehr wahrscheinlich mal ein wenig Zeit für dich brauchst, oder auch mal gern kraftgebende Zeit mit anderen, auch größeren Gruppen, verbringst.'
+      return 'Du pendelst dich in der Mitte ein, das nennt man ambivertiert. Die Tendenz zur Mitte ist bei vielen gegeben und zeigt, dass du Charakterzüge von beiden Ausprägungen in dir trägst - und du sehr wahrscheinlich mal ein wenig Zeit für dich brauchst, oder auch mal gern kraftgebende Zeit mit anderen, auch größeren Gruppen, verbringst.'
     } else if (
       countTotalCheckedBoxes() >= 14 &&
       countTotalCheckedBoxes() <= 20
     ) {
-      return 'Viele der Statements treffen auf dich zu. Du bist also eher introvertiert, aber was bedeutet das? Der Hauptunterschied zur Extravertiertheit besteht darin, dass du deine Batterien vor allem in der Zeit, die du ohne viel soziale Interaktion verbringst, wieder aufladen kannst. Treffen mit Freunden sind zwar auch wichtig für dich, können aber regelrechte Krafträuber darstellen. Extravertierte dagegen sind weniger gern allein - es verhält sich bei ihnen genau andersherum.'
+      return (
+        <>
+          <p>
+            Viele der Statements treffen auf dich zu. Du bist also eher
+            introvertiert, aber was bedeutet das? Der Hauptunterschied zur
+            Extravertiertheit besteht darin, dass du deine Batterien vor allem
+            in der Zeit, die du ohne viel soziale Interaktion verbringst, wieder
+            aufladen kannst. Treffen mit Freunden sind zwar auch wichtig für
+            dich, können aber regelrechte Krafträuber darstellen. Extravertierte
+            dagegen sind weniger gern allein - es verhält sich bei ihnen genau
+            andersherum.
+          </p>
+          <QuoteStyled>
+            <q>Ich bin nicht schüchtern, eher dezent.</q>
+            <br />- Anne with an E
+          </QuoteStyled>
+        </>
+      )
     } else {
       return 'Mach den Test und erfahre mehr!'
     }
@@ -96,4 +111,14 @@ const ResultBubble = styled.div`
   grid-column: 2;
   grid-row: 2/2;
   place-self: center;
+`
+const QuoteStyled = styled.p`
+  text-align: right;
+  font-style: italic;
+  font-size: 16px;
+  margin-bottom: 0;
+`
+const SmallPrint = styled.p`
+  font-size: 14px;
+  font-style: italic;
 `
