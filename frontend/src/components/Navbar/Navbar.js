@@ -77,15 +77,19 @@ const LinkStyled = styled(NavLink)`
 `
 const HomeIconStyled = styled(HomeIcon)`
   fill: var(--secondary);
+  width: 32px;
 `
 const StatementIconStyled = styled(StatementIcon)`
   fill: var(--secondary);
+  width: 32px;
 `
 const ResultIconStyled = styled(ResultIcon)`
   fill: var(--secondary);
+  width: 32px;
 `
 const EditIconStyled = styled(EditIcon)`
   fill: var(--secondary);
+  width: 32px;
 `
 const TopicsIconStyled = styled(AiOutlineUnorderedList)`
   fill: var(--secondary);

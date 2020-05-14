@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components/macro'
 import Entries from '../components/Entries'
 import { db } from '../Firebase'
 import FilterTopics from '../ui/Filter/FilterTopics'
@@ -27,12 +26,12 @@ export default function Topics() {
   return (
     <>
       <main>
-        <IntroTopicsStyled>
+        <h2>Themen-Sammlung</h2>
+        <p>
           Untenstehend kannst du alle Themen, die von dir oder anderen
           eingetragen wurden, sehen. Klicke auf die Pfeile, um die
           Beschreibungen zu lesen oder starte eine Volltextsuche.
-        </IntroTopicsStyled>
-
+        </p>
         <FilterTopics setSearchResult={setSearchResult} />
         {entry
           .filter(
@@ -53,8 +52,3 @@ export default function Topics() {
 Topics.propTypes = {
   entry: PropTypes.array,
 }
-
-const IntroTopicsStyled = styled.p`
-  font-style: italic;
-  font-size: 14px;
-`

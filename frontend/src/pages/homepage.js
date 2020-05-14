@@ -1,8 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { AiOutlineUnorderedList } from 'react-icons/ai'
 import styled from 'styled-components/macro'
-import Button from '../ui/Button/Button'
-import Divider from '../ui/Divider'
+import { ReactComponent as EditIcon } from '../icons/EditIcon.svg'
+import { ReactComponent as ResultIcon } from '../icons/ResultIcon.svg'
+import { ReactComponent as StatementIcon } from '../icons/StatementsIcon.svg'
 
 export default function Homepage() {
   return (
@@ -11,45 +13,48 @@ export default function Homepage() {
         <HeadlineStyled>Willkommen!</HeadlineStyled>
         <SubheadlineStyled>Wie schön, dass du da bist.</SubheadlineStyled>
         <p>
-          Hast du dich auch schon mal gefragt, ob du anders bist als andere?
-          Oder dich über das Verhalten von deinem Gegenüber gewundert?
-        </p>
-        <p>
           Ein wichtiger Charakterzug, der Einfluss darauf hat, wie wir uns in
           bestimmten Situationen verhalten und in welchen Umgebungen wir
-          aufblühen, ist die Intro- bzw. Extravertiertheit.
+          aufblühen, ist die Intro- bzw. Extravertiertheit. Finde hier mehr
+          darüber heraus!
         </p>
+        <IconOverviewStyled>
+          <LinkStyled
+            activeClassName="selected"
+            to="/statements"
+            data-testid="statements-link"
+          >
+            Mach den Test
+            <StatementIconStyled alt="Statements" />
+          </LinkStyled>
+          <LinkStyled
+            activeClassName="selected"
+            to="/result"
+            data-testid="result-link"
+          >
+            Zum Test-Ergebnis <ResultIconStyled alt="Result" />
+          </LinkStyled>
+          <LinkStyled
+            activeClassName="selected"
+            to="/entries"
+            data-testid="entries-link"
+          >
+            <EditIconStyled alt="Entries" />
+            Teile deine Gedanken
+          </LinkStyled>
+          <LinkStyled
+            activeClassName="selected"
+            to="/topics"
+            data-testid="topics-link"
+          >
+            <TopicsIconStyled alt="Topics" size="48px" />
+            Werde inspiriert
+          </LinkStyled>
+        </IconOverviewStyled>
         <p>
-          Mir hat es sehr geholfen herauszufinden, wo ich mich in diesem
-          Spektrum bewege.
+          Du willst mehr Informationen zum Hintergrund oder weitere Quellen
+          kennenlernen? Schau <a href="/about">hier!</a>
         </p>
-        <p>
-          Hier hast du die Möglichkeit, einen kleinen Test zu machen, um dies
-          auch für dich besser bestimmen zu können.
-        </p>
-        <Button
-          as={NavLink}
-          to="statements"
-          data-testid="button-statements-link"
-        >
-          Hier geht's zum Test
-        </Button>
-        <Divider />
-        <p>
-          Mir ist es schon öfter passiert, dass mir gesagt wurde, ich müsse
-          einen anderen Charakterzug zeigen, um erfolgreich zu sein. Meine
-          Meinung ist aber eine andere.
-        </p>
-        <p>
-          Ich glaube daran, dass wir zuallererst den Austausch fördern müssen.
-          Ein besseres Verständnis zugrundeliegender Wesenszüge, die auch nicht
-          aktiv veränderbar sind, ist grundlegend, um die Gesellschaft zu einem
-          besseren Ort für alle zu machen.{' '}
-        </p>
-        <p>Hilfst du mit, die Welt menschlicher zu machen?</p>
-        <Button as={NavLink} to="entries" data-testid="button-form-link">
-          Hier geht's zum Formular
-        </Button>
       </main>
     </>
   )
@@ -59,9 +64,54 @@ const HeadlineStyled = styled.h1`
   font-size: 24px;
   font-weight: 700;
 `
-
 const SubheadlineStyled = styled.h2`
   font-size: 21px;
   font-weight: 500;
   margin-bottom: 24px;
+`
+const LinkStyled = styled(NavLink)`
+  text-align: center;
+  cursor: default;
+  text-decoration: none;
+  color: var(--primary-dark);
+  display: grid;
+  justify-items: center;
+  margin-bottom: 24px;
+`
+const StatementIconStyled = styled(StatementIcon)`
+  fill: var(--secondary);
+  padding: 32px;
+  margin-bottom: 12px;
+  background: var(--primary-light-40);
+  box-sizing: content-box;
+  width: 48px;
+`
+const ResultIconStyled = styled(ResultIcon)`
+  fill: var(--secondary);
+  padding: 32px;
+  margin-bottom: 12px;
+  background: var(--primary-light-40);
+  box-sizing: content-box;
+  width: 48px;
+`
+const EditIconStyled = styled(EditIcon)`
+  fill: var(--secondary);
+  padding: 32px;
+  margin-top: 12px;
+  background: var(--primary-light-40);
+  box-sizing: content-box;
+  width: 48px;
+`
+const TopicsIconStyled = styled(AiOutlineUnorderedList)`
+  fill: var(--secondary);
+  padding: 32px;
+  margin-top: 12px;
+  background: var(--primary-light-40);
+  box-sizing: content-box;
+`
+const IconOverviewStyled = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  font-size: 14px;
 `
