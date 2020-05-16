@@ -4,19 +4,20 @@ import styled from 'styled-components/macro'
 import { countTotalCheckedBoxes } from '../pages/statements'
 import Divider from '../ui/Divider'
 
-export default function Result() {
+export default function Result({ px }) {
   return (
     <>
       <main>
         <h2>Dein Ergebnis</h2>
-        <p>{showTextDependingOnResult()}</p>
-        <Divider />
         <ResultStyled>
           <ScaleStyled />
+          <ScaleFilled px={calculateScaleFill(0, px, 300)} />
           <TopScalePoint>20 - eher introvertiert</TopScalePoint>
           <ResultBubble>{countTotalCheckedBoxes()}</ResultBubble>
           <BottomScalePoint>0 - eher extravertiert</BottomScalePoint>
         </ResultStyled>
+        <Divider />
+        {showTextDependingOnResult()}
         <Divider />
         <SmallPrint>
           Du willst mehr Informationen? Schau <a href="/about">hier!</a>
@@ -58,6 +59,9 @@ export default function Result() {
       return 'Mach den Test und erfahre mehr!'
     }
   }
+  function calculateScaleFill() {
+    return (300 / 20) * countTotalCheckedBoxes()
+  }
 }
 
 Result.propTypes = {
@@ -75,10 +79,33 @@ const ScaleStyled = styled.div`
   width: 24px;
   height: 300px;
   border-radius: 8px;
-  background: var(--secondary-40);
+  background: var(--primary-light);
   margin-left: 32px;
   grid-column: 1;
   grid-row: 1 / 3;
+`
+const ScaleFilled = styled.div`
+  width: 24px;
+  border-radius: 8px;
+  margin-left: 32px;
+  grid-column: 1;
+  grid-row: 1 / 4;
+  xheight: ${(props) => props.px}px;
+  border-radius: 8px;
+  align-self: end;
+  animation: scalefill 3s;
+  animation-fill-mode: forwards;
+
+  @keyframes scalefill {
+    from {
+      height: 0px;
+      background: var(--primary-light);
+    }
+    to {
+      height: ${(props) => props.px}px;
+      background: var(--secondary);
+    }
+  }
 `
 const TopScalePoint = styled.span`
   font-size: 20px;
@@ -116,7 +143,6 @@ const QuoteStyled = styled.p`
   text-align: right;
   font-style: italic;
   font-size: 16px;
-  margin-bottom: 0;
 `
 const SmallPrint = styled.p`
   font-size: 14px;
