@@ -4,11 +4,11 @@ import { AiOutlineArrowUp } from 'react-icons/ai'
 
 export default function AnchorToTop() {
   return (
-    <>
+    <a href="#top">
       <AnchorStyled>
         <ArrowUpStyled />
       </AnchorStyled>
-    </>
+    </a>
   )
 }
 
@@ -21,7 +21,9 @@ const AnchorStyled = styled.div`
   width: 48px;
   height: 48px;
   opacity: 0.6;
-  position: sticky;
+  position: fixed;
   bottom: 50px;
-  right: 4px;
+  right: 2px;
+  line-height: 48px;
+  text-align: center;
 `
