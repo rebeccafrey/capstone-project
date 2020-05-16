@@ -9,6 +9,7 @@ import EntriesList from './pages/entries'
 import Topics from './pages/topics'
 import Navbar from './components/Navbar/Navbar'
 import About from './pages/about'
+import AnchorToTop from './ui/AnchorToTop'
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
           <About />
         </Route>
       </Switch>
+      <AnchorToTop />
       <Navbar />
     </>
   )
