@@ -8,6 +8,8 @@ export default createGlobalStyle`
     --primary-light: #C9B59E;
     --primary-light-40: #E6DDD3;
     --primary-light-8: #FBF9F8;
+
+    scroll-behavior: smooth;
 }
 
 * {

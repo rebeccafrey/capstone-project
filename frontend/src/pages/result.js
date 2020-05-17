@@ -4,19 +4,20 @@ import styled from 'styled-components/macro'
 import { countTotalCheckedBoxes } from '../pages/statements'
 import Divider from '../ui/Divider'
 
-export default function Result() {
+export default function Result({ px }) {
   return (
     <>
       <main>
         <h2>Dein Ergebnis</h2>
-        <p>{showTextDependingOnResult()}</p>
-        <Divider />
         <ResultStyled>
           <ScaleStyled />
+          <ScaleFilled px={calculateScaleFill(0, px, 300)} />
           <TopScalePoint>20 - eher introvertiert</TopScalePoint>
           <ResultBubble>{countTotalCheckedBoxes()}</ResultBubble>
           <BottomScalePoint>0 - eher extravertiert</BottomScalePoint>
         </ResultStyled>
+        <Divider />
+        {showTextDependingOnResult()}
         <Divider />
         <SmallPrint>
           Du willst mehr Informationen? Schau <a href="/about">hier!</a>
@@ -26,18 +27,62 @@ export default function Result() {
   )
   function showTextDependingOnResult() {
     if (countTotalCheckedBoxes() >= 0 && countTotalCheckedBoxes() <= 6) {
-      return 'Nur wenige der Statements treffen auf dich zu. Du bist also eher extravertiert, aber was bedeutet das? Der Hauptunterschied zur Introvertiertheit besteht darin, dass du deine Batterien vor allem durch soziale Interaktion aufladen kannst. Treffen mit Freunden sind wichtig für dich, und du ziehst daraus Energie. Für Introverierte ist dies meist eher anstrengend, und sie benötigen Zeit für sich, um Kraft zu tanken.'
+      return (
+        <ExplanationStyled>
+          <p>
+            Nur wenige der Statements treffen auf dich zu. Du bist also eher
+            extravertiert, aber was bedeutet das? Der Hauptunterschied zur
+            Introvertiertheit besteht darin, dass du deine Batterien vor allem
+            durch soziale Interaktion aufladen kannst. Treffen mit Freunden sind
+            wichtig für dich, und du ziehst daraus Energie. Für Introverierte
+            ist dies meist eher anstrengend, und sie benötigen Zeit für sich, um
+            Kraft zu tanken.
+          </p>
+          <QuoteStyled>
+            <q>
+              Ich würd' mich lieber anfahren lassen / Als zu warten, bis ich
+              gehen darf / Riesen-Risiko in jedem zweiten Nebensatz / Darf nur
+              so schnell fahren, bevor es anfängt Spaß zu machen / Das Geile am
+              seidenen Faden ist, ihn loszulassen / Mann, es ist doch alles
+              wahr, was man sagt / Dass man nicht viel Zeit hat und zu wenig
+              draus macht / Mann, denk doch einmal nicht nach / Probleme werden
+              später bequemer und danach egal
+            </q>
+            <br />- Fynn Kliemann :: Alles was ich hab
+          </QuoteStyled>
+        </ExplanationStyled>
+      )
     } else if (
       countTotalCheckedBoxes() >= 7 &&
       countTotalCheckedBoxes() <= 13
     ) {
-      return 'Du pendelst dich in der Mitte ein, das nennt man ambivertiert. Die Tendenz zur Mitte ist bei vielen gegeben und zeigt, dass du Charakterzüge von beiden Ausprägungen in dir trägst - und du sehr wahrscheinlich mal ein wenig Zeit für dich brauchst, oder auch mal gern kraftgebende Zeit mit anderen, auch größeren Gruppen, verbringst.'
+      return (
+        <ExplanationStyled>
+          <p>
+            Du pendelst dich in der Mitte ein, das nennt man ambivertiert. Die
+            Tendenz zur Mitte ist bei vielen gegeben und zeigt, dass du
+            Charakterzüge von beiden Ausprägungen in dir trägst - und du sehr
+            wahrscheinlich mal ein wenig Zeit für dich brauchst, oder auch mal
+            gern kraftgebende Zeit mit anderen, auch größeren Gruppen,
+            verbringst.
+          </p>
+          <QuoteStyled>
+            <q>
+              Eine gewisse feierliche Grazie bei gewöhnlichen Dingen, eine Art
+              von leichtsinniger Zierlichkeit bei ernsthaften und wichtigen
+              kleidet ihn wohl, weil er sehen läßt, daß er überall im
+              Gleichgewicht steht.
+            </q>
+            - Johann Wolfgang von Goethe :: Wilhelm Meisters Lehrjahre V, 3
+          </QuoteStyled>
+        </ExplanationStyled>
+      )
     } else if (
       countTotalCheckedBoxes() >= 14 &&
       countTotalCheckedBoxes() <= 20
     ) {
       return (
-        <>
+        <ExplanationStyled>
           <p>
             Viele der Statements treffen auf dich zu. Du bist also eher
             introvertiert, aber was bedeutet das? Der Hauptunterschied zur
@@ -52,11 +97,14 @@ export default function Result() {
             <q>Ich bin nicht schüchtern, eher dezent.</q>
             <br />- Anne with an E
           </QuoteStyled>
-        </>
+        </ExplanationStyled>
       )
     } else {
       return 'Mach den Test und erfahre mehr!'
     }
+  }
+  function calculateScaleFill() {
+    return (300 / 20) * countTotalCheckedBoxes()
   }
 }
 
@@ -75,10 +123,33 @@ const ScaleStyled = styled.div`
   width: 24px;
   height: 300px;
   border-radius: 8px;
-  background: var(--secondary-40);
+  background: var(--primary-light);
   margin-left: 32px;
   grid-column: 1;
   grid-row: 1 / 3;
+`
+const ScaleFilled = styled.div`
+  width: 24px;
+  border-radius: 8px;
+  margin-left: 32px;
+  grid-column: 1;
+  grid-row: 1 / 4;
+  xheight: ${(props) => props.px}px;
+  border-radius: 8px;
+  align-self: end;
+  animation: scalefill 3s;
+  animation-fill-mode: forwards;
+
+  @keyframes scalefill {
+    from {
+      height: 0px;
+      background: var(--primary-light);
+    }
+    to {
+      height: ${(props) => props.px}px;
+      background: var(--secondary);
+    }
+  }
 `
 const TopScalePoint = styled.span`
   font-size: 20px;
@@ -112,11 +183,25 @@ const ResultBubble = styled.div`
   grid-row: 2/2;
   place-self: center;
 `
+const ExplanationStyled = styled.div`
+  animation: 3s slidein;
+  
+  @keyframes slidein {
+    from {
+      margin-top:100%;
+      hight:300%
+    }
+    
+    to {
+      margin-top:0%;
+      hight:100%;
+    };
+`
 const QuoteStyled = styled.p`
   text-align: right;
   font-style: italic;
   font-size: 16px;
-  margin-bottom: 0;
+  margin-bottom: 24;
 `
 const SmallPrint = styled.p`
   font-size: 14px;

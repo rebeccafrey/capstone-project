@@ -10,16 +10,11 @@ export default function About() {
           Hier findest du alle Informationen, die du brauchst, um zu starten -
           oder tiefer einzusteigen...
         </IntroStyled>
-        <ListStyled>
-          <ListItemStyled>
-            Direkt zu: <a href="#why">Warum eigentlich?</a>
-          </ListItemStyled>
-          <ListItemStyled>
-            Direkt zu: <a href="#sources">Neugierig geworden?</a>
-          </ListItemStyled>
-        </ListStyled>
         <Divider />
         <h2 id="why">Warum eigentlich?</h2>
+        <LinkStyled>
+          Direkt zu: <a href="#sources">Neugierig geworden?</a>
+        </LinkStyled>
         <h3>Die Gesellschaft...</h3>
         <p>
           Hast du dich auch schon mal gefragt, ob du anders bist als andere?
@@ -65,7 +60,8 @@ export default function About() {
           allem: wie wir uns ergänzen können.
         </p>
         <Divider />
-        <h2 id="sources">Neugierig geworden?</h2>
+        <AnchorStyled id="sources" />
+        <h2>Neugierig geworden?</h2>
         <h3>Willst du mehr erfahren?</h3>
         <p>Hier findest du weiterführende Quellen.</p>
         <SmallPrint>
@@ -144,11 +140,11 @@ const SmallPrint = styled.p`
   font-size: 14px;
   font-style: italic;
 `
-const ListStyled = styled.ul`
-  margin-bottom: 12px;
-`
-const ListItemStyled = styled.li`
-  margin: 0 24px 12px 12px;
-  list-style: none;
+const LinkStyled = styled.p`
+  margin: 0 0 24px 12px;
+  padding-top: 0;
   font-size: 16px;
+`
+const AnchorStyled = styled.div`
+  margin: -100px;
 `
