@@ -38,6 +38,8 @@ export default function Topics() {
         </SmallPrint>
         <FilterTopics setSearchResult={setSearchResult} />
         {entry
+          .slice()
+          .sort((entryA, entryB) => entryA.topic.localeCompare(entryB.topic))
           .filter(
             (entry) =>
               entry.topic.toLowerCase().includes(searchResult.toLowerCase()) ||
