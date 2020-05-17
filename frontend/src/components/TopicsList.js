@@ -5,7 +5,7 @@ import { BsArrowBarDown, BsArrowBarUp } from 'react-icons/bs'
 import styled from 'styled-components/macro'
 import Divider from '../ui/Divider'
 
-export default function Entries({ entry }) {
+export default function TopicsList({ entry }) {
   const { on, toggle } = useToggle(false)
 
   return (
@@ -36,7 +36,7 @@ export default function Entries({ entry }) {
   )
 }
 
-Entries.propTypes = {
+TopicsList.propTypes = {
   topic: PropTypes.string,
   description: PropTypes.string,
   id: PropTypes.string,

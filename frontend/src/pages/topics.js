@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
-import Entries from '../components/Entries'
+import TopicsList from '../components/TopicsList'
 import { db } from '../Firebase'
 import FilterTopics from '../ui/Filter/FilterTopics'
 
@@ -48,7 +48,7 @@ export default function Topics() {
                 .includes(searchResult.toLowerCase())
           )
           .map((entry) => (
-            <Entries entry={entry} key={entry.id} />
+            <TopicsList entry={entry} key={entry.id} />
           ))}
       </main>
     </>
