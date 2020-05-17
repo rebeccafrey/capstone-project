@@ -4,6 +4,7 @@ import { useToggle } from 'react-hooks-lib'
 import { BsArrowBarDown, BsArrowBarUp } from 'react-icons/bs'
 import styled from 'styled-components/macro'
 import Divider from '../ui/Divider'
+import Bookmark from '../ui/Bookmark'
 
 export default function TopicsList({ entry }) {
   const { on, toggle } = useToggle(false)
@@ -17,6 +18,7 @@ export default function TopicsList({ entry }) {
             {on || (
               <TopicStyled data-cy="topic">
                 {entry.topic}
+                <Bookmark />
                 <ArrowDownStyled />
               </TopicStyled>
             )}
@@ -24,6 +26,7 @@ export default function TopicsList({ entry }) {
               <>
                 <TopicStyled data-cy="topic">
                   {entry.topic}
+                  <Bookmark />
                   <ArrowUpStyled />
                 </TopicStyled>
                 <p data-cy="description">{entry.description}</p>
