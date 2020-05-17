@@ -45,12 +45,24 @@ TopicsList.propTypes = {
 
 const ListStyled = styled.ul`
   list-style: none;
+
+  .icon {
+    box-sizing: content-box;
+    padding: 4px;
+  }
+  .arrow-icon {
+    color: var(--secondary);
+  }
 `
 const TopicStyled = styled.h2`
   font-size: 18px;
   margin-bottom: 20px;
   display: grid;
-  grid-template-columns: 90% 10%;
+  grid-template-columns: 80% 10% 10%;
+
+  ::first-letter {
+    text-transform: uppercase;
+  }
 `
 const ArrowDownStyled = styled(BsArrowBarDown)`
   text-align: right;
