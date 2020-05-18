@@ -4,10 +4,11 @@ import styled from 'styled-components/macro'
 import TopicsList from '../components/TopicsList'
 import { db } from '../Firebase'
 import FilterTopics from '../ui/Filter/FilterTopics'
+import { loadFromLocal, saveToLocal } from '../services'
 
 export default function Topics() {
   const [searchResult, setSearchResult] = useState('')
-  const [entry, setEntry] = useState([])
+  const [entries, setEntries] = useState(loadFromLocal('entries') || [])
 
   useEffect(() => {
     const discussionTopics = db
@@ -17,12 +18,24 @@ export default function Topics() {
           id: doc.id,
           ...doc.data(),
         }))
-        setEntry(allTopics)
+        setEntries(allTopics)
       })
     return () => {
       discussionTopics()
     }
   }, [])
+
+  // const [isBookmarked, setIsBookmarked] = useState(
+  //   false
+  //loadFromLocal('isBookmarked') || [])
+
+  // useEffect(() => {
+  //   saveToLocal('isBookmarked', isBookmarked)
+  // }, [isBookmarked])
+
+  useEffect(() => {
+    saveToLocal('entries', entries)
+  }, [entries])
 
   return (
     <>
@@ -37,7 +50,7 @@ export default function Topics() {
           Du willst mehr Informationen? Schau <a href="/about">hier!</a>
         </SmallPrint>
         <FilterTopics setSearchResult={setSearchResult} />
-        {entry
+        {entries
           .slice()
           .sort((entryA, entryB) => entryA.topic.localeCompare(entryB.topic))
           .filter(
@@ -47,12 +60,27 @@ export default function Topics() {
                 .toLowerCase()
                 .includes(searchResult.toLowerCase())
           )
-          .map((entry) => (
-            <TopicsList entry={entry} key={entry.id} />
+          .map((entry, index) => (
+            <TopicsList
+              entry={entry}
+              entries={entries}
+              key={entry.id}
+              bookmarked={entry.bookmarked}
+              toggleBookmark={toggleBookmark}
+              index={index}
+            />
           ))}
       </main>
     </>
   )
+  function toggleBookmark(index) {
+    const entry = entries[index]
+    setEntries([
+      ...entries.slice(0, index),
+      { ...entry, bookmarked: !entry.bookmarked },
+      ...entries.slice(index + 1),
+    ])
+  }
 }
 
 Topics.propTypes = {

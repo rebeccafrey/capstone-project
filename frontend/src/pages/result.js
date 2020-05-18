@@ -73,7 +73,8 @@ export default function Result({ px }) {
               kleidet ihn wohl, weil er sehen läßt, daß er überall im
               Gleichgewicht steht.
             </q>
-            - Johann Wolfgang von Goethe :: Wilhelm Meisters Lehrjahre V, 3
+            <br />- Johann Wolfgang von Goethe :: Wilhelm Meisters Lehrjahre V,
+            3
           </QuoteStyled>
         </ExplanationStyled>
       )

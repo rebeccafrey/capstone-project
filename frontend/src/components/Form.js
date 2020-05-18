@@ -10,6 +10,7 @@ export default function AddTopic() {
   const [entry, setEntry] = useState({
     topic: '',
     description: '',
+    bookmarked: false,
   })
   const { topic, description } = entry
   const [agreement, setAgreement] = useState({ checked: false })
@@ -74,6 +75,7 @@ export default function AddTopic() {
     setEntry({
       topic: '',
       description: '',
+      bookmarked: false,
     })
     setAddedTopic(
       <SubmitTextStyled>Dein Thema wurde hinzugefügt!</SubmitTextStyled>

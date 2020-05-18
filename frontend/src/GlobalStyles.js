@@ -31,7 +31,7 @@ body {
 main {
     overflow: scroll;
     line-height: 1.5;
-    display:grid;
+    display: grid;
     padding: 72px 24px;
 }
 

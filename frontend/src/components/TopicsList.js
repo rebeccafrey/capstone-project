@@ -3,31 +3,39 @@ import React from 'react'
 import { useToggle } from 'react-hooks-lib'
 import { BsArrowBarDown, BsArrowBarUp } from 'react-icons/bs'
 import styled from 'styled-components/macro'
-import Divider from '../ui/Divider'
 import Bookmark from '../ui/Bookmark'
+import Divider from '../ui/Divider'
 
-export default function TopicsList({ entry }) {
+export default function TopicsList({ entry, index, toggleBookmark }) {
   const { on, toggle } = useToggle(false)
 
   return (
     <>
-      <ListStyled onClick={toggle}>
+      <ListStyled>
         <label key={entry.id}>
           <Divider />
           <ListItemStyled>
             {on || (
               <TopicStyled data-cy="topic">
                 {entry.topic}
-                <Bookmark />
-                <ArrowDownStyled />
+                <Bookmark
+                  className="icon"
+                  onClick={() => toggleBookmark(index)}
+                  bookmarked={entry.bookmarked}
+                />
+                <ArrowDownStyled className="icon arrow-icon" onClick={toggle} />
               </TopicStyled>
             )}
             {on && (
               <>
                 <TopicStyled data-cy="topic">
                   {entry.topic}
-                  <Bookmark />
-                  <ArrowUpStyled />
+                  <Bookmark
+                    className="icon "
+                    onClick={() => toggleBookmark(index)}
+                    //bookmarked={entry.bookmarked}
+                  />
+                  <ArrowUpStyled className="icon arrow-icon" onClick={toggle} />
                 </TopicStyled>
                 <p data-cy="description">{entry.description}</p>
               </>
