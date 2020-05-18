@@ -52,6 +52,7 @@ TopicsList.propTypes = {
   description: PropTypes.string,
   id: PropTypes.string,
   on: PropTypes.bool,
+  toggleBookmark: PropTypes.func,
 }
 
 const ListStyled = styled.ul`

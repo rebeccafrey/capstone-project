@@ -10,6 +10,7 @@ import Result from './pages/result'
 import Statements from './pages/statements'
 import Topics from './pages/topics'
 import AnchorToTop from './ui/AnchorToTop'
+import TopicsForDiscussion from './pages/topics-discussion'
 
 export default function App() {
   return (
@@ -31,6 +32,9 @@ export default function App() {
         </Route>
         <Route path="/topics">
           <Topics />
+        </Route>
+        <Route path="/topics-discussion">
+          <TopicsForDiscussion />
         </Route>
         <Route path="/about">
           <About />
