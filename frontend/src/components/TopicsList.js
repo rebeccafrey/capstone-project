@@ -6,7 +6,7 @@ import styled from 'styled-components/macro'
 import Bookmark from '../ui/Bookmark'
 import Divider from '../ui/Divider'
 
-export default function TopicsList({ entry, index, toggleBookmark }) {
+export default function TopicsList({ entry, toggleBookmark, bookmarked }) {
   const { on, toggle } = useToggle(false)
 
   return (
@@ -20,8 +20,8 @@ export default function TopicsList({ entry, index, toggleBookmark }) {
                 {entry.topic}
                 <Bookmark
                   className="icon"
-                  onClick={() => toggleBookmark(index)}
-                  bookmarked={entry.bookmarked}
+                  onClick={() => toggleBookmark(entry)}
+                  bookmarked={bookmarked}
                 />
                 <ArrowDownStyled className="icon arrow-icon" onClick={toggle} />
               </TopicStyled>
@@ -32,8 +32,8 @@ export default function TopicsList({ entry, index, toggleBookmark }) {
                   {entry.topic}
                   <Bookmark
                     className="icon "
-                    onClick={() => toggleBookmark(index)}
-                    //bookmarked={entry.bookmarked}
+                    onClick={() => toggleBookmark(entry)}
+                    bookmarked={bookmarked}
                   />
                   <ArrowUpStyled className="icon arrow-icon" onClick={toggle} />
                 </TopicStyled>

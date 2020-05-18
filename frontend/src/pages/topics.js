@@ -4,11 +4,10 @@ import styled from 'styled-components/macro'
 import TopicsList from '../components/TopicsList'
 import { db } from '../Firebase'
 import FilterTopics from '../ui/Filter/FilterTopics'
-import { loadFromLocal, saveToLocal } from '../services'
 
 export default function Topics() {
   const [searchResult, setSearchResult] = useState('')
-  const [entries, setEntries] = useState(loadFromLocal('entries') || [])
+  const [entries, setEntries] = useState([])
 
   useEffect(() => {
     const discussionTopics = db
@@ -24,18 +23,6 @@ export default function Topics() {
       discussionTopics()
     }
   }, [])
-
-  // const [isBookmarked, setIsBookmarked] = useState(
-  //   false
-  //loadFromLocal('isBookmarked') || [])
-
-  // useEffect(() => {
-  //   saveToLocal('isBookmarked', isBookmarked)
-  // }, [isBookmarked])
-
-  useEffect(() => {
-    saveToLocal('entries', entries)
-  }, [entries])
 
   return (
     <>
@@ -73,13 +60,18 @@ export default function Topics() {
       </main>
     </>
   )
-  function toggleBookmark(index) {
-    const entry = entries[index]
-    setEntries([
-      ...entries.slice(0, index),
-      { ...entry, bookmarked: !entry.bookmarked },
-      ...entries.slice(index + 1),
-    ])
+
+  function toggleBookmark(entry) {
+    db.collection('discussion-topics')
+      .doc(entry.id)
+      .update({ bookmarked: !entry.bookmarked })
+      .then(() => console.log('Bookmark state updated!'))
+      .catch((error) =>
+        alert(
+          'Oh, da ist etwas schief gegangen. Versuch es später noch einmal.',
+          error
+        )
+      )
   }
 }
 
