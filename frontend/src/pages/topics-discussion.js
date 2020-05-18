@@ -30,8 +30,7 @@ export default function TopicsForDiscussion() {
     <>
       <main>
         <h2>
-          Themen-Sammlung <br />
-          (noch nicht diskutiert)
+          Themen-Sammlung <br /> (noch nicht diskutiert)
         </h2>
         <p>
           Hier findest du alle Themen, die noch nicht besprochen worden sind.
@@ -86,10 +85,7 @@ export default function TopicsForDiscussion() {
 TopicsForDiscussion.propTypes = {
   entries: PropTypes.array,
 }
-const SmallPrint = styled.p`
-  font-size: 14px;
-  font-style: italic;
-`
+
 const AddIconStyled = styled(AddToCollection)`
   fill: var(--secondary);
   margin: 0 4px;

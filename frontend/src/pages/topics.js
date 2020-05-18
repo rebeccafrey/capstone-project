@@ -30,9 +30,10 @@ export default function Topics() {
       <main>
         <h2>Themen-Sammlung</h2>
         <p>
-          Untenstehend kannst du alle Themen, die von dir oder anderen
-          eingetragen wurden, sehen. Klicke auf die Pfeile, um die
-          Beschreibungen zu lesen oder starte eine Volltextsuche.
+          Hier findest du alle Themen, die von dir oder anderen eingetragen
+          wurden. Klicke auf die Pfeile, um die Beschreibungen zu lesen oder
+          starte eine Suche. Klicke auf "offen zur Diskussion" um nur noch nicht
+          besprochenene Themen zu sehen.
         </p>
         <SmallPrint>
           Du willst mehr Informationen? Schau <a href="/about">hier!</a>
