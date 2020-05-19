@@ -24,15 +24,16 @@ export default function Homepage() {
             to="/statements"
             data-testid="statements-link"
           >
-            Mach den Test
-            <StatementIconStyled alt="Statements" />
+            <StatementIconStyled alt="Statements" /> Zum ersten Mal hier? Mach
+            den Test!
           </LinkStyled>
           <LinkStyled
             activeClassName="selected"
             to="/result"
             data-testid="result-link"
           >
-            Zum Test-Ergebnis <ResultIconStyled alt="Result" />
+            <ResultIconStyled alt="Result" />
+            Wiederholungstäter? Hier geht es zu deinem Test-Ergebnis...
           </LinkStyled>
           <LinkStyled
             activeClassName="selected"
@@ -40,7 +41,7 @@ export default function Homepage() {
             data-testid="entries-link"
           >
             <EditIconStyled alt="Entries" />
-            Teile deine Gedanken
+            Teile deine Gedanken...
           </LinkStyled>
           <LinkStyled
             activeClassName="selected"
@@ -48,7 +49,7 @@ export default function Homepage() {
             data-testid="topics-link"
           >
             <TopicsIconStyled alt="Topics" />
-            Werde inspiriert
+            ...oder werde inspiriert...
           </LinkStyled>
         </IconOverviewStyled>
         <p>

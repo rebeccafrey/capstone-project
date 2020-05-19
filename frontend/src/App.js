@@ -1,15 +1,16 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
-import GlobalStyles from './GlobalStyles'
+import { Route, Switch } from 'react-router-dom'
 import Header from './components/Header/Header'
-import Homepage from './pages/homepage'
-import Statements from './pages/statements'
-import Result from './pages/result'
-import EntriesList from './pages/entries'
-import Topics from './pages/topics'
 import Navbar from './components/Navbar/Navbar'
+import GlobalStyles from './GlobalStyles'
 import About from './pages/about'
+import EntriesList from './pages/entries'
+import Homepage from './pages/homepage'
+import Result from './pages/result'
+import Statements from './pages/statements'
+import Topics from './pages/topics'
 import AnchorToTop from './ui/AnchorToTop'
+import TopicsForDiscussion from './pages/topics-discussion'
 
 export default function App() {
   return (
@@ -31,6 +32,9 @@ export default function App() {
         </Route>
         <Route path="/topics">
           <Topics />
+        </Route>
+        <Route path="/topics-discussion">
+          <TopicsForDiscussion />
         </Route>
         <Route path="/about">
           <About />

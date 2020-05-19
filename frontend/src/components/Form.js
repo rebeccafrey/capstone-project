@@ -10,6 +10,7 @@ export default function AddTopic() {
   const [entry, setEntry] = useState({
     topic: '',
     description: '',
+    //bookmarked: true,
   })
   const { topic, description } = entry
   const [agreement, setAgreement] = useState({ checked: false })
@@ -70,10 +71,19 @@ export default function AddTopic() {
 
   function addNewEntry(e) {
     e.preventDefault()
-    db.collection('discussion-topics').add(entry)
+    db.collection('discussion-topics')
+      .add(entry)
+      .then(() => console.log('topic was added'))
+      .catch((error) =>
+        alert(
+          'Oh, da ist etwas schief gegangen. Versuch es später noch einmal.',
+          error
+        )
+      )
     setEntry({
       topic: '',
       description: '',
+      bookmarked: true,
     })
     setAddedTopic(
       <SubmitTextStyled>Dein Thema wurde hinzugefügt!</SubmitTextStyled>

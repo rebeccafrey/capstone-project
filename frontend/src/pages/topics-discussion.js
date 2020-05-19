@@ -5,8 +5,9 @@ import TopicsList from '../components/TopicsList'
 import { db } from '../Firebase'
 import FilterTopics from '../ui/Filter/FilterTopics'
 import ToggleTopics from '../components/ToggleTopics'
+import { RiPlayListAddLine as AddToCollection } from 'react-icons/ri'
 
-export default function Topics() {
+export default function TopicsForDiscussion() {
   const [searchResult, setSearchResult] = useState('')
   const [entries, setEntries] = useState([])
 
@@ -28,22 +29,25 @@ export default function Topics() {
   return (
     <>
       <main>
-        <h2>Themen-Sammlung</h2>
+        <h2>
+          Themen-Sammlung <br /> (noch nicht diskutiert)
+        </h2>
         <p>
-          Hier findest du alle Themen, die von dir oder anderen eingetragen
-          wurden. Klicke auf die Pfeile, um die Beschreibungen zu lesen oder
-          starte eine Suche. Klicke auf "offen zur Diskussion" um nur noch nicht
-          besprochenene Themen zu sehen.
+          Hier findest du alle Themen, die noch nicht besprochen worden sind.
+          Such dir eins aus!
         </p>
-        <SmallPrint>
-          Du willst mehr Informationen? Schau <a href="/about">hier!</a>
-        </SmallPrint>
+        <p>
+          Fertig? Dann nimm es von der Liste, indem du auf <AddIconStyled />
+          klickst. Der Eintrag ist noch immer unter "alle Themen" zu finden.
+        </p>
+
         <FilterTopics setSearchResult={setSearchResult} />
         <ToggleTopics />
 
         {entries
           .slice()
           .sort((entryA, entryB) => entryA.topic.localeCompare(entryB.topic))
+          .filter((entry) => entry.bookmarked === true)
           .filter(
             (entry) =>
               entry.topic.toLowerCase().includes(searchResult.toLowerCase()) ||
@@ -78,10 +82,12 @@ export default function Topics() {
   }
 }
 
-Topics.propTypes = {
+TopicsForDiscussion.propTypes = {
   entries: PropTypes.array,
 }
-const SmallPrint = styled.p`
-  font-size: 14px;
-  font-style: italic;
+
+const AddIconStyled = styled(AddToCollection)`
+  fill: var(--secondary);
+  margin: 0 4px;
+  height: 18px;
 `
