@@ -29,8 +29,9 @@ export default function TopicsList({ entry, toggleBookmark, bookmarked }) {
                 <Bookmark
                   onClick={() => toggleBookmark(entry)}
                   bookmarked={bookmarked}
+                  className="icon"
                 />
-                <BsArrowBarDown onClick={toggle} />
+                <BsArrowBarDown onClick={toggle} className="icon arrow-icon" />
               </TopicStyled>
             )}
             {on && (
@@ -40,8 +41,9 @@ export default function TopicsList({ entry, toggleBookmark, bookmarked }) {
                   <Bookmark
                     onClick={() => toggleBookmark(entry)}
                     bookmarked={bookmarked}
+                    className="icon"
                   />
-                  <BsArrowBarUp onClick={toggle} />
+                  <BsArrowBarUp onClick={toggle} className="icon arrow-icon" />
                 </TopicStyled>
                 <p data-cy="description">{entry.description}</p>
               </>
@@ -56,15 +58,17 @@ export default function TopicsList({ entry, toggleBookmark, bookmarked }) {
 const ListStyled = styled.ul`
   list-style: none;
 
-  svg {
-    box-sizing: content-box;
-    padding: 4px;
-    text-align: right;
-    color: var(--secondary);
-  }
-
   li {
     margin: 0;
+  }
+
+  .icon {
+    box-sizing: content-box;
+    padding: 4px;
+  }
+
+  .arrow-icon {
+    color: var(--secondary);
   }
 `
 const TopicStyled = styled.h2`
