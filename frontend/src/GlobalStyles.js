@@ -28,11 +28,43 @@ body {
     grid-template-rows: 48px auto 48px;
 }
 
+header {
+    position: fixed;
+    z-index: 1;
+    height: 48px;
+}
+
 main {
     overflow: scroll;
     line-height: 1.5;
     display: grid;
     padding: 72px 24px;
+
+    .input__style {
+        font-size: 16px;
+        font-weight: 300;
+        color: var(--primary-dark);
+        width: 95%;
+        border-radius: 8px;
+        border: solid 1px var(--secondary-40);
+        padding: 12px;
+    
+        ::placeholder {
+          color: var(--primary-light);
+        }
+      }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    height: 48px;
+}
+
+input {
+    line-hight: 1.5em;
+    height: 48px;
 }
 
 p{

@@ -5,10 +5,7 @@ export default function Header() {
   return <HeaderStyled role="header">Seelenleben</HeaderStyled>
 }
 const HeaderStyled = styled.header`
-  position: fixed;
-  z-index: 1;
   width: 100vw;
-  height: 48px;
   font-family: 'Amatic SC', cursive;
   font-weight: bold;
   font-size: 36px;

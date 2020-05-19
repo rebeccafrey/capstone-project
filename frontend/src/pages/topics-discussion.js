@@ -3,9 +3,13 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import TopicsList from '../components/TopicsList'
 import { db } from '../Firebase'
-import FilterTopics from '../ui/Filter/FilterTopics'
-import ToggleTopics from '../components/ToggleTopics'
+import FilterTopics from '../ui/FilterTopics'
+import ToggleTopics from '../components/ToggleTopics/ToggleTopics'
 import { RiPlayListAddLine as AddToCollection } from 'react-icons/ri'
+
+TopicsForDiscussion.propTypes = {
+  entries: PropTypes.array,
+}
 
 export default function TopicsForDiscussion() {
   const [searchResult, setSearchResult] = useState('')
@@ -80,10 +84,6 @@ export default function TopicsForDiscussion() {
         )
       )
   }
-}
-
-TopicsForDiscussion.propTypes = {
-  entries: PropTypes.array,
 }
 
 const AddIconStyled = styled(AddToCollection)`

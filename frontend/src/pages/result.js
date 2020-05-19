@@ -4,6 +4,10 @@ import styled from 'styled-components/macro'
 import { countTotalCheckedBoxes } from '../pages/statements'
 import Divider from '../ui/Divider'
 
+Result.propTypes = {
+  showTextDependingOnResult: PropTypes.func,
+}
+
 export default function Result({ px }) {
   return (
     <>
@@ -109,10 +113,6 @@ export default function Result({ px }) {
   }
 }
 
-Result.propTypes = {
-  showTextDependingOnResult: PropTypes.func,
-}
-
 const ResultStyled = styled.div`
   display: grid;
   grid-template-columns: 56px auto;
@@ -135,7 +135,6 @@ const ScaleFilled = styled.div`
   margin-left: 32px;
   grid-column: 1;
   grid-row: 1 / 4;
-  xheight: ${(props) => props.px}px;
   border-radius: 8px;
   align-self: end;
   animation: scalefill 3s;

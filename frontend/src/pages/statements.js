@@ -4,9 +4,17 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { loadFromLocal, saveToLocal } from '../services'
 import statements from '../statements.json'
-import Button from '../ui/Button/Button'
+import Button from '../ui/Button'
 import Checkbox from '../ui/Checkbox/Checkbox'
 import Divider from '../ui/Divider'
+
+Statements.propTypes = {
+  item: PropTypes.object,
+  text: PropTypes.string,
+  id: PropTypes.number,
+  checked: PropTypes.bool,
+  countTotalCheckedBoxes: PropTypes.func,
+}
 
 export default function Statements() {
   const [list, setList] = useState(loadFromLocal('list') || statements)
@@ -73,14 +81,6 @@ export function countTotalCheckedBoxes() {
   } else {
     return list.filter((props) => props.checked).length
   }
-}
-
-Statements.propTypes = {
-  item: PropTypes.object,
-  text: PropTypes.string,
-  id: PropTypes.number,
-  checked: PropTypes.bool,
-  countTotalCheckedBoxes: PropTypes.func,
 }
 
 const BoldText = styled.span`

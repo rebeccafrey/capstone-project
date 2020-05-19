@@ -3,6 +3,11 @@ import React from 'react'
 import { RiPlayListAddLine as AddToCollection } from 'react-icons/ri'
 import styled from 'styled-components/macro'
 
+Bookmark.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  bookmarked: PropTypes.bool,
+}
+
 export default function Bookmark({ onClick, bookmarked }) {
   return (
     <AddToCollectionStyled
@@ -12,11 +17,6 @@ export default function Bookmark({ onClick, bookmarked }) {
       aria-label={bookmarked ? 'Remove bookmark' : 'Add bookmark'}
     />
   )
-}
-
-Bookmark.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  bookmarked: PropTypes.bool.isRequired,
 }
 
 const AddToCollectionStyled = styled(AddToCollection)`
