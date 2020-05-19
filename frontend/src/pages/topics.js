@@ -3,8 +3,12 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import TopicsList from '../components/TopicsList'
 import { db } from '../Firebase'
-import FilterTopics from '../ui/Filter/FilterTopics'
-import ToggleTopics from '../components/ToggleTopics'
+import FilterTopics from '../ui/FilterTopics'
+import ToggleTopics from '../components/ToggleTopics/ToggleTopics'
+
+Topics.propTypes = {
+  entries: PropTypes.array,
+}
 
 export default function Topics() {
   const [searchResult, setSearchResult] = useState('')
@@ -78,9 +82,6 @@ export default function Topics() {
   }
 }
 
-Topics.propTypes = {
-  entries: PropTypes.array,
-}
 const SmallPrint = styled.p`
   font-size: 14px;
   font-style: italic;

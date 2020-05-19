@@ -17,35 +17,35 @@ export default function Navbar() {
           to="/"
           data-testid="home-link"
         >
-          <HomeIconStyled />
+          <HomeIcon alt="Link zur Homepage" />
         </LinkStyled>
         <LinkStyled
           activeClassName="selected"
           to="/statements"
           data-testid="statements-link"
         >
-          <StatementIconStyled alt="Statements" />
+          <StatementIcon alt="Link zur Selbsteinschätzung" />
         </LinkStyled>
         <LinkStyled
           activeClassName="selected"
           to="/result"
           data-testid="result-link"
         >
-          <ResultIconStyled alt="Result" />
+          <ResultIcon alt="Link zum Ergebnis" />
         </LinkStyled>
         <LinkStyled
           activeClassName="selected"
           to="/entries"
           data-testid="entries-link"
         >
-          <EditIconStyled alt="Entries" />
+          <EditIcon alt="Link zum Eingabeformular" />
         </LinkStyled>
         <LinkStyled
           activeClassName="selected"
           to="/topics"
           data-testid="topics-link"
         >
-          <TopicsIconStyled alt="Topics" />
+          <TopicsIcon alt="Link zur Themensammlung" />
         </LinkStyled>
       </NavbarStyled>
     </>
@@ -53,11 +53,7 @@ export default function Navbar() {
 }
 
 const NavbarStyled = styled.footer`
-  position: fixed;
-  bottom: 0;
-  z-index: 1;
   width: 100vw;
-  height: 48px;
   background-color: var(--primary-light-40);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -68,31 +64,16 @@ const LinkStyled = styled(NavLink)`
   text-align: center;
   cursor: default;
 
+  svg {
+    fill: var(--secondary);
+    width: 32px;
+    height: 32px;
+  }
+
   &.selected {
     background: var(--secondary);
     svg {
       fill: var(--primary-light-40);
     }
   }
-`
-const HomeIconStyled = styled(HomeIcon)`
-  fill: var(--secondary);
-  width: 32px;
-`
-const StatementIconStyled = styled(StatementIcon)`
-  fill: var(--secondary);
-  width: 32px;
-`
-const ResultIconStyled = styled(ResultIcon)`
-  fill: var(--secondary);
-  width: 32px;
-`
-const EditIconStyled = styled(EditIcon)`
-  fill: var(--secondary);
-  width: 32px;
-`
-const TopicsIconStyled = styled(TopicsIcon)`
-  fill: var(--secondary);
-  width: 32px;
-  height: 32px;
 `

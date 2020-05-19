@@ -7,6 +7,10 @@ import Divider from '../ui/Divider'
 import { AiOutlineUnorderedList } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
 
+EntriesList.propTypes = {
+  setEntry: PropTypes.func,
+}
+
 export default function EntriesList() {
   const [entry, setEntry] = useState([])
 
@@ -48,7 +52,7 @@ export default function EntriesList() {
         <IntroTopicsStyled>
           Klick auf
           <NavLink to="/topics" data-testid="topics-link">
-            <TopicsIconStyled alt="Topics" size="16" />
+            <TopicsIconStyled alt="Link zur Themensammlung" />
           </NavLink>
           um alle Themen, die von dir und anderen eingetragen wurden, zu sehen.
         </IntroTopicsStyled>
@@ -63,10 +67,6 @@ export default function EntriesList() {
   }
 }
 
-EntriesList.propTypes = {
-  setEntry: PropTypes.func,
-}
-
 const IntroTopicsStyled = styled.p`
   font-style: italic;
   font-size: 14px;
@@ -77,6 +77,7 @@ const HighlightedText = styled.span`
 const TopicsIconStyled = styled(AiOutlineUnorderedList)`
   fill: var(--secondary);
   margin: 0 8px -4px 8px;
+  height: 16px;
 `
 const SmallPrint = styled.p`
   font-size: 14px;

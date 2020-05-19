@@ -6,47 +6,6 @@ import styled from 'styled-components/macro'
 import Bookmark from '../ui/Bookmark'
 import Divider from '../ui/Divider'
 
-export default function TopicsList({ entry, toggleBookmark, bookmarked }) {
-  const { on, toggle } = useToggle(false)
-
-  return (
-    <>
-      <ListStyled>
-        <label key={entry.id}>
-          <Divider />
-          <ListItemStyled>
-            {on || (
-              <TopicStyled data-cy="topic">
-                {entry.topic}
-                <Bookmark
-                  className="icon"
-                  onClick={() => toggleBookmark(entry)}
-                  bookmarked={bookmarked}
-                />
-                <ArrowDownStyled className="icon arrow-icon" onClick={toggle} />
-              </TopicStyled>
-            )}
-            {on && (
-              <>
-                <TopicStyled data-cy="topic">
-                  {entry.topic}
-                  <Bookmark
-                    className="icon "
-                    onClick={() => toggleBookmark(entry)}
-                    bookmarked={bookmarked}
-                  />
-                  <ArrowUpStyled className="icon arrow-icon" onClick={toggle} />
-                </TopicStyled>
-                <p data-cy="description">{entry.description}</p>
-              </>
-            )}
-          </ListItemStyled>
-        </label>
-      </ListStyled>
-    </>
-  )
-}
-
 TopicsList.propTypes = {
   topic: PropTypes.string,
   description: PropTypes.string,
@@ -55,15 +14,57 @@ TopicsList.propTypes = {
   toggleBookmark: PropTypes.func,
 }
 
+export default function TopicsList({ entry, toggleBookmark, bookmarked }) {
+  const { on, toggle } = useToggle(false)
+
+  return (
+    <>
+      <ListStyled>
+        <label key={entry.id}>
+          <Divider />
+          <li>
+            {on || (
+              <TopicStyled data-cy="topic">
+                {entry.topic}
+                <Bookmark
+                  onClick={() => toggleBookmark(entry)}
+                  bookmarked={bookmarked}
+                />
+                <BsArrowBarDown onClick={toggle} />
+              </TopicStyled>
+            )}
+            {on && (
+              <>
+                <TopicStyled data-cy="topic">
+                  {entry.topic}
+                  <Bookmark
+                    onClick={() => toggleBookmark(entry)}
+                    bookmarked={bookmarked}
+                  />
+                  <BsArrowBarUp onClick={toggle} />
+                </TopicStyled>
+                <p data-cy="description">{entry.description}</p>
+              </>
+            )}
+          </li>
+        </label>
+      </ListStyled>
+    </>
+  )
+}
+
 const ListStyled = styled.ul`
   list-style: none;
 
-  .icon {
+  svg {
     box-sizing: content-box;
     padding: 4px;
-  }
-  .arrow-icon {
+    text-align: right;
     color: var(--secondary);
+  }
+
+  li {
+    margin: 0;
   }
 `
 const TopicStyled = styled.h2`
@@ -75,13 +76,4 @@ const TopicStyled = styled.h2`
   ::first-letter {
     text-transform: uppercase;
   }
-`
-const ArrowDownStyled = styled(BsArrowBarDown)`
-  text-align: right;
-`
-const ArrowUpStyled = styled(BsArrowBarUp)`
-  text-align: right;
-`
-const ListItemStyled = styled.li`
-  margin: 0;
 `

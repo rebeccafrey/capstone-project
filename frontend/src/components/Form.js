@@ -1,16 +1,26 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import Button from '../ui/Button/Button'
+import Button from '../ui/Button'
 import Checkbox from '../ui/Checkbox/Checkbox'
 import { db } from '../Firebase'
+
+AddTopic.propTypes = {
+  entry: PropTypes.object,
+  topic: PropTypes.string,
+  description: PropTypes.string,
+  updateTopicEntry: PropTypes.func,
+  addNewEntry: PropTypes.func,
+  handleAgreement: PropTypes.func,
+  checked: PropTypes.bool,
+  bookmarked: PropTypes.bool,
+}
 
 export default function AddTopic() {
   const [addedTopic, setAddedTopic] = useState('')
   const [entry, setEntry] = useState({
     topic: '',
     description: '',
-    //bookmarked: true,
   })
   const { topic, description } = entry
   const [agreement, setAgreement] = useState({ checked: false })
@@ -21,11 +31,12 @@ export default function AddTopic() {
 
   return (
     <>
-      <FormStyled onSubmit={addNewEntry} data-cy="submit-entry">
+      <form onSubmit={addNewEntry} data-cy="submit-entry">
         <label htmlFor="topic">
           Vergib eine Überschrift:<RequiredStyled>*</RequiredStyled>
         </label>
         <TitleInputStyled
+          className="input__style"
           id="topic"
           name="topic"
           type="text"
@@ -38,6 +49,7 @@ export default function AddTopic() {
           Beschreibe kurz das Thema:<RequiredStyled>*</RequiredStyled>
         </label>
         <ContentInputStyled
+          className="input__style"
           id="description"
           name="description"
           type="textarea"
@@ -62,7 +74,7 @@ export default function AddTopic() {
           Hinzufügen!
         </Button>
         {addedTopic}
-      </FormStyled>
+      </form>
     </>
   )
   function updateTopicEntry(e) {
@@ -101,54 +113,17 @@ export default function AddTopic() {
   }
 }
 
-AddTopic.propTypes = {
-  entry: PropTypes.object,
-  topic: PropTypes.string,
-  description: PropTypes.string,
-  updateTopicEntry: PropTypes.func,
-  addNewEntry: PropTypes.func,
-  handleAgreement: PropTypes.func,
-  checked: PropTypes.bool,
-}
-
 const SubmitTextStyled = styled.p`
   margin-bottom: 24px;
   font-weight: 500;
 `
 const TitleInputStyled = styled.input`
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--primary-dark);
-  width: 95%;
-  height: 48px;
-  border-radius: 8px;
-  border: solid 1px var(--secondary-40);
   margin: 2px auto 20px auto;
-  line-hight: 1.5em;
-  padding: 12px;
-
-  ::placeholder {
-    color: var(--primary-light);
-  }
 `
 const ContentInputStyled = styled.textarea`
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--primary-dark);
-  width: 95%;
   height: 180px;
-  border-radius: 8px;
-  border: solid 1px var(--secondary-40);
   overflow-y: scroll;
   margin: 2px auto 0 auto;
-  padding: 12px;
-
-  ::placeholder {
-    color: var(--primary-light);
-  }
-`
-const FormStyled = styled.form`
-  height: 100%;
 `
 const SmallPrint = styled.p`
   font-size: 14px;

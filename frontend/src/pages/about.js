@@ -59,6 +59,7 @@ export default function About() {
           unsere Challenges liegen. Wie wir die Gesellschaft sehen. Und vor
           allem: wie wir uns ergänzen können.
         </p>
+        <NameStyled>- Becca</NameStyled>
         <Divider />
         <AnchorStyled id="sources" />
         <h2>Neugierig geworden?</h2>
@@ -147,4 +148,8 @@ const LinkStyled = styled.p`
 `
 const AnchorStyled = styled.div`
   margin: -100px;
+`
+const NameStyled = styled.p`
+  text-align: right;
+  font-style: italic;
 `
