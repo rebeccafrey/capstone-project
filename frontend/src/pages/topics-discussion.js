@@ -46,41 +46,37 @@ export default function TopicsForDiscussion() {
         </p>
         <FilterTopics setSearchResult={setSearchResult} />
         <ToggleTopics />
-        {entries.length === 0 ? (
+
+        {(entries.filter((entry) => entry.bookmarked === true).length === 0 && (
           <p>
             Zur Zeit sind keine offenen Themen vorhanden. Hast du noch etwas auf
             dem Herzen? Dann nutze das Formular um es mit anderen zu teilen!
             Dein neuer Beitrag erscheint dann direkt auf dieser Seite.
           </p>
-        ) : (
-          <>
-            {entries
-              .slice()
-              .sort((entryA, entryB) =>
-                entryA.topic.localeCompare(entryB.topic)
-              )
-              .filter((entry) => entry.bookmarked === true)
-              .filter(
-                (entry) =>
-                  entry.topic
-                    .toLowerCase()
-                    .includes(searchResult.toLowerCase()) ||
-                  entry.description
-                    .toLowerCase()
-                    .includes(searchResult.toLowerCase())
-              )
-              .map((entry, index) => (
-                <TopicsList
-                  entry={entry}
-                  entries={entries}
-                  key={entry.id}
-                  bookmarked={entry.bookmarked}
-                  toggleBookmark={toggleBookmark}
-                  index={index}
-                />
-              ))}
-          </>
-        )}
+        )) ||
+          entries
+            .slice()
+            .sort((entryA, entryB) => entryA.topic.localeCompare(entryB.topic))
+            .filter((entry) => entry.bookmarked === true)
+            .filter(
+              (entry) =>
+                entry.topic
+                  .toLowerCase()
+                  .includes(searchResult.toLowerCase()) ||
+                entry.description
+                  .toLowerCase()
+                  .includes(searchResult.toLowerCase())
+            )
+            .map((entry, index) => (
+              <TopicsList
+                entry={entry}
+                entries={entries}
+                key={entry.id}
+                bookmarked={entry.bookmarked}
+                toggleBookmark={toggleBookmark}
+                index={index}
+              />
+            ))}
       </main>
     </>
   )
@@ -88,7 +84,6 @@ export default function TopicsForDiscussion() {
     db.collection('discussion-topics')
       .doc(entry.id)
       .update({ bookmarked: !entry.bookmarked })
-      .then(() => console.log('Bookmark state updated!'))
       .catch((error) =>
         alert(
           'Oh, da ist etwas schief gegangen. Versuch es später noch einmal.',
