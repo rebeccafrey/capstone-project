@@ -34,11 +34,28 @@ header {
     height: 48px;
 }
 
+.header.shadow {
+    box-shadow: 0 9px 9px -9px rgba(67, 86, 100, 0.12);
+  }
+  
+.header.hidden {
+    transform: translateY(-110%);
+  }
+
+.footer.shadow {
+    box-shadow: 0 -9px -9px 9px rgba(67, 86, 100, 0.12);
+  }
+
+.footer.hidden {
+    transform: translateY(110%);
+  }
+
 main {
     overflow: scroll;
     line-height: 1.5;
     display: grid;
-    padding: 72px 24px;
+    padding: 72px 24px 24px;
+    height: 100%;
 
     .input__style {
         font-size: 16px;
