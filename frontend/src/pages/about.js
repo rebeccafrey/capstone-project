@@ -11,7 +11,7 @@ export default function About() {
           oder tiefer einzusteigen...
         </IntroStyled>
         <Divider />
-        <h2 id="why">Warum eigentlich?</h2>
+        <h1 id="why">Warum eigentlich?</h1>
         <LinkStyled>
           Direkt zu: <a href="#sources">Neugierig geworden?</a>
         </LinkStyled>

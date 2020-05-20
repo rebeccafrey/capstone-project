@@ -26,6 +26,7 @@ body {
     font-weight: 300;
     display: grid;
     grid-template-rows: 48px auto 48px;
+    height: 100%;
 }
 
 header {
@@ -97,7 +98,7 @@ li {
     margin: 12px 24px;
 }
   
-h2 {
+h1, h2 {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 24px;

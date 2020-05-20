@@ -32,7 +32,7 @@ export default function EntriesList() {
   return (
     <>
       <main>
-        <h2>Dein Beitrag</h2>
+        <h1>Dein Beitrag</h1>
         <p>
           Ich habe das erklärte Ziel, den Austausch zu fördern - und{' '}
           <HighlightedText>

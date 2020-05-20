@@ -33,9 +33,9 @@ export default function TopicsForDiscussion() {
   return (
     <>
       <main>
-        <h2>
+        <h1>
           Themen-Sammlung <br /> (noch nicht diskutiert)
-        </h2>
+        </h1>
         <p>
           Hier findest du alle Themen, die noch nicht besprochen worden sind.
           Such dir eins aus!
@@ -44,31 +44,43 @@ export default function TopicsForDiscussion() {
           Fertig? Dann nimm es von der Liste, indem du auf <AddIconStyled />
           klickst. Der Eintrag ist noch immer unter "alle Themen" zu finden.
         </p>
-
         <FilterTopics setSearchResult={setSearchResult} />
         <ToggleTopics />
-
-        {entries
-          .slice()
-          .sort((entryA, entryB) => entryA.topic.localeCompare(entryB.topic))
-          .filter((entry) => entry.bookmarked === true)
-          .filter(
-            (entry) =>
-              entry.topic.toLowerCase().includes(searchResult.toLowerCase()) ||
-              entry.description
-                .toLowerCase()
-                .includes(searchResult.toLowerCase())
-          )
-          .map((entry, index) => (
-            <TopicsList
-              entry={entry}
-              entries={entries}
-              key={entry.id}
-              bookmarked={entry.bookmarked}
-              toggleBookmark={toggleBookmark}
-              index={index}
-            />
-          ))}
+        {entries.length === 0 ? (
+          <p>
+            Zur Zeit sind keine offenen Themen vorhanden. Hast du noch etwas auf
+            dem Herzen? Dann nutze das Formular um es mit anderen zu teilen!
+            Dein neuer Beitrag erscheint dann direkt auf dieser Seite.
+          </p>
+        ) : (
+          <>
+            {entries
+              .slice()
+              .sort((entryA, entryB) =>
+                entryA.topic.localeCompare(entryB.topic)
+              )
+              .filter((entry) => entry.bookmarked === true)
+              .filter(
+                (entry) =>
+                  entry.topic
+                    .toLowerCase()
+                    .includes(searchResult.toLowerCase()) ||
+                  entry.description
+                    .toLowerCase()
+                    .includes(searchResult.toLowerCase())
+              )
+              .map((entry, index) => (
+                <TopicsList
+                  entry={entry}
+                  entries={entries}
+                  key={entry.id}
+                  bookmarked={entry.bookmarked}
+                  toggleBookmark={toggleBookmark}
+                  index={index}
+                />
+              ))}
+          </>
+        )}
       </main>
     </>
   )

@@ -36,7 +36,7 @@ export default function Header() {
 const HeaderStyled = styled.header`
   width: 100vw;
   font-family: 'Amatic SC', cursive;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 36px;
   text-align: center;
   background: var(--primary-light-40);

@@ -32,7 +32,7 @@ export default function Topics() {
   return (
     <>
       <main>
-        <h2>Themen-Sammlung</h2>
+        <h1>Themen-Sammlung</h1>
         <p>
           Hier findest du alle Themen, die von dir oder anderen eingetragen
           wurden. Klicke auf die Pfeile, um die Beschreibungen zu lesen oder
