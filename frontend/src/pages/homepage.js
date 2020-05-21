@@ -1,15 +1,16 @@
 import React, { useState, useCallback } from 'react'
 import { useTransition, animated } from 'react-spring'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ReactComponent as EditIcon } from '../icons/EditIcon.svg'
 import { ReactComponent as TopicsIcon } from '../icons/TopicsIcon.svg'
 import { ReactComponent as ResultIcon } from '../icons/ResultIcon.svg'
 import { ReactComponent as StatementIcon } from '../icons/StatementsIcon.svg'
+import { IoIosArrowForward } from 'react-icons/io'
 
 export default function Homepage() {
   const [index, set] = useState(0)
-  const onClick = useCallback(() => set((state) => (state + 1) % 3), [])
+  const onClick = useCallback(() => set((state) => (state + 1) % 4), [])
   const transitions = useTransition(index, (p) => p, {
     from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
     enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
@@ -21,10 +22,14 @@ export default function Homepage() {
       <animated.div style={{ ...style }}>
         <Container>
           <IconDescriptionStyled>
-            Zum ersten Mal hier? Mach den Test, indem du unten auf dieses Icon
+            Zum ersten Mal hier? Mach den Test, indem du auf dieses Icon
             klickst!
           </IconDescriptionStyled>
-          <StatementIcon className="icon" alt="Link zur Selbsteinschätzung" />
+          <Link to="/statements" data-testid="statements-link">
+            <StatementIcon className="icon" alt="Link zur Selbsteinschätzung" />
+          </Link>
+          <ClickTextStyled>Nächstes Icon: Klick!</ClickTextStyled>
+          <IoIosArrowForward className="arrowfwd" />
         </Container>
       </animated.div>
     ),
@@ -32,10 +37,13 @@ export default function Homepage() {
       <animated.div style={{ ...style }}>
         <Container>
           <IconDescriptionStyled>
-            Wiederholungstäter? Bei diesem Icon geht es direkt zu deinem
-            Test-Ergebnis...
+            Wiederholungstäter? Hier geht es direkt zu deinem Test-Ergebnis...
           </IconDescriptionStyled>
-          <ResultIcon className="icon" alt="Link zum Ergebnis" />
+          <Link to="/result" data-testid="result-link">
+            <ResultIcon className="icon" alt="Link zum Ergebnis" />
+          </Link>
+          <ClickTextStyled>Weiter: Klick!</ClickTextStyled>
+          <IoIosArrowForward className="arrowfwd" />
         </Container>
       </animated.div>
     ),
@@ -43,10 +51,13 @@ export default function Homepage() {
       <animated.div style={{ ...style }}>
         <Container>
           <IconDescriptionStyled>
-            Klicke auf dieses Icon unten in der Navigation und teile deine
-            Gedanken...
+            Klicke auf dieses Icon und teile deine Gedanken...
           </IconDescriptionStyled>
-          <EditIcon className="icon" alt="Link zum Eingabeformular" />
+          <Link to="/entries" data-testid="entries-link">
+            <EditIcon className="icon" alt="Link zum Eingabeformular" />
+          </Link>
+          <ClickTextStyled>Weiter: Klick!</ClickTextStyled>
+          <IoIosArrowForward className="arrowfwd" />
         </Container>
       </animated.div>
     ),
@@ -56,7 +67,11 @@ export default function Homepage() {
           <IconDescriptionStyled>
             ...und werde unter diesem Punkt inspiriert!
           </IconDescriptionStyled>
-          <TopicsIcon className="icon" alt="Link zur Themensammlung" />
+          <Link to="/topics" data-testid="topics-link">
+            <TopicsIcon className="icon" alt="Link zur Themensammlung" />
+          </Link>
+          <ClickTextStyled>Klick!</ClickTextStyled>
+          <IoIosArrowForward className="arrowfwd" />
         </Container>
       </animated.div>
     ),
@@ -91,10 +106,11 @@ export default function Homepage() {
 const SimpleTransMain = styled.div`
   cursor: pointer;
   width: 100%;
-  height: 175px;
+  height: 140px;
   font-size: 14px;
   will-change: transform, opacity;
   position: relative;
+  margin-bottom: 24px;
 `
 const Container = styled.div`
   display: flex;
@@ -103,22 +119,37 @@ const Container = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  height: 175px;
+  height: 140px;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
+
   .icon {
     fill: var(--secondary);
-    padding: 32px;
+    padding: 20px;
+    margin: 4px;
     background: var(--primary-light-40);
     box-sizing: content-box;
     width: 48px;
     height: 48px;
   }
+
+  .arrowfwd {
+    fill: var(--primary-light);
+    width: 4em;
+  }
 `
 const IconDescriptionStyled = styled.p`
-  margin: 0 8px;
-  width: 50%;
+  margin: 0;
+  hyphens: auto;
+`
+const ClickTextStyled = styled.span`
+  font-style: italic;
+  font-size: 14px;
+  color: var(--primary-light);
+  text-align: right;
+  line-height: 1;
 `
 const HeadlineStyled = styled.h1`
   font-size: 24px;
@@ -129,12 +160,3 @@ const SubheadlineStyled = styled.h2`
   font-weight: 500;
   margin-bottom: 24px;
 `
-// const LinkStyled = styled(NavLink)`
-//   text-align: center;
-//   cursor: default;
-//   text-decoration: none;
-//   color: var(--primary-dark) !important;
-//   display: grid;
-//   justify-items: center;
-//   margin-bottom: 24px;
-// `
