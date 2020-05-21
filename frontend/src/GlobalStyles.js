@@ -21,7 +21,6 @@ export default createGlobalStyle`
 
 body {
     color: var(--primary-dark);
-    background: var(--primary-light-8);
     font-size: 18px;
     font-weight: 300;
     display: grid;
@@ -54,8 +53,9 @@ main {
     overflow: scroll;
     line-height: 1.5;
     display: grid;
-    padding: 72px 24px 32px;
+    padding: 72px 24px;
     height: 100%;
+    background: var(--primary-light-8);
 
     .input__style {
         font-size: 16px;
