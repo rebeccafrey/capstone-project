@@ -25,7 +25,7 @@ export default function Statements() {
   return (
     <>
       <main>
-        <h2> Selbsteinschätzung</h2>
+        <h1> Selbsteinschätzung</h1>
         <p>
           Klicke einfach auf die Statements, bei denen du denkst, dass sie auf
           dich zutreffen. Du bist dir unsicher? Wähle es aus, wenn es{' '}

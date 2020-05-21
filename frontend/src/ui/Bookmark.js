@@ -1,25 +1,7 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import { RiPlayListAddLine as AddToCollection } from 'react-icons/ri'
+import { RiPlayListAddLine } from 'react-icons/ri'
 import styled from 'styled-components/macro'
 
-Bookmark.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  bookmarked: PropTypes.bool,
-}
-
-export default function Bookmark({ onClick, bookmarked }) {
-  return (
-    <AddToCollectionStyled
-      role="bookmark"
-      onClick={onClick}
-      bookmarked={bookmarked}
-      aria-label={bookmarked ? 'Remove bookmark' : 'Add bookmark'}
-    />
-  )
-}
-
-const AddToCollectionStyled = styled(AddToCollection)`
+export default styled(RiPlayListAddLine)`
   box-sizing: content-box;
   padding: 4px;
   color: ${(props) =>

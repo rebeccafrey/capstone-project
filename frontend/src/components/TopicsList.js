@@ -30,6 +30,8 @@ export default function TopicsList({ entry, toggleBookmark, bookmarked }) {
                   onClick={() => toggleBookmark(entry)}
                   bookmarked={bookmarked}
                   className="icon"
+                  role="bookmark"
+                  aria-label={bookmarked ? 'Remove bookmark' : 'Add bookmark'}
                 />
                 <BsArrowBarDown onClick={toggle} className="icon arrow-icon" />
               </TopicStyled>
@@ -42,6 +44,8 @@ export default function TopicsList({ entry, toggleBookmark, bookmarked }) {
                     onClick={() => toggleBookmark(entry)}
                     bookmarked={bookmarked}
                     className="icon"
+                    role="bookmark"
+                    aria-label={bookmarked ? 'Remove bookmark' : 'Add bookmark'}
                   />
                   <BsArrowBarUp onClick={toggle} className="icon arrow-icon" />
                 </TopicStyled>

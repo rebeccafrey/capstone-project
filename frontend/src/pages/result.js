@@ -12,7 +12,7 @@ export default function Result({ px }) {
   return (
     <>
       <main>
-        <h2>Dein Ergebnis</h2>
+        <h1>Dein Ergebnis</h1>
         <ResultStyled>
           <ScaleStyled />
           <ScaleFilled px={calculateScaleFill(0, px, 300)} />
@@ -137,7 +137,7 @@ const ScaleFilled = styled.div`
   grid-row: 1 / 4;
   border-radius: 8px;
   align-self: end;
-  animation: scalefill 3s;
+  animation: scalefill 2s;
   animation-fill-mode: forwards;
 
   @keyframes scalefill {
@@ -184,17 +184,17 @@ const ResultBubble = styled.div`
   place-self: center;
 `
 const ExplanationStyled = styled.div`
-  animation: 3s slidein;
+  animation: 2s slidein;
   
   @keyframes slidein {
     from {
       margin-top:100%;
-      hight:300%
+      height:300%
     }
     
     to {
       margin-top:0%;
-      hight:100%;
+      height:100%;
     };
 `
 const QuoteStyled = styled.p`

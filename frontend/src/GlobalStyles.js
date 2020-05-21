@@ -21,7 +21,6 @@ export default createGlobalStyle`
 
 body {
     color: var(--primary-dark);
-    background: var(--primary-light-8);
     font-size: 18px;
     font-weight: 300;
     display: grid;
@@ -34,11 +33,29 @@ header {
     height: 48px;
 }
 
+.header.shadow {
+    box-shadow: 0 9px 9px -9px rgba(67, 86, 100, 0.12);
+  }
+  
+.header.hidden {
+    transform: translateY(-110%);
+  }
+
+.footer.shadow {
+    box-shadow: 0 -9px -9px 9px rgba(67, 86, 100, 0.12);
+  }
+
+.footer.hidden {
+    transform: translateY(110%);
+  }
+
 main {
     overflow: scroll;
     line-height: 1.5;
     display: grid;
     padding: 72px 24px;
+    height: 100%;
+    background: var(--primary-light-8);
 
     .input__style {
         font-size: 16px;
@@ -63,7 +80,7 @@ footer {
 }
 
 input {
-    line-hight: 1.5em;
+    line-height: 1.5em;
     height: 48px;
 }
 
@@ -80,7 +97,7 @@ li {
     margin: 12px 24px;
 }
   
-h2 {
+h1, h2 {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 24px;
