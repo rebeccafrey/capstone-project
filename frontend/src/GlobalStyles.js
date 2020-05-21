@@ -26,7 +26,6 @@ body {
     font-weight: 300;
     display: grid;
     grid-template-rows: 48px auto 48px;
-    height: 100%;
 }
 
 header {
@@ -55,7 +54,7 @@ main {
     overflow: scroll;
     line-height: 1.5;
     display: grid;
-    padding: 72px 24px 24px;
+    padding: 72px 24px 32px;
     height: 100%;
 
     .input__style {
@@ -81,7 +80,7 @@ footer {
 }
 
 input {
-    line-hight: 1.5em;
+    line-height: 1.5em;
     height: 48px;
 }
 
