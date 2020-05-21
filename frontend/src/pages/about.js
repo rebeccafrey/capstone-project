@@ -8,14 +8,14 @@ export default function About() {
       <main>
         <IntroStyled>
           Hier findest du alle Informationen, die du brauchst, um zu starten -
-          oder tiefer einzusteigen...
+          oder tiefer einzusteigen ...
         </IntroStyled>
         <Divider />
         <h1 id="why">Warum eigentlich?</h1>
         <LinkStyled>
           Direkt zu: <a href="#sources">Neugierig geworden?</a>
         </LinkStyled>
-        <h3>Die Gesellschaft...</h3>
+        <h3>Die Gesellschaft ...</h3>
         <p>
           Hast du dich auch schon mal gefragt, ob du anders bist als andere?
           Dich über das Verhalten von deinem Gegenüber gewundert? Dich ein wenig
@@ -24,7 +24,7 @@ export default function About() {
           Bewertungen in der Schule nicht verstanden, oder die schriftlichen
           Prüfungen als große Challenge wahrgenommen?
         </p>
-        <h3>Meine Situation...</h3>
+        <h3>Meine Situation ...</h3>
         <p>
           Ich selbst gehöre zu den stillen Menschen: Ich bin gern für mich.
           Schreibe lieber, als dass ich rede. Liebe es, mich mit nur einer
@@ -35,7 +35,7 @@ export default function About() {
           Das bedeutete mangelnde mündliche Beteiligung in der Schule. Immer
           wieder gesagt zu bekommen "da musst du mehr aus dir rausgehen." Und
           auch wenig hilfreiches 'Verständnis zeigen' ("mir fällt das auch
-          schwer, aber ich habe das gelernt...").
+          schwer, aber ich habe das gelernt ...").
         </p>
         <h3>Mein Aha-Moment...</h3>
         <p>
@@ -50,7 +50,7 @@ export default function About() {
           beinhaltet, die sehr extravertierte Menschen nicht haben. (Andersrum
           gilt dies natürlich genauso.)
         </p>
-        <h3>Meine Mission...</h3>
+        <h3>Meine Mission ...</h3>
         <p>
           Ich bin der Meinung, dass ich das viel zu spät rausgefunden habe.
           Deswegen möchte ich anderen hier die Möglichkeit geben, mehr über sich

@@ -37,7 +37,7 @@ export default function Homepage() {
       <animated.div style={{ ...style }}>
         <Container>
           <IconDescriptionStyled>
-            Wiederholungstäter? Hier geht es direkt zu deinem Test-Ergebnis...
+            Wiederholungstäter? Hier geht es direkt zu deinem Test-Ergebnis ...
           </IconDescriptionStyled>
           <Link to="/result" data-testid="result-link">
             <ResultIcon className="icon" alt="Link zum Ergebnis" />
@@ -51,7 +51,7 @@ export default function Homepage() {
       <animated.div style={{ ...style }}>
         <Container>
           <IconDescriptionStyled>
-            Klicke auf dieses Icon und teile deine Gedanken...
+            Klicke auf dieses Icon und teile deine Gedanken ...
           </IconDescriptionStyled>
           <Link to="/entries" data-testid="entries-link">
             <EditIcon className="icon" alt="Link zum Eingabeformular" />
@@ -65,7 +65,7 @@ export default function Homepage() {
       <animated.div style={{ ...style }}>
         <Container>
           <IconDescriptionStyled>
-            ...und werde unter diesem Punkt inspiriert!
+            ... und werde unter diesem Punkt inspiriert!
           </IconDescriptionStyled>
           <Link to="/topics" data-testid="topics-link">
             <TopicsIcon className="icon" alt="Link zur Themensammlung" />
