@@ -12,7 +12,7 @@ export default function Navbar() {
   const [shouldHideFooter, setShouldHideFooter] = useState(false)
   const [shouldShowShadow, setShouldShowShadow] = useState(false)
 
-  const minimum_scroll = 100
+  const minimum_scroll = 150
   const timeout_delay = 400
 
   useDocumentScrollThrottled((callbackData) => {

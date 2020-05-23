@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from 'react'
-import { useTransition, animated } from 'react-spring'
+import React from 'react'
+import { animated, useSpring } from 'react-spring'
+import { useScroll } from 'react-use-gesture'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ReactComponent as EditIcon } from '../icons/EditIcon.svg'
@@ -9,73 +10,25 @@ import { ReactComponent as StatementIcon } from '../icons/StatementsIcon.svg'
 import { IoIosArrowForward } from 'react-icons/io'
 
 export default function Homepage() {
-  const [index, set] = useState(0)
-  const onClick = useCallback(() => set((state) => (state + 1) % 4), [])
-  const transitions = useTransition(index, (p) => p, {
-    from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
-    enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-    leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
-  })
+  const clamp = (value, clampAt = 30) => {
+    if (value > 0) {
+      return value > clampAt ? clampAt : value
+    } else {
+      return value < -clampAt ? -clampAt : value
+    }
+  }
 
-  const iconLinks = [
-    ({ style }) => (
-      <animated.div style={{ ...style }}>
-        <Container>
-          <IconDescriptionStyled>
-            Zum ersten Mal hier? Mach den Test, indem du auf dieses Icon
-            klickst!
-          </IconDescriptionStyled>
-          <Link to="/test-statements" data-testid="statements-link">
-            <StatementIcon className="icon" alt="Link zur Selbsteinschätzung" />
-          </Link>
-          <ClickTextStyled>Nächstes Icon: Klick!</ClickTextStyled>
-          <IoIosArrowForward className="arrowfwd" />
-        </Container>
-      </animated.div>
-    ),
-    ({ style }) => (
-      <animated.div style={{ ...style }}>
-        <Container>
-          <IconDescriptionStyled>
-            Wiederholungstäter? Hier geht es direkt zu deinem Test-Ergebnis ...
-          </IconDescriptionStyled>
-          <Link to="/test-result" data-testid="result-link">
-            <ResultIcon className="icon" alt="Link zum Ergebnis" />
-          </Link>
-          <ClickTextStyled>Weiter: Klick!</ClickTextStyled>
-          <IoIosArrowForward className="arrowfwd" />
-        </Container>
-      </animated.div>
-    ),
-    ({ style }) => (
-      <animated.div style={{ ...style }}>
-        <Container>
-          <IconDescriptionStyled>
-            Klicke auf dieses Icon und teile deine Gedanken ...
-          </IconDescriptionStyled>
-          <Link to="/add-topics" data-testid="entries-link">
-            <EditIcon className="icon" alt="Link zum Eingabeformular" />
-          </Link>
-          <ClickTextStyled>Weiter: Klick!</ClickTextStyled>
-          <IoIosArrowForward className="arrowfwd" />
-        </Container>
-      </animated.div>
-    ),
-    ({ style }) => (
-      <animated.div style={{ ...style }}>
-        <Container>
-          <IconDescriptionStyled>
-            ... und werde unter diesem Punkt inspiriert!
-          </IconDescriptionStyled>
-          <Link to="/topics-all" data-testid="topics-link">
-            <TopicsIcon className="icon" alt="Link zur Themensammlung" />
-          </Link>
-          <ClickTextStyled>Klick!</ClickTextStyled>
-          <IoIosArrowForward className="arrowfwd" />
-        </Container>
-      </animated.div>
-    ),
-  ]
+  const [style, set] = useSpring(() => ({
+    transform: 'perspective(900px) rotateY(0deg)',
+  }))
+
+  const bind = useScroll((event) => {
+    set({
+      transform: `perspective(900px) rotateY(${
+        event.scrolling ? clamp(event.delta[0]) : 0
+      }deg)`,
+    })
+  })
 
   return (
     <>
@@ -88,12 +41,76 @@ export default function Homepage() {
           aufblühen, ist die Intro- bzw. Extravertiertheit. Finde hier mehr
           darüber heraus!
         </p>
-        <SimpleTransMain onClick={onClick}>
-          {transitions.map(({ item, props, key }) => {
-            const IconLinks = iconLinks[item]
-            return <IconLinks key={key} style={props} />
-          })}
-        </SimpleTransMain>
+        <Container {...bind()}>
+          <AnimatedContainer
+            style={{
+              ...style,
+            }}
+          >
+            <ContainerIcon>
+              <IconDescriptionStyled>
+                Zum ersten Mal hier? Mach den Test, indem du auf dieses Icon
+                klickst!
+              </IconDescriptionStyled>
+              <Link to="/test-statements" data-testid="statements-link">
+                <StatementIcon
+                  className="icon"
+                  alt="Link zur Selbsteinschätzung"
+                />
+              </Link>
+              <IoIosArrowForward className="arrowfwd" />
+            </ContainerIcon>
+          </AnimatedContainer>
+
+          <AnimatedContainer
+            style={{
+              ...style,
+            }}
+          >
+            <ContainerIcon>
+              <IconDescriptionStyled>
+                Wiederholungstäter? Hier geht es direkt zu deinem Test-Ergebnis
+                ...
+              </IconDescriptionStyled>
+              <Link to="/test-result" data-testid="result-link">
+                <ResultIcon className="icon" alt="Link zum Ergebnis" />
+              </Link>
+              <IoIosArrowForward className="arrowfwd" />
+            </ContainerIcon>
+          </AnimatedContainer>
+
+          <AnimatedContainer
+            style={{
+              ...style,
+            }}
+          >
+            <ContainerIcon>
+              <IconDescriptionStyled>
+                Klicke auf dieses Icon und teile deine Gedanken ...
+              </IconDescriptionStyled>
+              <Link to="/add-topics" data-testid="entries-link">
+                <EditIcon className="icon" alt="Link zum Eingabeformular" />
+              </Link>
+              <IoIosArrowForward className="arrowfwd" />
+            </ContainerIcon>
+          </AnimatedContainer>
+
+          <AnimatedContainer
+            style={{
+              ...style,
+            }}
+          >
+            <ContainerIcon>
+              <IconDescriptionStyled>
+                ... und werde unter diesem Punkt inspiriert!
+              </IconDescriptionStyled>
+              <Link to="/topics-all" data-testid="topics-link">
+                <TopicsIcon className="icon" alt="Link zur Themensammlung" />
+              </Link>
+              <IoIosArrowForward className="arrowfwd" />
+            </ContainerIcon>
+          </AnimatedContainer>
+        </Container>
         <p>
           Du willst mehr Informationen zum Hintergrund oder weitere Quellen
           kennenlernen? Schau <a href="/about">hier!</a>
@@ -103,16 +120,25 @@ export default function Homepage() {
   )
 }
 
-const SimpleTransMain = styled.div`
-  cursor: pointer;
-  width: 100%;
-  height: 140px;
-  font-size: 14px;
-  will-change: transform, opacity;
-  position: relative;
-  margin-bottom: 24px;
+const AnimatedContainer = styled(animated.div)`
+  flex-shrink: 0;
+  width: 280px;
+  margin-left: 10px;
+  border: 1px solid var(--primary-light-40);
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: -4px 5px 8px 0 rgba(67, 86, 100, 0.12),
+    -1px 2px 4px 0 rgba(67, 86, 100, 0.1);
 `
 const Container = styled.div`
+  display: flex;
+  overflow-x: scroll;
+  width: 100%;
+  padding: 8px 0;
+  margin-bottom: 24px;
+  font-size: 14px;
+`
+const ContainerIcon = styled.div`
   display: flex;
   justify-content: center;
   justify-items: center;
@@ -121,15 +147,12 @@ const Container = styled.div`
   margin-right: auto;
   height: 140px;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
 
   .icon {
     fill: var(--secondary);
     padding: 20px;
     margin: 4px;
-    background: var(--primary-light-40);
+    background: var(--primary-light);
     box-sizing: content-box;
     width: 48px;
     height: 48px;
@@ -137,19 +160,12 @@ const Container = styled.div`
 
   .arrowfwd {
     fill: var(--primary-light);
-    width: 4em;
+    width: 80px;
   }
 `
 const IconDescriptionStyled = styled.p`
   margin: 0;
   hyphens: auto;
-`
-const ClickTextStyled = styled.span`
-  font-style: italic;
-  font-size: 14px;
-  color: var(--primary-light);
-  text-align: right;
-  line-height: 1;
 `
 const HeadlineStyled = styled.h1`
   font-size: 24px;
