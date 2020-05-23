@@ -7,11 +7,9 @@ import Bookmark from '../ui/Bookmark'
 import Divider from '../ui/Divider'
 
 ToggleTopicsAll.propTypes = {
-  topic: PropTypes.string,
-  description: PropTypes.string,
-  id: PropTypes.string,
-  on: PropTypes.bool,
-  toggleBookmark: PropTypes.func,
+  bookmarked: PropTypes.bool.isRequired,
+  toggleBookmark: PropTypes.func.isRequired,
+  entry: PropTypes.object.isRequired,
 }
 
 export default function ToggleTopicsAll({ entry, toggleBookmark, bookmarked }) {

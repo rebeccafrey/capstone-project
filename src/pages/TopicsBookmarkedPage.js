@@ -1,45 +1,24 @@
-import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { BsArrowLeftRight as SwipeIcon } from 'react-icons/bs'
 import { RiPlayListAddLine as AddToCollection } from 'react-icons/ri'
 import { animated, useSpring } from 'react-spring'
 import { useScroll } from 'react-use-gesture'
 import styled from 'styled-components/macro'
 import ToggleTopicsListNav from '../components/ToggleTopicsListNav/ToggleTopicsListNav'
-import { db } from '../Firebase'
+import toggleBookmark from '../services/ToggleBookmark'
+import useTopicsService from '../services/useTopicsService'
 import Bookmark from '../ui/Bookmark'
 import FilterTopics from '../ui/FilterTopics'
 
-TopicsForDiscussion.propTypes = {
-  entries: PropTypes.array,
-}
-
-const clamp = (value, clampAt = 30) => {
-  if (value > 0) {
-    return value > clampAt ? clampAt : value
-  } else {
-    return value < -clampAt ? -clampAt : value
-  }
-}
-
 export default function TopicsForDiscussion({ bookmarked }) {
-  const [searchResult, setSearchResult] = useState('')
-  const [entries, setEntries] = useState([])
-
-  useEffect(() => {
-    const discussionTopics = db
-      .collection('discussion-topics')
-      .onSnapshot((snapshot) => {
-        const allTopics = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        setEntries(allTopics)
-      })
-    return () => {
-      discussionTopics()
+  const { entries, setSearchResult } = useTopicsService()
+  const clamp = (value, clampAt = 30) => {
+    if (value > 0) {
+      return value > clampAt ? clampAt : value
+    } else {
+      return value < -clampAt ? -clampAt : value
     }
-  }, [])
+  }
 
   const [style, set] = useSpring(() => ({
     transform: 'perspective(900px) rotateY(0deg)',
@@ -69,7 +48,7 @@ export default function TopicsForDiscussion({ bookmarked }) {
         </p>
         <FilterTopics setSearchResult={setSearchResult} />
         <ToggleTopicsListNav />
-        {(entries.filter((entry) => entry.bookmarked === true).length === 0 && (
+        {(entries.filter((entry) => entry.bookmarked).length === 0 && (
           <p>
             Zur Zeit sind keine offenen Themen vorhanden. Hast du noch etwas auf
             dem Herzen? Dann nutze das Formular um es mit anderen zu teilen!
@@ -82,20 +61,7 @@ export default function TopicsForDiscussion({ bookmarked }) {
             </SwipeTextStyled>
             <Container {...bind()}>
               {entries
-                .slice()
-                .sort((entryA, entryB) =>
-                  entryA.topic.localeCompare(entryB.topic)
-                )
-                .filter((entry) => entry.bookmarked === true)
-                .filter(
-                  (entry) =>
-                    entry.topic
-                      .toLowerCase()
-                      .includes(searchResult.toLowerCase()) ||
-                    entry.description
-                      .toLowerCase()
-                      .includes(searchResult.toLowerCase())
-                )
+                .filter((entry) => entry.bookmarked)
                 .map((entry, src) => (
                   <AnimatedContainer
                     key={src}
@@ -124,17 +90,6 @@ export default function TopicsForDiscussion({ bookmarked }) {
       </main>
     </>
   )
-  function toggleBookmark(entry) {
-    db.collection('discussion-topics')
-      .doc(entry.id)
-      .update({ bookmarked: !entry.bookmarked })
-      .catch((error) =>
-        alert(
-          'Oh, da ist etwas schief gegangen. Versuch es später noch einmal.',
-          error
-        )
-      )
-  }
 }
 
 const AddIconStyled = styled(AddToCollection)`

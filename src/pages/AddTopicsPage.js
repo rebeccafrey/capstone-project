@@ -1,15 +1,10 @@
-import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import { AiOutlineUnorderedList } from 'react-icons/ai'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import AddTopicsForm from '../components/AddTopicsForm'
 import { db } from '../Firebase'
 import Divider from '../ui/Divider'
-import { AiOutlineUnorderedList } from 'react-icons/ai'
-import { NavLink } from 'react-router-dom'
-
-AddTopicsPage.propTypes = {
-  setEntry: PropTypes.func,
-}
 
 export default function AddTopicsPage() {
   const [entry, setEntry] = useState([])
@@ -51,7 +46,7 @@ export default function AddTopicsPage() {
         <Divider />
         <IntroTopicsStyled>
           Klick auf
-          <NavLink to="/topics" data-testid="topics-link">
+          <NavLink to="/topics-all" data-testid="topics-link">
             <TopicsIconStyled alt="Link zur Themensammlung" />
           </NavLink>
           um alle Themen, die von dir und anderen eingetragen wurden, zu sehen.

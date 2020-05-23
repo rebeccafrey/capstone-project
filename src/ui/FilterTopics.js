@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components/macro'
 import { AiOutlineSearch } from 'react-icons/ai'
+import styled from 'styled-components/macro'
 
 FilterTopics.propTypes = {
   setSearchResult: PropTypes.func.isRequired,
-  filterTopics: PropTypes.func,
 }
 
 export default function FilterTopics({ setSearchResult }) {

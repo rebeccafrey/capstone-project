@@ -1,13 +1,13 @@
 import React from 'react'
+import { IoIosArrowForward } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 import { animated, useSpring } from 'react-spring'
 import { useScroll } from 'react-use-gesture'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ReactComponent as EditIcon } from '../icons/EditIcon.svg'
-import { ReactComponent as TopicsIcon } from '../icons/TopicsIcon.svg'
 import { ReactComponent as ResultIcon } from '../icons/ResultIcon.svg'
 import { ReactComponent as StatementIcon } from '../icons/StatementsIcon.svg'
-import { IoIosArrowForward } from 'react-icons/io'
+import { ReactComponent as TopicsIcon } from '../icons/TopicsIcon.svg'
 
 export default function Homepage() {
   const clamp = (value, clampAt = 30) => {

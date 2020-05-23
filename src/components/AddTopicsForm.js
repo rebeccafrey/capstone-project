@@ -1,26 +1,15 @@
-import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+import { db } from '../Firebase'
 import Button from '../ui/Button'
 import Checkbox from '../ui/Checkbox/Checkbox'
-import { db } from '../Firebase'
-
-AddTopicsForm.propTypes = {
-  entry: PropTypes.object,
-  topic: PropTypes.string,
-  description: PropTypes.string,
-  updateTopicEntry: PropTypes.func,
-  addNewEntry: PropTypes.func,
-  handleAgreement: PropTypes.func,
-  checked: PropTypes.bool,
-  bookmarked: PropTypes.bool,
-}
 
 export default function AddTopicsForm() {
   const [addedTopic, setAddedTopic] = useState('')
   const [entry, setEntry] = useState({
     topic: '',
     description: '',
+    bookmarked: true,
   })
   const { topic, description } = entry
   const [agreement, setAgreement] = useState({ checked: false })
@@ -85,7 +74,6 @@ export default function AddTopicsForm() {
     e.preventDefault()
     db.collection('discussion-topics')
       .add(entry)
-      .then(() => console.log('topic was added'))
       .catch((error) =>
         alert(
           'Oh, da ist etwas schief gegangen. Versuch es später noch einmal.',

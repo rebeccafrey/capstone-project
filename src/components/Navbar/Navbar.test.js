@@ -2,10 +2,10 @@ import { render } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import React from 'react'
 import { Router } from 'react-router-dom'
-import Homepage from '../../pages/homepage'
-import Resultpage from '../../pages/result'
-import Entriespage from '../../pages/entries'
-import Topicpage from '../../pages/topics'
+import Homepage from '../../pages/Homepage'
+import Resultpage from '../../pages/TestResultsPage'
+import Entriespage from '../../pages/AddTopicsPage'
+import Topicpage from '../../pages/TopicsAllPage'
 import Navbar from './Navbar'
 import userEvent from '@testing-library/user-event'
 
@@ -32,9 +32,9 @@ test('that I can navigate to homepage using navbar', () => {
   userEvent.click(resultbutton)
   expect(getByText(/dein Ergebnis/i)).toBeInTheDocument()
   userEvent.click(entriesbutton)
-  expect(getByText(/anderer verwundert/i)).toBeInTheDocument()
+  expect(getByText(/essentieller teil/i)).toBeInTheDocument()
   userEvent.click(topicsbutton)
-  expect(getByText(/volltextsuche/i)).toBeInTheDocument()
+  expect(getByText(/klicke auf die pfeile/i)).toBeInTheDocument()
   userEvent.click(homebutton)
   expect(getByText(/willkommen/i)).toBeInTheDocument()
 })

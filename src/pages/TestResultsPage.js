@@ -1,12 +1,7 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import { countTotalCheckedBoxes } from './TestStatementsPage'
 import Divider from '../ui/Divider'
-
-TestResultPage.propTypes = {
-  showTextDependingOnResult: PropTypes.func,
-}
+import { countTotalCheckedBoxes } from './TestStatementsPage'
 
 export default function TestResultPage({ px }) {
   return (
@@ -183,20 +178,6 @@ const ResultBubble = styled.div`
   grid-row: 2/2;
   place-self: center;
 `
-const ExplanationStyled = styled.div`
-  animation: 2s slidein;
-  
-  @keyframes slidein {
-    from {
-      margin-top:100%;
-      height:300%
-    }
-    
-    to {
-      margin-top:0%;
-      height:100%;
-    };
-`
 const QuoteStyled = styled.p`
   text-align: right;
   font-style: italic;
@@ -206,4 +187,17 @@ const QuoteStyled = styled.p`
 const SmallPrint = styled.p`
   font-size: 14px;
   font-style: italic;
+`
+const ExplanationStyled = styled.div`
+  animation: 3s appear;
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 `
