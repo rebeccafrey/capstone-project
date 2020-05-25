@@ -65,9 +65,18 @@ main {
         border-radius: 8px;
         border: solid 1px var(--secondary-40);
         padding: 12px;
+
+        :focus {
+            border: solid 2px var(--primary-light);
+            outline: none;
+        }
+
+        :required:invalid {
+             box-shadow: none;
+        }
     
         ::placeholder {
-          color: var(--primary-light);
+            color: var(--primary-light);
         }
       }
 }
@@ -99,7 +108,7 @@ li {
   
 h1, h2 {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 24px;
 }
 

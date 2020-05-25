@@ -15,14 +15,11 @@ export default function FilterTopics({ setSearchResult }) {
         id="topic-filter"
         type="search"
         placeholder="Suche nach Themen..."
-        onChange={(e) => filterTopics(e)}
+        onChange={(e) => setSearchResult(e.target.value)}
       />
       <SearchIconStyled size="32px" color="var(--primary-light)" />
     </SearchSection>
   )
-  function filterTopics(e) {
-    setSearchResult(e.target.value)
-  }
 }
 
 const SearchSection = styled.section`

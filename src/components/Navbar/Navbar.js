@@ -6,13 +6,13 @@ import { ReactComponent as HomeIcon } from '../../icons/HomeIcon.svg'
 import { ReactComponent as TopicsIcon } from '../../icons/TopicsIcon.svg'
 import { ReactComponent as ResultIcon } from '../../icons/ResultIcon.svg'
 import { ReactComponent as StatementIcon } from '../../icons/StatementsIcon.svg'
-import useDocumentScrollThrottled from '../../useDocumentScrollThrottled'
+import useDocumentScrollThrottled from '../../services/useDocumentScrollThrottled'
 
 export default function Navbar() {
   const [shouldHideFooter, setShouldHideFooter] = useState(false)
   const [shouldShowShadow, setShouldShowShadow] = useState(false)
 
-  const minimum_scroll = 150
+  const minimum_scroll = 50
   const timeout_delay = 400
 
   useDocumentScrollThrottled((callbackData) => {

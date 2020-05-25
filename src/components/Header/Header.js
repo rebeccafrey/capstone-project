@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import useDocumentScrollThrottled from '../../useDocumentScrollThrottled'
+import useDocumentScrollThrottled from '../../services/useDocumentScrollThrottled'
 
 export default function Header() {
   const [shouldHideHeader, setShouldHideHeader] = useState(false)
   const [shouldShowShadow, setShouldShowShadow] = useState(false)
 
-  const minimum_scroll = 150
+  const minimum_scroll = 50
   const timeout_delay = 400
 
   useDocumentScrollThrottled((callbackData) => {
@@ -33,6 +33,7 @@ export default function Header() {
     </HeaderStyled>
   )
 }
+
 const HeaderStyled = styled.header`
   width: 100vw;
   font-family: 'Amatic SC', cursive;

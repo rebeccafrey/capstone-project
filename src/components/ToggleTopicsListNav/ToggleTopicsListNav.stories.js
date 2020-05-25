@@ -9,6 +9,6 @@ export default {
 
 export const ToggleTopicsListNavTesting = () => (
   <div style={{ padding: 20 }}>
-    <ToggleTopicsListNav onClick={action('onClick')} />
+    <ToggleTopicsListNav onChange={action('onChange')} />
   </div>
 )

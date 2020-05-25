@@ -4,7 +4,7 @@ import ToggleTopicsAll from '../components/ToggleTopicsAll'
 import ToggleTopicsListNav from '../components/ToggleTopicsListNav/ToggleTopicsListNav'
 import toggleBookmark from '../services/ToggleBookmark'
 import useTopicsService from '../services/useTopicsService'
-import FilterTopics from '../ui/FilterTopics'
+import FilterTopics from '../ui/FilterTopics/FilterTopics'
 
 export default function TopicsAllPage() {
   const { entries, setSearchResult } = useTopicsService()

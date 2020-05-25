@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import { db } from '../Firebase'
-import Button from '../ui/Button'
-import Checkbox from '../ui/Checkbox/Checkbox'
+import { db } from '../../Firebase'
+import Button from '../../ui/Button'
+import Checkbox from '../../ui/Checkbox/Checkbox'
 
-export default function AddTopicsForm() {
+export default function AddTopicsForm({ bookmarked }) {
   const [addedTopic, setAddedTopic] = useState('')
   const [entry, setEntry] = useState({
     topic: '',

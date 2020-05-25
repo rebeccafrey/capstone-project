@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineUnorderedList } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import AddTopicsForm from '../components/AddTopicsForm'
+import AddTopicsForm from '../components/AddTopicsForm/AddTopicsForm'
 import { db } from '../Firebase'
 import Divider from '../ui/Divider'
 

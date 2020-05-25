@@ -43,15 +43,9 @@ describe('searching for something in all bookmarked topics', () => {
     cy.get('input').type('fam').should('have.value', 'fam')
   })
 
-  it('displays the correct result searching for topic', () => {
+  it('displays text if no search match', () => {
     cy.visit('/topics-for-discussion')
-    cy.get('input').type('fam')
-    cy.get('[data-cy=topic]').contains('Familie')
-  })
-
-  it('displays the correct result searching for description', () => {
-    cy.visit('/topics-for-discussion')
-    cy.get('input').type('Ruhe')
-    cy.get('[data-cy=topic]').contains('Groß')
+    cy.get('input').type('hdhdh')
+    cy.contains('keine offenen Themen')
   })
 })

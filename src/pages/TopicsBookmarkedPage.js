@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsArrowLeftRight as SwipeIcon } from 'react-icons/bs'
-import { RiPlayListAddLine as AddToCollection } from 'react-icons/ri'
+import { MdSpeakerNotes as OpenTopicsIcon } from 'react-icons/md'
 import { animated, useSpring } from 'react-spring'
 import { useScroll } from 'react-use-gesture'
 import styled from 'styled-components/macro'
@@ -8,7 +8,7 @@ import ToggleTopicsListNav from '../components/ToggleTopicsListNav/ToggleTopicsL
 import toggleBookmark from '../services/ToggleBookmark'
 import useTopicsService from '../services/useTopicsService'
 import Bookmark from '../ui/Bookmark'
-import FilterTopics from '../ui/FilterTopics'
+import FilterTopics from '../ui/FilterTopics/FilterTopics'
 
 export default function TopicsForDiscussion({ bookmarked }) {
   const { entries, setSearchResult } = useTopicsService()
@@ -43,7 +43,8 @@ export default function TopicsForDiscussion({ bookmarked }) {
           Such dir eins aus!
         </p>
         <p>
-          Fertig? Dann nimm es von der Liste, indem du auf <AddIconStyled />
+          Fertig? Dann nimm es von der Liste, indem du auf{' '}
+          <OpenTopicsIconStyled />
           klickst. Der Eintrag ist noch immer unter "alle Themen" zu finden.
         </p>
         <FilterTopics setSearchResult={setSearchResult} />
@@ -92,7 +93,7 @@ export default function TopicsForDiscussion({ bookmarked }) {
   )
 }
 
-const AddIconStyled = styled(AddToCollection)`
+const OpenTopicsIconStyled = styled(OpenTopicsIcon)`
   fill: var(--secondary);
   margin: 0 4px;
   height: 18px;

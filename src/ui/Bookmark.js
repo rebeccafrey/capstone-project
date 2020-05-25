@@ -1,7 +1,7 @@
-import { RiPlayListAddLine } from 'react-icons/ri'
+import { MdSpeakerNotes as OpenTopicsIcon } from 'react-icons/md'
 import styled from 'styled-components/macro'
 
-export default styled(RiPlayListAddLine)`
+export default styled(OpenTopicsIcon)`
   box-sizing: content-box;
   padding: 4px;
   color: ${(props) =>

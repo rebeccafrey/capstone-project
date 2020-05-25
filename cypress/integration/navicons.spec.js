@@ -1,11 +1,14 @@
 describe('navigating through the app by clicking buttons', () => {
   it('successfully loads', () => {
     cy.visit('/')
-    cy.get('[data-testid=statements-link]').click({ multiple: true })
+    cy.get('[data-testid=statements-link]').click({
+      force: true,
+      multiple: true,
+    })
     cy.url().should('include', '/test-statements')
 
     cy.visit('/')
-    cy.get('[data-testid=result-link]').click({ multiple: true })
+    cy.get('[data-testid=result-link]').click({ force: true, multiple: true })
     cy.url().should('include', '/test-result')
 
     cy.visit('/')
