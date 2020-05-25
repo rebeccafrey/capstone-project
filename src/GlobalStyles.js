@@ -72,7 +72,7 @@ main {
         }
 
         :required:invalid {
-             box-shadow: none;
+            box-shadow: none;
         }
     
         ::placeholder {
