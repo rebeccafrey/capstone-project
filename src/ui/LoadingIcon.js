@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 const LoadingIconStyled = styled(AiOutlineLoading3Quarters)`
   width: 48px;
   height: 48px;
+  margin: 8px;
   transform: rotate(0deg);
   animation: rotation 1s linear infinite;
 

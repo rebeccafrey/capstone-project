@@ -1,13 +1,12 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import FilterTopics from './FilterTopics'
+import SearchBar from './SearchBar'
 import { MemoryRouter } from 'react-router-dom'
-import userEvent from '@testing-library/user-event'
 
 test('renders placeholder text', () => {
   const { getByPlaceholderText } = render(
     <MemoryRouter>
-      <FilterTopics />
+      <SearchBar />
     </MemoryRouter>
   )
   const search = getByPlaceholderText(/suche/i)

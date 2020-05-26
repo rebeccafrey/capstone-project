@@ -8,8 +8,8 @@ import ToggleTopicsListNav from '../components/ToggleTopicsListNav/ToggleTopicsL
 import toggleBookmark from '../services/ToggleBookmark'
 import useTopicsService from '../services/useTopicsService'
 import Bookmark from '../ui/Bookmark'
-import FilterTopics from '../ui/FilterTopics/FilterTopics'
-import LoadingIcon from '../icons/LoadingIcon'
+import SearchBar from '../ui/SearchBar/SearchBar'
+import LoadingIcon from '../ui/LoadingIcon'
 
 export default function TopicsForDiscussion({ bookmarked }) {
   const { entries, setSearchResult, loading } = useTopicsService()
@@ -48,16 +48,16 @@ export default function TopicsForDiscussion({ bookmarked }) {
           <OpenTopicsIconStyled />
           klickst. Der Eintrag ist noch immer unter "alle Themen" zu finden.
         </p>
-        <FilterTopics setSearchResult={setSearchResult} />
+        <SearchBar setSearchResult={setSearchResult} />
         <ToggleTopicsListNav />
         {loading ? (
           <LoadingIcon />
         ) : (
           (entries.filter((entry) => entry.bookmarked).length === 0 && (
             <p>
-              Zur Zeit sind keine offenen Themen vorhanden. Hast du noch etwas
-              auf dem Herzen? Dann nutze das Formular um es mit anderen zu
-              teilen! Dein neuer Beitrag erscheint dann direkt auf dieser Seite.
+              Huch, es scheint keinen Eintrag zu geben! Hast du noch etwas auf
+              dem Herzen? Dann nutze das Formular um es mit anderen zu teilen!
+              Dein neuer Beitrag erscheint dann direkt auf dieser Seite.
             </p>
           )) || (
             <>
