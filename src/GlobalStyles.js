@@ -25,6 +25,7 @@ body {
     font-weight: 300;
     display: grid;
     grid-template-rows: 48px auto 48px;
+    background: var(--primary-light-8);
 }
 
 header {
@@ -55,7 +56,6 @@ main {
     display: grid;
     padding: 72px 24px;
     height: 100%;
-    background: var(--primary-light-8);
 
     .input__style {
         font-size: 16px;
