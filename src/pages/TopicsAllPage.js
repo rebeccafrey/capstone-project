@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import ToggleTopicsAll from '../components/ToggleTopicsAll'
 import ToggleTopicsListNav from '../components/ToggleTopicsListNav/ToggleTopicsListNav'
+import LoadingIcon from '../ui/LoadingIcon'
 import toggleBookmark from '../services/ToggleBookmark'
 import useTopicsService from '../services/useTopicsService'
-import FilterTopics from '../ui/FilterTopics/FilterTopics'
+import SearchBar from '../ui/SearchBar/SearchBar'
 
 export default function TopicsAllPage() {
-  const { entries, setSearchResult } = useTopicsService()
+  const { entries, setSearchResult, loading } = useTopicsService()
 
   return (
     <>
@@ -22,18 +23,29 @@ export default function TopicsAllPage() {
         <SmallPrint>
           Du willst mehr Informationen? Schau <a href="/about">hier!</a>
         </SmallPrint>
-        <FilterTopics setSearchResult={setSearchResult} />
+        <SearchBar setSearchResult={setSearchResult} />
         <ToggleTopicsListNav />
-        {entries.map((entry, index) => (
-          <ToggleTopicsAll
-            entry={entry}
-            entries={entries}
-            key={entry.id}
-            bookmarked={entry.bookmarked}
-            toggleBookmark={toggleBookmark}
-            index={index}
-          />
-        ))}
+        {loading ? (
+          <LoadingIcon />
+        ) : (
+          (entries.length === 0 && (
+            <p>
+              Huch, es scheint keinen Eintrag zu geben! Hast du noch etwas auf
+              dem Herzen? Dann nutze das Formular um es mit anderen zu teilen!
+              Dein neuer Beitrag erscheint dann direkt auf dieser Seite.
+            </p>
+          )) ||
+          entries.map((entry, index) => (
+            <ToggleTopicsAll
+              entry={entry}
+              entries={entries}
+              key={entry.id}
+              bookmarked={entry.bookmarked}
+              toggleBookmark={toggleBookmark}
+              index={index}
+            />
+          ))
+        )}
       </main>
     </>
   )

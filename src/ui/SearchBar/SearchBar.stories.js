@@ -1,10 +1,10 @@
 import React from 'react'
-import FilterTopics from './FilterTopics'
+import SearchBar from './SearchBar'
 import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'Filter',
-  component: FilterTopics,
+  component: SearchBar,
 }
 
 const entries = [
@@ -23,7 +23,7 @@ const entries = [
 export const Filter = () => (
   <div style={{ padding: 20 }}>
     <main>
-      <FilterTopics entries={entries} filterTopics={action('onClick')} />
+      <SearchBar entries={entries} filterTopics={action('onClick')} />
     </main>
   </div>
 )

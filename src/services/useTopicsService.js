@@ -4,6 +4,7 @@ import { db } from '../Firebase'
 export default function useTopics() {
   const [entries, setEntries] = useState([])
   const [searchResult, setSearchResult] = useState('')
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const discussionTopics = db
@@ -25,11 +26,12 @@ export default function useTopics() {
           )
 
         setEntries(allTopics)
+        setLoading(false)
       })
     return () => {
       discussionTopics()
     }
   }, [searchResult])
 
-  return { entries, setEntries, setSearchResult }
+  return { entries, setEntries, setSearchResult, loading }
 }

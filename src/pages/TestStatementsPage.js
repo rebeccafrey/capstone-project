@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { loadFromLocal, saveToLocal } from '../services/localStorage'
+import { loadFromLocal, saveToLocal } from '../services/LocalStorage'
 import statements from '../statements.json'
 import Button from '../ui/Button'
 import Checkbox from '../ui/Checkbox/Checkbox'

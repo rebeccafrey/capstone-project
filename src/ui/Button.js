@@ -22,6 +22,18 @@ export default styled.button`
   &:active {
     background: var(--primary-light);
     color: var(--secondary) !important;
+    animation: pulse 1s;
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
   }
 
   &:disabled {

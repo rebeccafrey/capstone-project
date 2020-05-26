@@ -2,22 +2,30 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 export default function Checkbox({ ...props }) {
-  return (
-    <label>
-      <CheckboxHidden role="checkbox" {...props} />
-      <CheckboxStyled role="checkbox" {...props} />
-    </label>
-  )
+  return <CheckboxStyled role="checkbox" {...props} />
 }
 
-const CheckboxHidden = styled.input.attrs({ type: 'checkbox' })`
-  visibility: hidden;
-  position: absolute;
-`
-const CheckboxStyled = styled.div`
+const CheckboxStyled = styled.input.attrs({ type: 'checkbox' })`
+  appearance: none;
   width: 24px;
   height: 24px;
   border: solid 4px var(--secondary);
-  background: ${(props) =>
-    props.checked ? 'var(--secondary)' : 'var(--primary-light-8)'};
+
+  :focus {
+    outline: none;
+  }
+
+  &:checked {
+    animation: fill 0.5s;
+    animation-fill-mode: forwards;
+
+    @keyframes fill {
+      from {
+        background: var(--primary-light-8);
+      }
+      to {
+        background: var(--secondary);
+      }
+    }
+  }
 `

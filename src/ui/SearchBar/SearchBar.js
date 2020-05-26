@@ -3,11 +3,11 @@ import React from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import styled from 'styled-components/macro'
 
-FilterTopics.propTypes = {
+SearchBar.propTypes = {
   setSearchResult: PropTypes.func.isRequired,
 }
 
-export default function FilterTopics({ setSearchResult }) {
+export default function SearchBar({ setSearchResult }) {
   return (
     <SearchSection>
       <FilterInputStyled

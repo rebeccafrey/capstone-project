@@ -8,10 +8,11 @@ import ToggleTopicsListNav from '../components/ToggleTopicsListNav/ToggleTopicsL
 import toggleBookmark from '../services/ToggleBookmark'
 import useTopicsService from '../services/useTopicsService'
 import Bookmark from '../ui/Bookmark'
-import FilterTopics from '../ui/FilterTopics/FilterTopics'
+import SearchBar from '../ui/SearchBar/SearchBar'
+import LoadingIcon from '../ui/LoadingIcon'
 
 export default function TopicsForDiscussion({ bookmarked }) {
-  const { entries, setSearchResult } = useTopicsService()
+  const { entries, setSearchResult, loading } = useTopicsService()
   const clamp = (value, clampAt = 30) => {
     if (value > 0) {
       return value > clampAt ? clampAt : value
@@ -47,46 +48,50 @@ export default function TopicsForDiscussion({ bookmarked }) {
           <OpenTopicsIconStyled />
           klickst. Der Eintrag ist noch immer unter "alle Themen" zu finden.
         </p>
-        <FilterTopics setSearchResult={setSearchResult} />
+        <SearchBar setSearchResult={setSearchResult} />
         <ToggleTopicsListNav />
-        {(entries.filter((entry) => entry.bookmarked).length === 0 && (
-          <p>
-            Zur Zeit sind keine offenen Themen vorhanden. Hast du noch etwas auf
-            dem Herzen? Dann nutze das Formular um es mit anderen zu teilen!
-            Dein neuer Beitrag erscheint dann direkt auf dieser Seite.
-          </p>
-        )) || (
-          <>
-            <SwipeTextStyled>
-              Wisch dich durch die Themen <SwipeIcon />
-            </SwipeTextStyled>
-            <Container {...bind()}>
-              {entries
-                .filter((entry) => entry.bookmarked)
-                .map((entry, src) => (
-                  <AnimatedContainer
-                    key={src}
-                    style={{
-                      ...style,
-                    }}
-                  >
-                    <TopicStyled data-cy="topic">
-                      {entry.topic}
-                      <Bookmark
-                        onClick={() => toggleBookmark(entry)}
-                        bookmarked={entry.bookmarked}
-                        className="icon"
-                        role="bookmark"
-                        aria-label={
-                          bookmarked ? 'Remove bookmark' : 'Add bookmark'
-                        }
-                      />
-                    </TopicStyled>
-                    <p data-cy="description">{entry.description}</p>
-                  </AnimatedContainer>
-                ))}
-            </Container>
-          </>
+        {loading ? (
+          <LoadingIcon />
+        ) : (
+          (entries.filter((entry) => entry.bookmarked).length === 0 && (
+            <p>
+              Huch, es scheint keinen Eintrag zu geben! Hast du noch etwas auf
+              dem Herzen? Dann nutze das Formular um es mit anderen zu teilen!
+              Dein neuer Beitrag erscheint dann direkt auf dieser Seite.
+            </p>
+          )) || (
+            <>
+              <SwipeTextStyled>
+                Wisch dich durch die Themen <SwipeIcon />
+              </SwipeTextStyled>
+              <Container {...bind()}>
+                {entries
+                  .filter((entry) => entry.bookmarked)
+                  .map((entry, src) => (
+                    <AnimatedContainer
+                      key={src}
+                      style={{
+                        ...style,
+                      }}
+                    >
+                      <TopicStyled data-cy="topic">
+                        {entry.topic}
+                        <Bookmark
+                          onClick={() => toggleBookmark(entry)}
+                          bookmarked={entry.bookmarked}
+                          className="icon"
+                          role="bookmark"
+                          aria-label={
+                            bookmarked ? 'Remove bookmark' : 'Add bookmark'
+                          }
+                        />
+                      </TopicStyled>
+                      <p data-cy="description">{entry.description}</p>
+                    </AnimatedContainer>
+                  ))}
+              </Container>
+            </>
+          )
         )}
       </main>
     </>
