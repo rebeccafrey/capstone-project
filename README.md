@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/61710830/83106146-44fdc900-a0bc-11ea-92b4-65cea0f52ea1.png"/>
+  <img src="https://user-images.githubusercontent.com/61710830/83106146-44fdc900-a0bc-11ea-92b4-65cea0f52ea1.png" width="375px"/>
+  
 </div>
 
 # About the app
