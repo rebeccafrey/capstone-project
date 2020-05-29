@@ -16,27 +16,13 @@ export default function App() {
     <>
       <Header />
       <Switch>
-        <Route exact path="/">
-          <Homepage />
-        </Route>
-        <Route path="/test-statements">
-          <TestStatementsPage />
-        </Route>
-        <Route path="/test-result">
-          <TestResultsPage />
-        </Route>
-        <Route path="/add-topics">
-          <AddTopicsPage />
-        </Route>
-        <Route path="/topics-all">
-          <TopicsAllPage />
-        </Route>
-        <Route path="/topics-for-discussion">
-          <TopicsBookmarkedPage />
-        </Route>
-        <Route path="/about">
-          <AboutPage />
-        </Route>
+        <Route exact path="/" component={Homepage} />
+        <Route path="/test-statements" component={TestStatementsPage} />
+        <Route path="/test-result" component={TestResultsPage} />
+        <Route path="/add-topics" component={AddTopicsPage} />
+        <Route path="/topics-all" component={TopicsAllPage} />
+        <Route path="/topics-for-discussion" component={TopicsBookmarkedPage} />
+        <Route path="/about" component={AboutPage} />
       </Switch>
       <AnchorToTop />
       <Navbar />
