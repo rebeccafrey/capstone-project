@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import Divider from '../ui/Divider'
-import { countTotalCheckedBoxes } from './TestStatementsPage'
+import { countTotalCheckedBoxes } from './QuestionnairePage'
 
-export default function TestResultPage({ px }) {
+export default function QuestionnaireResultPage({ px }) {
   return (
     <>
       <main>

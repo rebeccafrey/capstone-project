@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router-dom'
 import AboutPage from './pages/AboutPage'
 import AddTopicsPage from './pages/AddTopicsPage'
 import Homepage from './pages/Homepage'
-import TestResultsPage from './pages/TestResultsPage'
-import TestStatementsPage from './pages/TestStatementsPage'
+import QuestionnairePage from './pages/QuestionnairePage'
+import QuestionnaireResultPage from './pages/QuestionnaireResultPage'
 import TopicsAllPage from './pages/TopicsAllPage'
 import TopicsBookmarkedPage from './pages/TopicsBookmarkedPage'
 import AnchorToTop from './ui/AnchorToTop'
@@ -17,8 +17,11 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route path="/questionnaire" component={TestStatementsPage} />
-        <Route path="/questionnaire-result" component={TestResultsPage} />
+        <Route path="/questionnaire" component={QuestionnairePage} />
+        <Route
+          path="/questionnaire-result"
+          component={QuestionnaireResultPage}
+        />
         <Route path="/add-topics" component={AddTopicsPage} />
         <Route path="/topics-all" component={TopicsAllPage} />
         <Route path="/topics-for-discussion" component={TopicsBookmarkedPage} />

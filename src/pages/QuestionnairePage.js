@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import statements from '../questionnaire.json'
 import { loadFromLocal, saveToLocal } from '../services/LocalStorage'
-import statements from '../statements.json'
 import Button from '../ui/Button'
 import Checkbox from '../ui/Checkbox/Checkbox'
 import Divider from '../ui/Divider'
 
-export default function TestStatementsPage() {
+export default function QuestionnairePage() {
   const [list, setList] = useState(loadFromLocal('list') || statements)
   useEffect(() => {
     saveToLocal('list', list)
