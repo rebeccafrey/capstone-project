@@ -6,36 +6,15 @@ import { ReactComponent as HomeIcon } from '../../icons/HomeIcon.svg'
 import { ReactComponent as QuestionnaireIcon } from '../../icons/QuestionnaireIcon.svg'
 import { ReactComponent as QuestionnaireResultIcon } from '../../icons/QuestionnaireResultIcon.svg'
 import { ReactComponent as TopicsIcon } from '../../icons/TopicsIcon.svg'
-import useDocumentScrollThrottled from '../../services/useDocumentScrollThrottled'
+import useHideOnScroll from '../../services/useHideOnScroll'
 
 export default function Navbar() {
-  const [shouldHideFooter, setShouldHideFooter] = useState(false)
-  const [shouldShowShadow, setShouldShowShadow] = useState(false)
-
-  const minimumScroll = 50
-  const timeoutDelay = 400
-
-  useDocumentScrollThrottled((callbackData) => {
-    const { previousScrollTop, currentScrollTop } = callbackData
-    const isScrolledDown = previousScrollTop < currentScrollTop
-    const isMinimumScrolled = currentScrollTop > minimumScroll
-
-    setShouldShowShadow(currentScrollTop > 2)
-
-    setTimeout(() => {
-      setShouldHideFooter(isScrolledDown && isMinimumScrolled)
-    }, timeoutDelay)
-  })
-
-  const shadowStyle = shouldShowShadow ? 'shadow' : ''
-  const hiddenStyle = shouldHideFooter ? 'hidden' : ''
+  const { shouldHide } = useHideOnScroll()
+  const hiddenStyle = shouldHide ? 'hidden' : ''
 
   return (
     <>
-      <NavbarStyled
-        role="navigation"
-        className={`footer ${shadowStyle} ${hiddenStyle}`}
-      >
+      <NavbarStyled role="navigation" className={`footer ${hiddenStyle}`}>
         <LinkStyled
           activeClassName="selected"
           exact
