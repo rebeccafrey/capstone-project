@@ -3,16 +3,16 @@ import React from 'react'
 import { useToggle } from 'react-hooks-lib'
 import { BsArrowBarDown, BsArrowBarUp } from 'react-icons/bs'
 import styled from 'styled-components/macro'
-import Bookmark from '../ui/Bookmark'
-import Divider from '../ui/Divider'
+import Bookmark from './Bookmark'
+import Divider from './Divider'
 
-ToggleTopicsAll.propTypes = {
+ToggleAllTopics.propTypes = {
   bookmarked: PropTypes.bool.isRequired,
   toggleBookmark: PropTypes.func.isRequired,
   entry: PropTypes.object.isRequired,
 }
 
-export default function ToggleTopicsAll({ entry, toggleBookmark, bookmarked }) {
+export default function ToggleAllTopics({ entry, toggleBookmark, bookmarked }) {
   const { on, toggle } = useToggle(false)
 
   return (

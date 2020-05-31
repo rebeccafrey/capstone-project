@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { db } from '../../Firebase'
-import Button from '../../ui/Button'
-import Checkbox from '../../ui/Checkbox/Checkbox'
+import Button from '../Button'
+import Checkbox from '../Checkbox/Checkbox'
 
 export default function AddTopicsForm({ bookmarked }) {
   const [addedTopic, setAddedTopic] = useState('')
@@ -66,12 +66,12 @@ export default function AddTopicsForm({ bookmarked }) {
       </form>
     </>
   )
-  function updateTopicEntry(e) {
-    setEntry({ ...entry, [e.target.name]: e.target.value })
+  function updateTopicEntry(event) {
+    setEntry({ ...entry, [event.target.name]: event.target.value })
   }
 
-  function addNewEntry(e) {
-    e.preventDefault()
+  function addNewEntry(event) {
+    event.preventDefault()
     db.collection('discussion-topics')
       .add(entry)
       .catch((error) =>

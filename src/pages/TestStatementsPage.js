@@ -43,7 +43,7 @@ export default function TestStatementsPage() {
         </ul>
         <Button
           as={NavLink}
-          to="test-result"
+          to="questionnaire-result"
           data-cy="button-result-link"
           onClick={countTotalCheckedBoxes}
         >

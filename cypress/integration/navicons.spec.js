@@ -1,5 +1,5 @@
 describe('navigating through the app by clicking buttons', () => {
-  it('successfully loads', () => {
+  it('should successfully load', () => {
     cy.visit('/')
     cy.get('[data-testid=statements-link]').click({
       force: true,

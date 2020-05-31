@@ -9,12 +9,10 @@ export default {
 
 export const Form = () => (
   <div style={{ padding: 20 }}>
-    <main>
-      <AddTopicsForm
-        topic={'I am a state related Object'}
-        updateTopicEntry={action('onInput')}
-        addEntry={action('onClick')}
-      />
-    </main>
+    <AddTopicsForm
+      topic={'I am a state related Object'}
+      updateTopicEntry={action('onInput')}
+      addEntry={action('onClick')}
+    />
   </div>
 )

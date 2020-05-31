@@ -15,7 +15,7 @@ export default function SearchBar({ setSearchResult }) {
         id="topic-filter"
         type="search"
         placeholder="Suche nach Themen..."
-        onChange={(e) => setSearchResult(e.target.value)}
+        onChange={(event) => setSearchResult(event.target.value)}
       />
       <SearchIconStyled size="32px" color="var(--primary-light)" />
     </SearchSection>

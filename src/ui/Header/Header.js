@@ -6,19 +6,19 @@ export default function Header() {
   const [shouldHideHeader, setShouldHideHeader] = useState(false)
   const [shouldShowShadow, setShouldShowShadow] = useState(false)
 
-  const minimum_scroll = 50
-  const timeout_delay = 400
+  const minimumScroll = 50
+  const timeoutDelay = 400
 
   useDocumentScrollThrottled((callbackData) => {
     const { previousScrollTop, currentScrollTop } = callbackData
     const isScrolledDown = previousScrollTop < currentScrollTop
-    const isMinimumScrolled = currentScrollTop > minimum_scroll
+    const isMinimumScrolled = currentScrollTop > minimumScroll
 
     setShouldShowShadow(currentScrollTop > 2)
 
     setTimeout(() => {
       setShouldHideHeader(isScrolledDown && isMinimumScrolled)
-    }, timeout_delay)
+    }, timeoutDelay)
   })
 
   const shadowStyle = shouldShowShadow ? 'shadow' : ''

@@ -1,5 +1,5 @@
 describe('navigating through the app by clicking the navbar icons', () => {
-  it('successfully loads', () => {
+  it('should successfully load', () => {
     cy.visit('/')
     cy.get('[data-testid=statements-link]').click({ multiple: true })
     cy.url().should('include', '/test-statements')

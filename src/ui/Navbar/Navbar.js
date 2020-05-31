@@ -3,28 +3,28 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ReactComponent as EditIcon } from '../../icons/EditIcon.svg'
 import { ReactComponent as HomeIcon } from '../../icons/HomeIcon.svg'
+import { ReactComponent as QuestionnaireIcon } from '../../icons/QuestionnaireIcon.svg'
+import { ReactComponent as QuestionnaireResultIcon } from '../../icons/QuestionnaireResultIcon.svg'
 import { ReactComponent as TopicsIcon } from '../../icons/TopicsIcon.svg'
-import { ReactComponent as ResultIcon } from '../../icons/ResultIcon.svg'
-import { ReactComponent as StatementIcon } from '../../icons/StatementsIcon.svg'
 import useDocumentScrollThrottled from '../../services/useDocumentScrollThrottled'
 
 export default function Navbar() {
   const [shouldHideFooter, setShouldHideFooter] = useState(false)
   const [shouldShowShadow, setShouldShowShadow] = useState(false)
 
-  const minimum_scroll = 50
-  const timeout_delay = 400
+  const minimumScroll = 50
+  const timeoutDelay = 400
 
   useDocumentScrollThrottled((callbackData) => {
     const { previousScrollTop, currentScrollTop } = callbackData
     const isScrolledDown = previousScrollTop < currentScrollTop
-    const isMinimumScrolled = currentScrollTop > minimum_scroll
+    const isMinimumScrolled = currentScrollTop > minimumScroll
 
     setShouldShowShadow(currentScrollTop > 2)
 
     setTimeout(() => {
       setShouldHideFooter(isScrolledDown && isMinimumScrolled)
-    }, timeout_delay)
+    }, timeoutDelay)
   })
 
   const shadowStyle = shouldShowShadow ? 'shadow' : ''
@@ -46,17 +46,17 @@ export default function Navbar() {
         </LinkStyled>
         <LinkStyled
           activeClassName="selected"
-          to="/test-statements"
+          to="/questionnaire"
           data-testid="statements-link"
         >
-          <StatementIcon alt="Link zur Selbsteinschätzung" />
+          <QuestionnaireIcon alt="Link zur Selbsteinschätzung" />
         </LinkStyled>
         <LinkStyled
           activeClassName="selected"
-          to="/test-result"
+          to="/questionnaire-result"
           data-testid="result-link"
         >
-          <ResultIcon alt="Link zum Ergebnis" />
+          <QuestionnaireResultIcon alt="Link zum Ergebnis" />
         </LinkStyled>
         <LinkStyled
           activeClassName="selected"
