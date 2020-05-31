@@ -5,13 +5,13 @@ import Button from '../Button'
 import Checkbox from '../Checkbox/Checkbox'
 
 export default function AddTopicsForm({ bookmarked }) {
-  const [addedTopic, setAddedTopic] = useState('')
-  const [entry, setEntry] = useState({
+  const [addedSubject, setAddedSubject] = useState('')
+  const [subject, setSubject] = useState({
     topic: '',
     description: '',
     bookmarked: true,
   })
-  const { topic, description } = entry
+  const { topic, description } = subject
   const [agreement, setAgreement] = useState({ checked: false })
   const disabled =
     topic.length === 0 ||
@@ -20,7 +20,7 @@ export default function AddTopicsForm({ bookmarked }) {
 
   return (
     <>
-      <form onSubmit={addNewEntry} data-cy="submit-entry">
+      <form onSubmit={addNewSubject} data-cy="submit-entry">
         <label htmlFor="topic">
           Vergib eine Überschrift:<RequiredStyled>*</RequiredStyled>
         </label>
@@ -32,7 +32,7 @@ export default function AddTopicsForm({ bookmarked }) {
           placeholder="Titel"
           required
           onChange={updateTopicEntry}
-          value={entry.topic}
+          value={subject.topic}
         />
         <label htmlFor="description">
           Beschreibe kurz das Thema:<RequiredStyled>*</RequiredStyled>
@@ -45,7 +45,7 @@ export default function AddTopicsForm({ bookmarked }) {
           placeholder="Beschreibung"
           required
           onChange={updateTopicEntry}
-          value={entry.description}
+          value={subject.description}
         />
         <SmallPrint>
           <RequiredStyled>*</RequiredStyled>Pflichtfeld
@@ -62,30 +62,30 @@ export default function AddTopicsForm({ bookmarked }) {
         <Button type="submit" disabled={disabled} data-cy="submit-button">
           Hinzufügen!
         </Button>
-        {addedTopic}
+        {addedSubject}
       </form>
     </>
   )
   function updateTopicEntry(event) {
-    setEntry({ ...entry, [event.target.name]: event.target.value })
+    setSubject({ ...subject, [event.target.name]: event.target.value })
   }
 
-  function addNewEntry(event) {
+  function addNewSubject(event) {
     event.preventDefault()
     db.collection('discussion-topics')
-      .add(entry)
+      .add(subject)
       .catch((error) =>
         alert(
           'Oh, da ist etwas schief gegangen. Versuch es später noch einmal.',
           error
         )
       )
-    setEntry({
+    setSubject({
       topic: '',
       description: '',
       bookmarked: true,
     })
-    setAddedTopic(
+    setAddedSubject(
       <SubmitTextStyled>Dein Thema wurde hinzugefügt!</SubmitTextStyled>
     )
   }

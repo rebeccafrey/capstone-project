@@ -9,27 +9,33 @@ import Divider from './Divider'
 ToggleAllTopics.propTypes = {
   bookmarked: PropTypes.bool.isRequired,
   toggleBookmark: PropTypes.func.isRequired,
-  entry: PropTypes.object.isRequired,
+  subject: PropTypes.object.isRequired,
 }
 
-export default function ToggleAllTopics({ entry, toggleBookmark, bookmarked }) {
+export default function ToggleAllTopics({
+  subject,
+  toggleBookmark,
+  bookmarked,
+}) {
   const { on, toggle } = useToggle(false)
 
   return (
     <>
       <ListStyled>
-        <label key={entry.id}>
+        <label key={subject.id}>
           <Divider />
           <li>
             {on || (
               <TopicStyled data-cy="topic">
-                {entry.topic}
+                {subject.topic}
                 <Bookmark
-                  onClick={() => toggleBookmark(entry)}
+                  onClick={() => toggleBookmark(subject)}
                   bookmarked={bookmarked}
                   className="icon"
                   role="bookmark"
-                  aria-label={bookmarked ? 'Remove bookmark' : 'Add bookmark'}
+                  aria-label={
+                    bookmarked ? 'Eintrag gekennzeichnet' : 'Eintrag markieren'
+                  }
                 />
                 <BsArrowBarDown onClick={toggle} className="icon arrow-icon" />
               </TopicStyled>
@@ -37,17 +43,21 @@ export default function ToggleAllTopics({ entry, toggleBookmark, bookmarked }) {
             {on && (
               <>
                 <TopicStyled data-cy="topic">
-                  {entry.topic}
+                  {subject.topic}
                   <Bookmark
-                    onClick={() => toggleBookmark(entry)}
+                    onClick={() => toggleBookmark(subject)}
                     bookmarked={bookmarked}
                     className="icon"
                     role="bookmark"
-                    aria-label={bookmarked ? 'Remove bookmark' : 'Add bookmark'}
+                    aria-label={
+                      bookmarked
+                        ? 'Eintrag gekennzeichnet'
+                        : 'Eintrag markieren'
+                    }
                   />
                   <BsArrowBarUp onClick={toggle} className="icon arrow-icon" />
                 </TopicStyled>
-                <p data-cy="description">{entry.description}</p>
+                <p data-cy="description">{subject.description}</p>
               </>
             )}
           </li>

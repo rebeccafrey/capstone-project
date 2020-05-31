@@ -7,7 +7,7 @@ import { db } from '../Firebase'
 import Divider from '../ui/Divider'
 
 export default function AddTopicsPage() {
-  const [entry, setEntry] = useState([])
+  const [subject, setSubject] = useState([])
 
   useEffect(() => {
     const discussionTopics = db
@@ -17,7 +17,7 @@ export default function AddTopicsPage() {
           id: doc.id,
           ...doc.data(),
         }))
-        setEntry(allTopics)
+        setSubject(allTopics)
       })
     return () => {
       discussionTopics()
@@ -42,7 +42,7 @@ export default function AddTopicsPage() {
         <p>
           <HighlightedText>Und dann lasst uns reden!</HighlightedText>
         </p>
-        <AddTopicsForm addEntry={addEntry} />
+        <AddTopicsForm addSubject={addSubject} />
         <Divider />
         <IntroTopicsStyled>
           Klick auf
@@ -57,8 +57,8 @@ export default function AddTopicsPage() {
       </main>
     </>
   )
-  function addEntry(newEntry) {
-    setEntry([{ ...newEntry }, ...entry])
+  function addSubject(newSubject) {
+    setSubject([{ ...newSubject }, ...subject])
   }
 }
 
