@@ -17,5 +17,5 @@ export default function useHideOnScroll(callback) {
     }, timeoutDelay)
   })
 
-  return { shouldHide, shouldHide }
+  return { shouldHide }
 }
