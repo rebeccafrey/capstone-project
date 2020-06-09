@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import ToggleTopicsAll from '../components/ToggleTopicsAll'
-import ToggleTopicsListNav from '../components/ToggleTopicsListNav/ToggleTopicsListNav'
+import ToggleAllTopics from '../ui/ToggleAllTopics'
+import ToggleTopicsListNav from '../ui/ToggleTopicsListNav/ToggleTopicsListNav'
 import LoadingIcon from '../ui/LoadingIcon'
 import toggleBookmark from '../services/ToggleBookmark'
-import useTopicsService from '../services/useTopicsService'
+import useReadSubjectsFromDatabase from '../services/useReadSubjectsFromDatabase'
 import SearchBar from '../ui/SearchBar/SearchBar'
 
 export default function TopicsAllPage() {
-  const { entries, setSearchResult, loading } = useTopicsService()
+  const { subjects, setSearchResult, loading } = useReadSubjectsFromDatabase()
 
   return (
     <>
@@ -28,19 +28,19 @@ export default function TopicsAllPage() {
         {loading ? (
           <LoadingIcon />
         ) : (
-          (entries.length === 0 && (
+          (subjects.length === 0 && (
             <p>
               Huch, es scheint keinen Eintrag zu geben! Hast du noch etwas auf
               dem Herzen? Dann nutze das Formular um es mit anderen zu teilen!
               Dein neuer Beitrag erscheint dann direkt auf dieser Seite.
             </p>
           )) ||
-          entries.map((entry, index) => (
-            <ToggleTopicsAll
-              entry={entry}
-              entries={entries}
-              key={entry.id}
-              bookmarked={entry.bookmarked}
+          subjects.map((subject, index) => (
+            <ToggleAllTopics
+              subject={subject}
+              subjects={subjects}
+              key={subject.id}
+              bookmarked={subject.bookmarked}
               toggleBookmark={toggleBookmark}
               index={index}
             />

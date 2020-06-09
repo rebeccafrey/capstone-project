@@ -5,8 +5,8 @@ import { animated, useSpring } from 'react-spring'
 import { useScroll } from 'react-use-gesture'
 import styled from 'styled-components/macro'
 import { ReactComponent as EditIcon } from '../icons/EditIcon.svg'
-import { ReactComponent as ResultIcon } from '../icons/ResultIcon.svg'
-import { ReactComponent as StatementIcon } from '../icons/StatementsIcon.svg'
+import { ReactComponent as QuestionnaireIcon } from '../icons/QuestionnaireIcon.svg'
+import { ReactComponent as QuestionnaireResultIcon } from '../icons/QuestionnaireResultIcon.svg'
 import { ReactComponent as TopicsIcon } from '../icons/TopicsIcon.svg'
 
 export default function Homepage() {
@@ -52,8 +52,8 @@ export default function Homepage() {
                 Zum ersten Mal hier? Mach den Test, indem du auf dieses Icon
                 klickst!
               </IconDescriptionStyled>
-              <Link to="/test-statements" data-testid="statements-link">
-                <StatementIcon
+              <Link to="/questionnaire" data-testid="statements-link">
+                <QuestionnaireIcon
                   className="icon"
                   alt="Link zur Selbsteinschätzung"
                 />
@@ -72,8 +72,11 @@ export default function Homepage() {
                 Wiederholungstäter? Hier geht es direkt zu deinem Test-Ergebnis
                 ...
               </IconDescriptionStyled>
-              <Link to="/test-result" data-testid="result-link">
-                <ResultIcon className="icon" alt="Link zum Ergebnis" />
+              <Link to="/questionnaire-result" data-testid="result-link">
+                <QuestionnaireResultIcon
+                  className="icon"
+                  alt="Link zum Ergebnis"
+                />
               </Link>
               <IoIosArrowForward className="arrowfwd" />
             </ContainerIcon>

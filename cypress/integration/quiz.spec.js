@@ -1,5 +1,5 @@
 describe('taking the quiz', () => {
-  it('successfully counts checkboxes and displays on result page', () => {
+  it('should successfully count checkboxes and display on questionnaire-result page', () => {
     cy.visit('/test-statements')
     cy.contains('Einzelgespräche').click({ force: true })
     cy.contains('Small Talk').click({ force: true })

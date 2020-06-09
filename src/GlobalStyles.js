@@ -56,8 +56,9 @@ main {
     display: grid;
     padding: 72px 24px;
     height: 100%;
+}
 
-    .input__style {
+.input__style {
         font-size: 16px;
         font-weight: 300;
         color: var(--primary-dark);
@@ -79,8 +80,7 @@ main {
             color: var(--primary-light);
         }
       }
-}
-
+      
 footer {
     position: fixed;
     bottom: 0;

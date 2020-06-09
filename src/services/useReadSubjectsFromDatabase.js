@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { db } from '../Firebase'
 
-export default function useTopics() {
-  const [entries, setEntries] = useState([])
+export default function useReadSubjectsFromDatabase() {
+  const [subjects, setSubjects] = useState([])
   const [searchResult, setSearchResult] = useState('')
   const [loading, setLoading] = useState(true)
 
@@ -16,16 +16,20 @@ export default function useTopics() {
             ...doc.data(),
           }))
           .slice()
-          .sort((entryA, entryB) => entryA.topic.localeCompare(entryB.topic))
+          .sort((subjectA, subjectB) =>
+            subjectA.topic.localeCompare(subjectB.topic)
+          )
           .filter(
-            (entry) =>
-              entry.topic.toLowerCase().includes(searchResult.toLowerCase()) ||
-              entry.description
+            (subject) =>
+              subject.topic
+                .toLowerCase()
+                .includes(searchResult.toLowerCase()) ||
+              subject.description
                 .toLowerCase()
                 .includes(searchResult.toLowerCase())
           )
 
-        setEntries(allTopics)
+        setSubjects(allTopics)
         setLoading(false)
       })
     return () => {
@@ -33,5 +37,5 @@ export default function useTopics() {
     }
   }, [searchResult])
 
-  return { entries, setEntries, setSearchResult, loading }
+  return { subjects, setSubjects, setSearchResult, loading }
 }

@@ -3,7 +3,7 @@ import { createMemoryHistory } from 'history'
 import React from 'react'
 import { Router } from 'react-router-dom'
 import Homepage from '../../pages/Homepage'
-import Resultpage from '../../pages/TestResultsPage'
+import QuestionnaireResultPage from '../../pages/QuestionnaireResultPage'
 import Entriespage from '../../pages/AddTopicsPage'
 import Topicpage from '../../pages/TopicsAllPage'
 import Navbar from './Navbar'
@@ -23,7 +23,7 @@ test('that I can navigate to homepage using navbar', () => {
   const { getByText } = render(
     <Router history={history}>
       <Homepage />
-      <Resultpage />
+      <QuestionnaireResultPage />
       <Entriespage />
       <Topicpage />
     </Router>

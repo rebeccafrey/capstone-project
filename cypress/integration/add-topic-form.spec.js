@@ -1,5 +1,5 @@
 describe('insert new entry', () => {
-  it('successfully submit new topic', () => {
+  it('should successfully submit new topic', () => {
     cy.visit('/add-topics')
     cy.get('[data-cy=submit-button]').should('be.disabled')
     cy.get('[id=topic]').type('test-title')

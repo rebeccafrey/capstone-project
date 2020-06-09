@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { AiOutlineUnorderedList } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import AddTopicsForm from '../components/AddTopicsForm/AddTopicsForm'
-import { db } from '../Firebase'
+import useAddToDatabase from '../services/useAddToDatabase'
+import AddTopicsForm from '../ui/AddTopicsForm/AddTopicsForm'
 import Divider from '../ui/Divider'
 
 export default function AddTopicsPage() {
-  const [entry, setEntry] = useState([])
-
-  useEffect(() => {
-    const discussionTopics = db
-      .collection('discussion-topics')
-      .onSnapshot((snapshot) => {
-        const allTopics = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        setEntry(allTopics)
-      })
-    return () => {
-      discussionTopics()
-    }
-  }, [])
+  const { subject, setSubject } = useAddToDatabase()
 
   return (
     <>
@@ -42,7 +27,7 @@ export default function AddTopicsPage() {
         <p>
           <HighlightedText>Und dann lasst uns reden!</HighlightedText>
         </p>
-        <AddTopicsForm addEntry={addEntry} />
+        <AddTopicsForm addSubject={addSubject} />
         <Divider />
         <IntroTopicsStyled>
           Klick auf
@@ -57,8 +42,8 @@ export default function AddTopicsPage() {
       </main>
     </>
   )
-  function addEntry(newEntry) {
-    setEntry([{ ...newEntry }, ...entry])
+  function addSubject(newSubject) {
+    setSubject([{ ...newSubject }, ...subject])
   }
 }
 

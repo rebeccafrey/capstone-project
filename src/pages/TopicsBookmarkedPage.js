@@ -4,15 +4,15 @@ import { MdSpeakerNotes as OpenTopicsIcon } from 'react-icons/md'
 import { animated, useSpring } from 'react-spring'
 import { useScroll } from 'react-use-gesture'
 import styled from 'styled-components/macro'
-import ToggleTopicsListNav from '../components/ToggleTopicsListNav/ToggleTopicsListNav'
+import ToggleTopicsListNav from '../ui/ToggleTopicsListNav/ToggleTopicsListNav'
 import toggleBookmark from '../services/ToggleBookmark'
-import useTopicsService from '../services/useTopicsService'
+import useReadSubjectsFromDatabase from '../services/useReadSubjectsFromDatabase'
 import Bookmark from '../ui/Bookmark'
 import SearchBar from '../ui/SearchBar/SearchBar'
 import LoadingIcon from '../ui/LoadingIcon'
 
 export default function TopicsForDiscussion({ bookmarked }) {
-  const { entries, setSearchResult, loading } = useTopicsService()
+  const { subjects, setSearchResult, loading } = useReadSubjectsFromDatabase()
   const clamp = (value, clampAt = 30) => {
     if (value > 0) {
       return value > clampAt ? clampAt : value
@@ -53,7 +53,7 @@ export default function TopicsForDiscussion({ bookmarked }) {
         {loading ? (
           <LoadingIcon />
         ) : (
-          (entries.filter((entry) => entry.bookmarked).length === 0 && (
+          (subjects.filter((subject) => subject.bookmarked).length === 0 && (
             <p>
               Huch, es scheint keinen Eintrag zu geben! Hast du noch etwas auf
               dem Herzen? Dann nutze das Formular um es mit anderen zu teilen!
@@ -65,9 +65,9 @@ export default function TopicsForDiscussion({ bookmarked }) {
                 Wisch dich durch die Themen <SwipeIcon />
               </SwipeTextStyled>
               <Container {...bind()}>
-                {entries
-                  .filter((entry) => entry.bookmarked)
-                  .map((entry, src) => (
+                {subjects
+                  .filter((subject) => subject.bookmarked)
+                  .map((subject, src) => (
                     <AnimatedContainer
                       key={src}
                       style={{
@@ -75,18 +75,20 @@ export default function TopicsForDiscussion({ bookmarked }) {
                       }}
                     >
                       <TopicStyled data-cy="topic">
-                        {entry.topic}
+                        {subject.topic}
                         <Bookmark
-                          onClick={() => toggleBookmark(entry)}
-                          bookmarked={entry.bookmarked}
+                          onClick={() => toggleBookmark(subject)}
+                          bookmarked={subject.bookmarked}
                           className="icon"
                           role="bookmark"
                           aria-label={
-                            bookmarked ? 'Remove bookmark' : 'Add bookmark'
+                            bookmarked
+                              ? 'Eintrag gekennzeichnet'
+                              : 'Eintrag markieren'
                           }
                         />
                       </TopicStyled>
-                      <p data-cy="description">{entry.description}</p>
+                      <p data-cy="description">{subject.description}</p>
                     </AnimatedContainer>
                   ))}
               </Container>

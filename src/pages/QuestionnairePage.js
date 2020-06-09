@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import questionnaire from '../questionnaire.json'
 import { loadFromLocal, saveToLocal } from '../services/LocalStorage'
-import statements from '../statements.json'
 import Button from '../ui/Button'
 import Checkbox from '../ui/Checkbox/Checkbox'
 import Divider from '../ui/Divider'
 
-export default function TestStatementsPage() {
-  const [list, setList] = useState(loadFromLocal('list') || statements)
+export default function QuestionnairePage() {
+  const [list, setList] = useState(loadFromLocal('list') || questionnaire)
   useEffect(() => {
     saveToLocal('list', list)
   }, [list])
@@ -43,7 +43,7 @@ export default function TestStatementsPage() {
         </ul>
         <Button
           as={NavLink}
-          to="test-result"
+          to="questionnaire-result"
           data-cy="button-result-link"
           onClick={countTotalCheckedBoxes}
         >

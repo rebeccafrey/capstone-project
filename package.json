@@ -1,5 +1,9 @@
 {
-  "name": "capstone-project",
+  "name": "seelenleben",
+  "author": {
+    "name": "Rebecca Frey"
+  },
+  "description": "An app to find out more about yourself and others: Take a little test to get a feeling if you are more on the introverted or extraverted side and contribute to a topic collection about situations where you always wondered why people behave like the do.",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +25,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "cypress:open": "cypress open"
