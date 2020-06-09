@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { db } from '../Firebase'
 
-export default function useTopics() {
+export default function useReadSubjectsFromDatabase() {
   const [subjects, setSubjects] = useState([])
   const [searchResult, setSearchResult] = useState('')
   const [loading, setLoading] = useState(true)

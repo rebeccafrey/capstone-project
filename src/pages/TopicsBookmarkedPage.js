@@ -6,13 +6,13 @@ import { useScroll } from 'react-use-gesture'
 import styled from 'styled-components/macro'
 import ToggleTopicsListNav from '../ui/ToggleTopicsListNav/ToggleTopicsListNav'
 import toggleBookmark from '../services/ToggleBookmark'
-import useTopicsService from '../services/useTopicsService'
+import useReadSubjectsFromDatabase from '../services/useReadSubjectsFromDatabase'
 import Bookmark from '../ui/Bookmark'
 import SearchBar from '../ui/SearchBar/SearchBar'
 import LoadingIcon from '../ui/LoadingIcon'
 
 export default function TopicsForDiscussion({ bookmarked }) {
-  const { subjects, setSearchResult, loading } = useTopicsService()
+  const { subjects, setSearchResult, loading } = useReadSubjectsFromDatabase()
   const clamp = (value, clampAt = 30) => {
     if (value > 0) {
       return value > clampAt ? clampAt : value

@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import ToggleTopicsAll from '../ui/ToggleAllTopics'
+import ToggleAllTopics from '../ui/ToggleAllTopics'
 import ToggleTopicsListNav from '../ui/ToggleTopicsListNav/ToggleTopicsListNav'
 import LoadingIcon from '../ui/LoadingIcon'
 import toggleBookmark from '../services/ToggleBookmark'
-import useTopicsService from '../services/useTopicsService'
+import useReadSubjectsFromDatabase from '../services/useReadSubjectsFromDatabase'
 import SearchBar from '../ui/SearchBar/SearchBar'
 
 export default function TopicsAllPage() {
-  const { subjects, setSearchResult, loading } = useTopicsService()
+  const { subjects, setSearchResult, loading } = useReadSubjectsFromDatabase()
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function TopicsAllPage() {
             </p>
           )) ||
           subjects.map((subject, index) => (
-            <ToggleTopicsAll
+            <ToggleAllTopics
               subject={subject}
               subjects={subjects}
               key={subject.id}

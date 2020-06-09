@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { AiOutlineUnorderedList } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import useAddToDatabase from '../services/useAddToDatabase'
 import AddTopicsForm from '../ui/AddTopicsForm/AddTopicsForm'
-import { db } from '../Firebase'
 import Divider from '../ui/Divider'
 
 export default function AddTopicsPage() {
-  const [subject, setSubject] = useState([])
-
-  useEffect(() => {
-    const discussionTopics = db
-      .collection('discussion-topics')
-      .onSnapshot((snapshot) => {
-        const allTopics = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        setSubject(allTopics)
-      })
-    return () => {
-      discussionTopics()
-    }
-  }, [])
+  const { subject, setSubject } = useAddToDatabase()
 
   return (
     <>

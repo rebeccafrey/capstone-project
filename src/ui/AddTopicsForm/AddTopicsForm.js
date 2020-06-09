@@ -62,7 +62,7 @@ export default function AddTopicsForm({ bookmarked }) {
         <Button type="submit" disabled={disabled} data-cy="submit-button">
           Hinzufügen!
         </Button>
-        {addedSubject}
+        <SubmitTextStyled>{addedSubject}</SubmitTextStyled>
       </form>
     </>
   )
@@ -85,9 +85,7 @@ export default function AddTopicsForm({ bookmarked }) {
       description: '',
       bookmarked: true,
     })
-    setAddedSubject(
-      <SubmitTextStyled>Dein Thema wurde hinzugefügt!</SubmitTextStyled>
-    )
+    setAddedSubject('Dein Thema wurde hinzugefügt!')
   }
 
   function handleAgreement(id) {
