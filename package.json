@@ -59,7 +59,7 @@
     "@testing-library/user-event": "^7.2.1",
     "cypress": "^4.5.0",
     "hosted-git-info": "^2.8.9",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.27.0",
     "ua-parser-js": "^0.7.28"
   }
 }
